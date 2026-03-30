@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(set PYTHONIOENCODING=utf-8)",
+      "Bash(python fetch_history.py)"
+    ]
+  }
+}

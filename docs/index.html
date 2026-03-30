@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGNAL — In the noise, find the signal.</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ══════════════════════════════════════════
+   SIGNAL — Global Styles
+══════════════════════════════════════════ */
+:root {
+  --bg:       #0D1117;
+  --bg2:      #161B22;
+  --bg3:      #1C2128;
+  --border:   #30363D;
+  --text:     #E6EDF3;
+  --muted:    #8B949E;
+  --green:    #00FF94;
+  --yellow:   #FFD700;
+  --red:      #FF4444;
+  --blue:     #58A6FF;
+  --orange:   #FF8C00;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ── */
+.container { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 900px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.section { margin-bottom: 24px; }
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Colors ── */
+.green  { color: var(--green); }
+.yellow { color: var(--yellow); }
+.red    { color: var(--red); }
+.blue   { color: var(--blue); }
+.muted  { color: var(--muted); }
+.orange { color: var(--orange); }
+
+/* ── Badges ── */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-green  { background: rgba(0,255,148,.15); color: var(--green); border: 1px solid rgba(0,255,148,.3); }
+.badge-yellow { background: rgba(255,215,0,.15);  color: var(--yellow); border: 1px solid rgba(255,215,0,.3); }
+.badge-red    { background: rgba(255,68,68,.15);  color: var(--red); border: 1px solid rgba(255,68,68,.3); }
+.badge-blue   { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+
+/* ── Numbers ── */
+.big-num { font-size: 36px; font-weight: 700; line-height: 1; }
+.med-num { font-size: 22px; font-weight: 700; }
+
+/* ── Tooltip ── */
+.tip-wrap { position: relative; display: inline; }
+.tip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  cursor: help;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.tip-box {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+  z-index: 100;
+  min-width: 200px;
+  pointer-events: none;
+}
+.tip-wrap:hover .tip-box { display: block; }
+
+/* ── Progress Bar ── */
+.progress-bar {
+  background: var(--bg3);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width .4s ease;
+}
+
+/* ── Table ── */
+table { width: 100%; border-collapse: collapse; }
+th {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+td { padding: 10px 10px; border-bottom: 1px solid rgba(48,54,61,.5); font-size: 13px; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+/* ── Divider ── */
+hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+/* ── Header ── */
+#header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--green);
+}
+.tagline { font-size: 11px; color: var(--muted); }
+.date-display { font-size: 13px; color: var(--muted); }
+#date-picker {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ── FGI Gauge ── */
+.fgi-gauge {
+  text-align: center;
+  padding: 10px 0;
+}
+.fgi-arc {
+  width: 140px; height: 70px;
+  margin: 0 auto 8px;
+  position: relative;
+  overflow: hidden;
+}
+.fgi-arc svg { width: 100%; height: 100%; }
+
+/* ── Condition Item ── */
+.condition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(48,54,61,.5);
+}
+.condition-item:last-child { border-bottom: none; }
+.cond-indicator {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.cond-indicator.active   { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.cond-indicator.inactive { background: var(--border); }
+.cond-label  { font-weight: 600; font-size: 13px; }
+.cond-value  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.cond-gap    { font-size: 12px; margin-top: 2px; }
+
+/* ── Light System ── */
+.light {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+.light-green  { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.light-yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+.light-red    { background: var(--red); }
+
+/* ── Agent Cards ── */
+.agent-header {
+  padding: 12px 16px;
+  border-radius: 8px 8px 0 0;
+  margin: -20px -20px 16px;
+}
+.agent-analyst { background: linear-gradient(135deg, rgba(88,166,255,.15), transparent); border-bottom: 1px solid rgba(88,166,255,.3); }
+.agent-buffett { background: linear-gradient(135deg, rgba(0,255,148,.15), transparent); border-bottom: 1px solid rgba(0,255,148,.3); }
+.agent-marks   { background: linear-gradient(135deg, rgba(255,215,0,.15), transparent); border-bottom: 1px solid rgba(255,215,0,.3); }
+.agent-name { font-size: 15px; font-weight: 700; }
+.agent-role { font-size: 11px; color: var(--muted); }
+
+/* ── Risk Alert ── */
+.risk-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) { .risk-panel { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .risk-panel { grid-template-columns: 1fr; } }
+.risk-item { text-align: center; }
+.risk-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.risk-value { font-size: 17px; font-weight: 700; }
+
+/* ── Warning Banner ── */
+.warning-banner {
+  background: rgba(255,68,68,.1);
+  border: 1px solid rgba(255,68,68,.3);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Scrollable Table ── */
+.table-wrap { overflow-x: auto; }
+
+/* ── Spinner ── */
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--muted);
+}
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Main content (hidden until loaded) ── */
+#app { display: none; }
+
+/* ── Pendulum ── */
+.pendulum-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, var(--green), var(--yellow), var(--red));
+  position: relative;
+  margin: 10px 0 4px;
+}
+.pendulum-marker {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--bg);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left .5s ease;
+}
+
+/* ── Chart Container ── */
+.chart-box {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 12px;
+}
+.chart-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+canvas { max-height: 130px; }
+
+/* ── No-signal ── */
+.no-signal {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ Header ══ -->
+<div id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div>
+        <div class="logo">SIGNAL</div>
+        <div class="tagline">In the noise, find the signal.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span class="date-display" id="display-date">載入中...</span>
+        <select id="date-picker" title="選擇歷史日期"></select>
+        <span id="update-time" class="muted" style="font-size:12px"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Loading ══ -->
+<div id="loading">
+  <div class="spinner"></div>
+  <div>載入數據中...</div>
+</div>
+
+<!-- ══ App ══ -->
+<div id="app">
+<div class="container" style="padding-top:20px;padding-bottom:40px">
+
+  <!-- ① 部位風險警示 -->
+  <div id="risk-alert-banner"></div>
+  <div class="risk-panel" id="risk-panel"></div>
+
+  <!-- ② 市場溫度 -->
+  <div class="section">
+    <div class="section-title">🌡️ 市場溫度</div>
+    <div class="grid-4" id="market-temp"></div>
+  </div>
+
+  <!-- ③ 歷史趨勢圖 -->
+  <div class="section">
+    <div class="section-title">📈 30日走勢</div>
+    <div class="grid-3">
+      <div class="chart-box"><div class="chart-label">Fear & Greed Index</div><canvas id="chart-fgi"></canvas></div>
+      <div class="chart-box"><div class="chart-label">VIX</div><canvas id="chart-vix"></canvas></div>
+      <div class="chart-box"><div class="chart-label">Credit Spread (bps)</div><canvas id="chart-cs"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ④ 逢低加碼雷達 -->
+  <div class="section">
+    <div class="section-title">🎯 逢低加碼雷達</div>
+    <div class="grid-2">
+      <div class="card" id="dip-triggers"></div>
+      <div class="card" id="dip-targets"></div>
+    </div>
+  </div>
+
+  <!-- ⑤ 波段機會掃描 -->
+  <div class="section">
+    <div class="section-title">🔦 波段機會掃描</div>
+    <!-- NVDA 特殊 -->
+    <div id="nvda-special" class="card" style="margin-bottom:14px"></div>
+    <!-- 波段列表 -->
+    <div id="swing-list"></div>
+  </div>
+
+  <!-- ⑥ 動態掃描 -->
+  <div class="section">
+    <div class="section-title">🔍 S&P100 動態掃描</div>
+    <div class="card" id="dynamic-scan"></div>
+  </div>
+
+  <!-- ⑦ 三腦會議 -->
+  <div class="section">
+    <div class="section-title">🧠 三腦會議</div>
+    <div id="divergence-banner"></div>
+    <div class="grid-3" id="agents-panel"></div>
+    <div class="card" style="margin-top:14px" id="consensus-bar"></div>
+  </div>
+
+  <!-- ⑧ 風險預警 -->
+  <div class="section">
+    <div class="section-title">⚠️ 個股風險預警</div>
+    <div class="card table-wrap" id="risk-table"></div>
+  </div>
+
+  <!-- ⑨ 今日總結 -->
+  <div class="card" id="daily-summary" style="border-color:rgba(0,255,148,.2)"></div>
+
+</div><!-- /container -->
+</div><!-- /app -->
+
+<script>
+// ══════════════════════════════════════════════════════
+// SIGNAL — Frontend JS
+// ══════════════════════════════════════════════════════
+
+let allData   = null;   // 全部歷史
+let todayRec  = null;   // 當前顯示的記錄
+
+// ── 工具函式 ────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const el = (tag, cls, html) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
+};
+const fmt = (v, dec=2, suffix='') =>
+  v === null || v === undefined ? '<span class="muted">N/A</span>'
+  : `${(+v).toFixed(dec)}${suffix}`;
+
+const colorClass = pct =>
+  pct > 0 ? 'green' : pct < 0 ? 'red' : 'muted';
+
+const tip = (text) =>
+  `<span class="tip-wrap"><span class="tip-icon">ⓘ</span>
+   <span class="tip-box">${text}</span></span>`;
+
+function fgiColor(score) {
+  if (score === null || score === undefined) return 'var(--muted)';
+  if (score <= 25)  return 'var(--red)';
+  if (score <= 40)  return 'var(--orange)';
+  if (score <= 60)  return 'var(--yellow)';
+  if (score <= 75)  return '#88CC00';
+  return 'var(--green)';
+}
+
+function fgiLabel(score) {
+  if (score === null || score === undefined) return '待設定';
+  if (score <= 25)  return '極度恐慌';
+  if (score <= 40)  return '恐慌';
+  if (score <= 60)  return '中性';
+  if (score <= 75)  return '貪婪';
+  return '極度貪婪';
+}
+
+// ── 載入數據 ─────────────────────────────────────────────
+async function loadData() {
+  try {
+    const res  = await fetch('data.json?ts=' + Date.now());
+    const json = await res.json();
+    allData    = json;
+
+    // 建立日期選擇器
+    const history  = json.history || [];
+    const picker   = $('date-picker');
+    picker.innerHTML = '';
+    const dates = [...history].reverse();
+    dates.forEach(rec => {
+      const opt = document.createElement('option');
+      opt.value = rec.date;
+      opt.textContent = rec.date;
+      picker.appendChild(opt);
+    });
+    picker.addEventListener('change', e => {
+      const rec = history.find(r => r.date === e.target.value);
+      if (rec) render(rec);
+    });
+
+    // 顯示最新
+    const latest = json.latest || history[history.length - 1];
+    if (latest) render(latest);
+
+    $('loading').style.display = 'none';
+    $('app').style.display     = 'block';
+  } catch(e) {
+    $('loading').innerHTML = `
+      <div style="color:var(--red)">❌ 無法載入 data.json</div>
+      <div class="muted" style="font-size:12px;margin-top:8px">
+        請先執行 main.py 產生數據，或確認 docs/data.json 已存在
+      </div>`;
+  }
+}
+
+// ── 主渲染 ───────────────────────────────────────────────
+function render(rec) {
+  todayRec = rec;
+  $('display-date').textContent = rec.date;
+  $('date-picker').value = rec.date;
+  if (rec.timestamp) {
+    const d = new Date(rec.timestamp);
+    $('update-time').textContent =
+      '更新：' + d.toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
+  }
+
+  renderRisk(rec);
+  renderMarket(rec);
+  renderCharts(rec);
+  renderDipRadar(rec);
+  renderSwing(rec);
+  renderDynamic(rec);
+  renderAgents(rec);
+  renderRiskTable(rec);
+  renderSummary(rec);
+}
+
+// ── ① 部位風險警示 ────────────────────────────────────────
+function renderRisk(rec) {
+  const pr = rec.position_risk || {};
+  const tc = pr.tech_concentration || {};
+  const dd = pr.drawdown_20pct || {};
+  const bl = pr.bullets || {};
+  const fomc = pr.fomc || {};
+  const earn = pr.next_earnings || {};
+
+  // 警告橫幅
+  if (tc.is_warning) {
+    $('risk-alert-banner').innerHTML = `
+      <div class="warning-banner">
+        🔴 科技集中度警告：NVDA + SMH + QQQ 佔比 ${tc.tech_pct_display}（超過70%閾值）
+      </div>`;
+  } else {
+    $('risk-alert-banner').innerHTML = '';
+  }
+
+  // 五格面板
+  const items = [
+    {
+      label: `科技集中度 ${tip('NVDA + SMH + QQQ 合計佔比，超過70%顯示警告')}`,
+      value: tc.tech_pct_display || 'N/A',
+      cls:   tc.is_warning ? 'red' : 'green'
+    },
+    {
+      label: `跌20%損失估計 ${tip('假設持股佔總資金70%，整體市場下跌20%的損失')}`,
+      value: dd.loss_twd ? `${dd.loss_twd}萬` : 'N/A',
+      cls:   'red'
+    },
+    {
+      label: `今日可用子彈 ${tip('總資金5%，為單次加碼上限')}`,
+      value: bl.per_trade_twd ? `${bl.per_trade_twd}萬` : 'N/A',
+      cls:   'yellow'
+    },
+    {
+      label: `距下次財報 ${tip('觀察清單中最近一筆財報日期')}`,
+      value: earn.days !== null && earn.days !== undefined
+             ? `${earn.days}天 (${earn.symbol})` : 'N/A',
+      cls:   earn.days !== null && earn.days <= 14 ? 'yellow' : 'muted'
+    },
+    {
+      label: `距下次FOMC ${tip('2026年FOMC會議日期，手動設定於 config.py')}`,
+      value: fomc.days !== null && fomc.days !== undefined
+             ? `${fomc.days}天` : 'N/A',
+      cls:   fomc.days !== null && fomc.days <= 7 ? 'yellow' : 'muted'
+    },
+  ];
+
+  $('risk-panel').innerHTML = items.map(it => `
+    <div class="risk-item">
+      <div class="risk-label">${it.label}</div>
+      <div class="risk-value ${it.cls}">${it.value}</div>
+    </div>`).join('');
+}
+
+// ── ② 市場溫度 ────────────────────────────────────────────
+function renderMarket(rec) {
+  const m   = rec.market || {};
+  const env = m.environment || {};
+  const fgi = m.fgi;
+  const vix = m.vix;
+  const tnx = m.tnx;
+  const cs  = m.credit_spread;
+
+  // FGI 卡片
+  const fgiClr = fgiColor(fgi);
+  const fgiLbl = fgiLabel(fgi);
+
+  // Credit spread 標籤
+  function csLabel(v) {
+    if (v === null || v === undefined) return '待設定';
+    if (v < 300)  return '過度樂觀';
+    if (v < 500)  return '正常區間';
+    if (v < 800)  return '機會浮現';
+    return '歷史危機';
+  }
+  function csColor(v) {
+    if (v === null) return 'var(--muted)';
+    if (v < 300)  return 'var(--red)';
+    if (v < 500)  return 'var(--yellow)';
+    return 'var(--green)';
+  }
+
+  const vixChange = m.vix_change;
+  const tnxChange = m.tnx_change;
+
+  const cards = [
+    // FGI
+    `<div class="card">
+      <div class="card-title">Fear & Greed ${tip('CNN恐貪指數，< 25觸發逢低加碼雷達')}</div>
+      <div class="big-num" style="color:${fgiClr}">${fgi !== null && fgi !== undefined ? fgi : '—'}</div>
+      <div style="margin-top:4px;font-size:13px;color:${fgiClr}">${fgiLbl}</div>
+      <div style="margin-top:8px">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${fgi||0}%;background:${fgiClr}"></div>
+        </div>
+      </div>
+    </div>`,
+
+    // VIX
+    `<div class="card">
+      <div class="card-title">VIX ${tip('市場恐慌指數，> 30 觸發逢低加碼雷達')}</div>
+      <div class="big-num ${vix >= 30 ? 'red' : vix >= 20 ? 'yellow' : 'green'}">${vix !== null && vix !== undefined ? vix : '—'}</div>
+      <div class="muted" style="margin-top:4px;font-size:13px">
+        今日 <span class="${vixChange >= 0 ? 'red' : 'green'}">${vixChange >= 0 ? '↑' : '↓'}${Math.abs(vixChange||0).toFixed(2)}%</span>
+      </div>
+    </div>`,
+
+    // 美債
+    `<div class="card">
+      <div class="card-title">美債10年 ${tip('10年期美國公債殖利率')}</div>
+      <div class="big-num blue">${tnx !== null && tnx !== undefined ? tnx + '%' : '—'}</div>
+      <div class="muted" style="margin-top:4px;font-size:13px">
+        今日 <span class="${tnxChange >= 0 ? 'red' : 'green'}">${tnxChange >= 0 ? '↑' : '↓'}${Math.abs(tnxChange||0).toFixed(2)}%</span>
+      </div>
+    </div>`,
+
+    // Credit Spread
+    `<div class="card">
+      <div class="card-title">Credit Spread ${tip('垃圾債HY OAS利差，> 500bps觸發逢低加碼雷達。來源：FRED（需設定API Key）')}</div>
+      <div class="big-num" style="color:${csColor(cs)}">${cs !== null && cs !== undefined ? cs : '—'}</div>
+      <div style="margin-top:4px;font-size:13px;color:${csColor(cs)}">${csLabel(cs)} ${cs !== null && cs !== undefined ? 'bps' : ''}</div>
+    </div>`,
+  ];
+
+  // 環境標籤
+  const envHtml = `
+    <div class="card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+      <div class="card-title">市場環境</div>
+      <div style="font-size:28px">${env.emoji || '🟡'}</div>
+      <div class="badge ${env.label === 'Risk-On' ? 'badge-green' : env.label === 'Risk-Off' ? 'badge-red' : 'badge-yellow'}" style="font-size:14px">
+        ${env.label || 'Neutral'}
+      </div>
+    </div>`;
+
+  $('market-temp').innerHTML = cards.join('') + envHtml;
+}
+
+// ── ③ 圖表 ───────────────────────────────────────────────
+let charts = {};
+function renderCharts(rec) {
+  const m  = rec.market || {};
+
+  function makeChart(canvasId, data, label, color) {
+    if (charts[canvasId]) charts[canvasId].destroy();
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+    const pts = (data || []).slice(-30);
+    charts[canvasId] = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: pts.map((p, i) => p.date || i),
+        datasets: [{
+          data: pts.map(p => typeof p === 'object' ? (p.score ?? p.value) : p),
+          borderColor: color,
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: true,
+          backgroundColor: color.replace(')', ',.08)').replace('rgb', 'rgba'),
+          tension: 0.3,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { display: false },
+          y: { grid: { color: 'rgba(48,54,61,.5)' }, ticks: { color: '#8B949E', font: { size: 10 } } }
+        }
+      }
+    });
+  }
+
+  // FGI 歷史
+  makeChart('chart-fgi', m.fgi_history, 'FGI', 'rgb(255,140,0)');
+
+  // VIX 歷史（數字陣列 or 帶 history 陣列）
+  const vixHist = (m.vix_history || []).map((v, i) => ({ date: i, score: v }));
+  makeChart('chart-vix', vixHist, 'VIX', 'rgb(255,68,68)');
+
+  // CS 歷史
+  makeChart('chart-cs', m.cs_history, 'CS', 'rgb(88,166,255)');
+}
+
+// ── ④ 逢低加碼雷達 ────────────────────────────────────────
+function renderDipRadar(rec) {
+  const dip      = rec.dip_radar || {};
+  const triggers = dip.triggers || {};
+  const conds    = triggers.conditions || [];
+  const active   = triggers.radar_active;
+  const targets  = dip.dip_targets || [];
+
+  // 觸發條件
+  const condHtml = conds.map(c => {
+    const tipMap = {
+      fgi:           '極度恐慌，歷史上常是好買點，< 25 觸發',
+      vix:           '市場恐慌指數，> 30 代表情緒過度悲觀',
+      credit_spread: '垃圾債利差，> 500bps 才代表市場真正恐慌',
+    };
+    const tipText = tipMap[c.id] || '';
+    return `
+      <div class="condition-item">
+        <div class="cond-indicator ${c.triggered ? 'active' : 'inactive'}"></div>
+        <div>
+          <div class="cond-label">${c.label} ${tip(tipText)}</div>
+          <div class="cond-value">${c.description}</div>
+          <div class="cond-gap ${c.triggered ? 'green' : 'muted'}">${c.tip}</div>
+        </div>
+        <div style="margin-left:auto">
+          ${c.triggered
+            ? '<span class="badge badge-green">✅ 觸發</span>'
+            : '<span class="badge badge-yellow">等待中</span>'}
+        </div>
+      </div>`;
+  }).join('');
+
+  $('dip-triggers').innerHTML = `
+    <div class="card-title">觸發條件（三選二）${tip('三個條件中任意兩個成立，逢低加碼雷達啟動')}</div>
+    ${condHtml}
+    <div style="margin-top:14px;padding:10px 14px;border-radius:8px;background:${active ? 'rgba(0,255,148,.08)' : 'var(--bg3)'};border:1px solid ${active ? 'rgba(0,255,148,.3)' : 'var(--border)'}">
+      <span style="font-weight:700;color:${active ? 'var(--green)' : 'var(--muted)'}">
+        ${triggers.summary || '—'}
+      </span>
+    </div>`;
+
+  // 目標股
+  const tgtHtml = targets.map(t => {
+    const p    = t.pyramid;
+    const triggered = p && p.triggered && active;
+    return `
+      <tr>
+        <td><strong>${t.symbol}</strong></td>
+        <td>${t.price ? '$' + t.price.toFixed(2) : 'N/A'}</td>
+        <td class="${t.change_pct >= 0 ? 'green' : 'red'}">${t.change_pct !== null && t.change_pct !== undefined ? (t.change_pct >= 0 ? '+' : '') + t.change_pct.toFixed(2) + '%' : 'N/A'}</td>
+        <td class="${t.rsi14 < 35 ? 'green' : t.rsi14 < 50 ? 'yellow' : 'muted'}">${t.rsi14 !== null && t.rsi14 !== undefined ? t.rsi14 : 'N/A'}</td>
+        <td class="${t.vol_ratio >= 1.5 ? 'green' : 'muted'}">${t.vol_ratio !== null && t.vol_ratio !== undefined ? t.vol_ratio + 'x' : 'N/A'}</td>
+        <td>
+          ${triggered
+            ? `<span class="badge badge-green">⚡ ${p.levels[p.levels.length-1]?.label || '觸發'}</span>`
+            : `<span class="muted" style="font-size:12px">${t.action}</span>`}
+        </td>
+      </tr>`;
+  }).join('');
+
+  $('dip-targets').innerHTML = `
+    <div class="card-title">逢低加碼目標股掃描</div>
+    <table>
+      <thead>
+        <tr><th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th><th>狀態</th></tr>
+      </thead>
+      <tbody>${tgtHtml || '<tr><td colspan="6" class="no-signal">—</td></tr>'}</tbody>
+    </table>`;
+}
+
+// ── ⑤ 波段機會掃描 ───────────────────────────────────────
+function renderSwing(rec) {
+  const sw   = rec.swing || {};
+  const nvda = sw.nvda_special || {};
+  const list = sw.swing_results || [];
+
+  // NVDA 特殊
+  const nh = nvda.holding || {};
+  const lights = [
+    { name: '巴菲特燈', data: nvda.buffett || {}, tip: '護城河穩固 + FCF為正 + 毛利率未惡化' },
+    { name: '馬克斯燈', data: nvda.marks   || {}, tip: '本益比低於10年均值15%以上 + 市場情緒偏恐懼' },
+    { name: '技術燈',   data: nvda.tech    || {}, tip: 'RSI < 35 開始往上 + 成交量放大1.5倍' },
+  ];
+  const nvdaLights = lights.map(l => {
+    const cls = l.data.status === 'green' ? 'light-green' : l.data.status === 'yellow' ? 'light-yellow' : 'light-red';
+    return `<div style="display:flex;align-items:flex-start;gap:8px;padding:8px 0">
+      <span class="light ${cls}"></span>
+      <div>
+        <span style="font-weight:600">${l.name}</span> ${tip(l.tip)}
+        <div class="muted" style="font-size:12px">${l.data.label || ''}</div>
+        <div style="font-size:12px;color:var(--muted)">${l.data.reason || ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  $('nvda-special').innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+      <strong style="font-size:16px">NVDA</strong>
+      <span class="badge badge-blue">持股</span>
+      <span class="${nh.pct_from_cost >= 0 ? 'green' : 'red'}" style="font-size:14px">
+        ${nh.label || 'N/A'}
+      </span>
+      <span class="muted">（成本 $${nh.cost || 'N/A'} → 現價 $${nh.price || 'N/A'}）</span>
+      ${nvda.all_green ? '<span class="badge badge-green">🏆 三燈全綠</span>' : `<span class="badge badge-yellow">${nvda.green_count || 0}/3 燈</span>`}
+    </div>
+    <div class="grid-3">${nvdaLights}</div>
+    <div class="muted" style="font-size:12px;margin-top:10px">
+      ⓘ 出場提醒：漲回合理估值（馬克斯說不再便宜）或持有滿6個月重新評估
+    </div>`;
+
+  // 波段列表
+  const swHtml = list.map(item => {
+    const lights3 = [item.buffett, item.marks, item.tech].map((l, i) => {
+      const names  = ['巴菲特', '馬克斯', '技術'];
+      const tips3  = [
+        '護城河穩固 + FCF為正 + 毛利率未惡化',
+        '本益比低於10年均值15%以上',
+        'RSI < 35 + 成交量放大1.5倍',
+      ];
+      const cls = l.status === 'green' ? 'light-green' : l.status === 'yellow' ? 'light-yellow' : 'light-red';
+      return `<div style="font-size:12px;display:flex;align-items:center;gap:4px">
+        <span class="light ${cls}"></span>
+        <span>${names[i]} ${tip(tips3[i])}</span>
+      </div>`;
+    }).join('');
+
+    return `
+      <div class="card" style="margin-bottom:12px;${item.all_green ? 'border-color:rgba(0,255,148,.4)' : ''}">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+          <strong style="font-size:15px">${item.symbol}</strong>
+          ${item.all_green ? '<span class="badge badge-green">🏆 今日最強訊號</span>' : ''}
+          <span class="muted">${item.price ? '$' + item.price.toFixed(2) : 'N/A'}</span>
+          <span class="${(item.change_pct||0) >= 0 ? 'green' : 'red'}">${item.change_pct !== null && item.change_pct !== undefined ? (item.change_pct >= 0 ? '+' : '') + item.change_pct.toFixed(2) + '%' : ''}</span>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">${lights3}</div>
+        <div style="margin-top:8px;display:grid;gap:4px">
+          ${[item.buffett, item.marks, item.tech].map(l =>
+            `<div style="font-size:12px;color:var(--muted)">${l.reason || ''}</div>`
+          ).join('')}
+        </div>
+      </div>`;
+  }).join('');
+
+  $('swing-list').innerHTML = swHtml || '<div class="no-signal">無波段掃描數據</div>';
+}
+
+// ── ⑥ 動態掃描 ────────────────────────────────────────────
+function renderDynamic(rec) {
+  const dyn = rec.dynamic || {};
+  const results = dyn.results || [];
+
+  if (!results.length) {
+    $('dynamic-scan').innerHTML = `
+      <div class="card-title">S&P100 動態掃描 ${tip('五條件全部符合才出現：市值>500億、PE折扣20%、RSI<35、量能放大1.5倍、FCF為正')}</div>
+      <div class="no-signal">
+        ${dyn.summary || '今日無訊號，繼續等待是最好的策略'}<br>
+        <span class="muted" style="font-size:12px">掃描 ${dyn.scanned || 0} 檔，命中 0 檔</span>
+      </div>`;
+    return;
+  }
+
+  const rows = results.map(r => `
+    <tr>
+      <td><strong>${r.symbol}</strong></td>
+      <td>${r.price ? '$' + r.price.toFixed(2) : 'N/A'}</td>
+      <td>${r.market_cap_b ? r.market_cap_b + 'B' : 'N/A'}</td>
+      <td class="green">${r.pe_now} vs ${r.pe_mean_5y} <span class="badge badge-green">折扣${r.pe_discount}%</span></td>
+      <td class="green">RSI ${r.rsi14}</td>
+      <td class="green">${r.vol_ratio}x 放量</td>
+      <td class="green">FCF $${r.fcf_b}B</td>
+    </tr>`).join('');
+
+  $('dynamic-scan').innerHTML = `
+    <div class="card-title">S&P100 動態掃描 — 今日 ${results.length} 個訊號</div>
+    <div class="muted" style="font-size:12px;margin-bottom:10px">
+      ⚠️ 動態掃描出現的股票需使用者自行研究後手動加入 config.py
+    </div>
+    <table>
+      <thead><tr><th>標的</th><th>現價</th><th>市值</th><th>PE（10年折扣）</th><th>RSI</th><th>量能</th><th>FCF</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// ── ⑦ 三腦會議 ────────────────────────────────────────────
+function renderAgents(rec) {
+  const agents = rec.agents || {};
+  const analyst = agents.analyst || {};
+  const buffett = agents.buffett || {};
+  const marks   = agents.marks   || {};
+  const diverge = agents.divergence || {};
+  const pendulum = marks.pendulum || {};
+
+  // 分歧橫幅
+  if (diverge.has_divergence) {
+    $('divergence-banner').innerHTML = `
+      <div class="warning-banner" style="background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.3);color:var(--yellow);margin-bottom:12px">
+        ${diverge.label}
+      </div>`;
+  } else {
+    $('divergence-banner').innerHTML = '';
+  }
+
+  // 取所有股票清單
+  const allSyms = new Set([
+    ...Object.keys(analyst.per_stock || {}),
+    ...Object.keys(buffett.per_stock || {}),
+    ...Object.keys(marks.per_stock   || {}),
+  ]);
+
+  function stockRows(ps) {
+    return [...allSyms].map(sym => {
+      const d = (ps || {})[sym] || {};
+      if (!d.status) return '';
+      return `<div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(48,54,61,.4)">
+        <span>${d.status}</span>
+        <div>
+          <span style="font-weight:600">${sym}</span>
+          <div style="font-size:12px;color:var(--muted)">${d.reason || d.label || ''}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // 市場鐘擺
+  const pendulumScore = (() => {
+    const lbl = pendulum.label || '';
+    if (lbl.includes('貪婪')) return 85;
+    if (lbl.includes('偏貪')) return 65;
+    if (lbl.includes('中性')) return 50;
+    if (lbl.includes('偏恐')) return 35;
+    if (lbl.includes('恐懼')) return 15;
+    return 50;
+  })();
+
+  $('agents-panel').innerHTML = `
+    <!-- 策略分析師 -->
+    <div class="card">
+      <div class="agent-header agent-analyst">
+        <div class="agent-name blue">📊 策略分析師</div>
+        <div class="agent-role">時機判斷者 — 只看技術面</div>
+      </div>
+      ${stockRows(analyst.per_stock)}
+      <div class="muted" style="font-size:11px;margin-top:8px">來源：${analyst.source || '—'}</div>
+    </div>
+
+    <!-- 巴菲特 -->
+    <div class="card">
+      <div class="agent-header agent-buffett">
+        <div class="agent-name green">🏛️ 巴菲特大腦</div>
+        <div class="agent-role">企業本質鑑定者 — 只看基本面</div>
+      </div>
+      ${stockRows(buffett.per_stock)}
+      <div class="muted" style="font-size:11px;margin-top:8px">來源：${buffett.source || '—'}</div>
+    </div>
+
+    <!-- 霍華馬克斯 -->
+    <div class="card">
+      <div class="agent-header agent-marks">
+        <div class="agent-name yellow">⚖️ 霍華馬克斯</div>
+        <div class="agent-role">風險週期評估者</div>
+      </div>
+      <div style="margin-bottom:12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:4px">市場鐘擺</div>
+        <div class="pendulum-bar">
+          <div class="pendulum-marker" style="left:${pendulumScore}%"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted)">
+          <span>恐懼</span><span>中性</span><span>貪婪</span>
+        </div>
+        <div style="margin-top:6px;font-weight:600">${pendulum.emoji || '🟡'} ${pendulum.label || 'N/A'}</div>
+        <div style="font-size:12px;color:var(--muted)">${pendulum.detail || ''}</div>
+      </div>
+      ${stockRows(marks.per_stock)}
+      <div class="muted" style="font-size:11px;margin-top:8px">來源：${marks.source || '—'}</div>
+    </div>`;
+
+  // 共識條
+  const cPct = diverge.consensus_pct || 0;
+  $('consensus-bar').innerHTML = `
+    <div class="card-title">三腦共識程度</div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="progress-bar" style="flex:1">
+        <div class="progress-fill" style="width:${cPct}%;background:${cPct >= 70 ? 'var(--green)' : cPct >= 40 ? 'var(--yellow)' : 'var(--red)'}"></div>
+      </div>
+      <span style="font-weight:700;font-size:16px">${cPct}%</span>
+      <span class="badge ${cPct >= 70 ? 'badge-green' : cPct >= 40 ? 'badge-yellow' : 'badge-red'}">${diverge.label || '—'}</span>
+    </div>`;
+}
+
+// ── ⑧ 風險預警表 ──────────────────────────────────────────
+function renderRiskTable(rec) {
+  const stocks = rec.stocks || {};
+
+  const rows = Object.entries(stocks).map(([sym, s]) => {
+    const newsHtml = (s.news || []).map(n =>
+      `<a href="${n.url}" target="_blank" style="font-size:11px;display:block;color:var(--muted)">${n.title || '—'}</a>`
+    ).join('');
+
+    const rsiCls   = s.rsi14 < 35 ? 'green' : s.rsi14 > 70 ? 'red' : 'muted';
+    const changeCls = (s.change_pct || 0) >= 0 ? 'green' : 'red';
+
+    return `<tr>
+      <td><strong>${sym}</strong></td>
+      <td>${s.price ? '$' + s.price.toFixed(2) : 'N/A'}</td>
+      <td class="${changeCls}">${s.change_pct !== null && s.change_pct !== undefined ? (s.change_pct >= 0 ? '+' : '') + s.change_pct.toFixed(2) + '%' : 'N/A'}</td>
+      <td class="${rsiCls}">${s.rsi14 !== null && s.rsi14 !== undefined ? s.rsi14 : 'N/A'}</td>
+      <td>${s.vol_ratio !== null && s.vol_ratio !== undefined ? s.vol_ratio + 'x' : 'N/A'}</td>
+      <td class="${(s.pct_from_ma200 || 0) < -10 ? 'green' : (s.pct_from_ma200 || 0) > 10 ? 'red' : 'muted'}">${s.pct_from_ma200 !== null && s.pct_from_ma200 !== undefined ? (s.pct_from_ma200 >= 0 ? '+' : '') + s.pct_from_ma200.toFixed(1) + '%' : 'N/A'}</td>
+      <td>${s.pe_trailing !== null && s.pe_trailing !== undefined ? s.pe_trailing.toFixed(1) : 'N/A'}</td>
+      <td>${s.pe_mean_10y !== null && s.pe_mean_10y !== undefined ? s.pe_mean_10y : 'N/A'}</td>
+      <td>${s.fcf_yield !== null && s.fcf_yield !== undefined ? s.fcf_yield.toFixed(2) + '%' : 'N/A'}</td>
+      <td style="max-width:220px">${newsHtml || '<span class="muted">—</span>'}</td>
+    </tr>`;
+  }).join('');
+
+  $('risk-table').innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th>
+          <th>偏MA200</th><th>PE</th><th>10年均PE</th><th>FCF殖利率</th><th>最新新聞</th>
+        </tr>
+      </thead>
+      <tbody>${rows || '<tr><td colspan="10" class="no-signal">—</td></tr>'}</tbody>
+    </table>`;
+}
+
+// ── ⑨ 今日總結 ────────────────────────────────────────────
+function renderSummary(rec) {
+  const sum = rec.summary || '—';
+  const ts  = rec.timestamp
+    ? new Date(rec.timestamp).toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'})
+    : '';
+
+  $('daily-summary').innerHTML = `
+    <div class="card-title green">今日操作總結</div>
+    <p style="font-size:15px;line-height:1.8">${sum}</p>
+    ${ts ? `<div class="muted" style="font-size:12px;margin-top:10px">分析時間：${ts}（台灣時間）</div>` : ''}`;
+}
+
+// ── 初始化 ────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>
