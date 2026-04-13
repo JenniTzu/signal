@@ -4,114 +4,161 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGNAL — In the noise, find the signal.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-/* ══════════════════════════════════════════
-   SIGNAL — Global Styles
-══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   SIGNAL — Design System
+═══════════════════════════════════════════ */
 :root {
-  --bg:       #0D1117;
-  --bg2:      #161B22;
-  --bg3:      #1C2128;
-  --border:   #30363D;
-  --text:     #E6EDF3;
-  --muted:    #8B949E;
-  --green:    #00FF94;
-  --yellow:   #FFD700;
-  --red:      #FF4444;
-  --blue:     #58A6FF;
-  --orange:   #FF8C00;
+  --color-bg:             #FAFAFA;
+  --color-surface:        #FFFFFF;
+  --color-surface-2:      #F4F4F5;
+  --color-border:         #E4E4E7;
+  --color-text-primary:   #18181B;
+  --color-text-secondary: #71717A;
+  --color-text-muted:     #A1A1AA;
+  --color-accent:         #2563EB;
+  --color-danger:         #DC2626;
+  --color-warning:        #D97706;
+  --color-success:        #16A34A;
+
+  --font-display: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.10);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 15px;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
 }
-a { color: var(--blue); text-decoration: none; }
+a { color: var(--color-accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ── Layout ── */
-.container { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-@media (max-width: 900px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .grid-2 { grid-template-columns: 1fr; }
-}
+.container { max-width: 1360px; margin: 0 auto; padding: 0 var(--space-md); }
+.section   { margin-bottom: var(--space-xl); }
 
-/* ── Cards ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+
+/* ── Card ── */
 .card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, transform .2s ease;
+  animation: fadeInUp .4s ease both;
 }
-.card-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-.section { margin-bottom: 24px; }
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+/* ── Typography ── */
 .section-title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
+}
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+.metric-sub {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
 }
 
-/* ── Colors ── */
-.green  { color: var(--green); }
-.yellow { color: var(--yellow); }
-.red    { color: var(--red); }
-.blue   { color: var(--blue); }
-.muted  { color: var(--muted); }
-.orange { color: var(--orange); }
+/* ── Colour utilities ── */
+.positive { color: var(--color-success) !important; }
+.negative { color: var(--color-danger)  !important; }
+.neutral  { color: var(--color-warning) !important; }
+.muted    { color: var(--color-text-muted) !important; }
+.accent   { color: var(--color-accent) !important; }
+/* legacy aliases */
+.green  { color: var(--color-success) !important; }
+.red    { color: var(--color-danger)  !important; }
+.yellow { color: var(--color-warning) !important; }
+.blue   { color: var(--color-accent)  !important; }
+.orange { color: #EA580C !important; }
 
 /* ── Badges ── */
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 2px 10px;
-  border-radius: 12px;
+  border-radius: 99px;
   font-size: 12px;
   font-weight: 600;
+  font-family: var(--font-display);
 }
-.badge-green  { background: rgba(0,255,148,.15); color: var(--green); border: 1px solid rgba(0,255,148,.3); }
-.badge-yellow { background: rgba(255,215,0,.15);  color: var(--yellow); border: 1px solid rgba(255,215,0,.3); }
-.badge-red    { background: rgba(255,68,68,.15);  color: var(--red); border: 1px solid rgba(255,68,68,.3); }
-.badge-blue   { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+.badge-green  { background: #DCFCE7; color: #15803D; }
+.badge-red    { background: #FEE2E2; color: #B91C1C; }
+.badge-yellow { background: #FEF9C3; color: #A16207; }
+.badge-blue   { background: #DBEAFE; color: #1D4ED8; }
+.badge-gray   { background: var(--color-surface-2); color: var(--color-text-secondary); }
 
-/* ── Numbers ── */
-.big-num { font-size: 36px; font-weight: 700; line-height: 1; }
-.med-num { font-size: 22px; font-weight: 700; }
+/* ── Progress bar ── */
+.progress-bar {
+  background: var(--color-surface-2);
+  border-radius: 99px;
+  height: 6px;
+  overflow: hidden;
+  margin-top: var(--space-sm);
+}
+.progress-fill { height: 100%; border-radius: 99px; transition: width .5s ease; }
 
 /* ── Tooltip ── */
 .tip-wrap { position: relative; display: inline; }
 .tip-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px; height: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 15px; height: 15px;
   border-radius: 50%;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 10px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 9px;
   cursor: help;
-  margin-left: 4px;
+  margin-left: 3px;
   vertical-align: middle;
 }
 .tip-box {
@@ -120,53 +167,57 @@ a:hover { text-decoration: underline; }
   bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 12px;
+  background: var(--color-text-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
   font-size: 12px;
-  color: var(--text);
   white-space: nowrap;
-  z-index: 100;
-  min-width: 200px;
+  z-index: 200;
+  min-width: 180px;
   pointer-events: none;
+  box-shadow: var(--shadow-md);
 }
 .tip-wrap:hover .tip-box { display: block; }
 
-/* ── Progress Bar ── */
-.progress-bar {
-  background: var(--bg3);
-  border-radius: 4px;
-  height: 8px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width .4s ease;
-}
-
 /* ── Table ── */
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th {
   text-align: left;
-  padding: 8px 10px;
-  font-size: 12px;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
 }
-td { padding: 10px 10px; border-bottom: 1px solid rgba(48,54,61,.5); font-size: 13px; }
+td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(255,255,255,.02); }
+tr:hover td { background: var(--color-surface-2); }
+.table-wrap { overflow-x: auto; }
 
 /* ── Divider ── */
-hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+hr { border: none; border-top: 1px solid var(--color-border); margin: var(--space-lg) 0; }
 
-/* ── Header ── */
+/* ── No signal ── */
+.no-signal {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* ═══ Header ═══════════════════════════════ */
 #header {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   padding: 14px 0;
   position: sticky;
   top: 0;
@@ -177,174 +228,286 @@ hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-md);
 }
 .logo {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  color: var(--color-text-primary);
 }
-.tagline { font-size: 11px; color: var(--muted); }
-.date-display { font-size: 13px; color: var(--muted); }
-#date-picker {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
+.tagline {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
 }
-
-/* ── FGI Gauge ── */
-.fgi-gauge {
-  text-align: center;
-  padding: 10px 0;
-}
-.fgi-arc {
-  width: 140px; height: 70px;
-  margin: 0 auto 8px;
-  position: relative;
-  overflow: hidden;
-}
-.fgi-arc svg { width: 100%; height: 100%; }
-
-/* ── Condition Item ── */
-.condition-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(48,54,61,.5);
-}
-.condition-item:last-child { border-bottom: none; }
-.cond-indicator {
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-.cond-indicator.active   { background: var(--green); box-shadow: 0 0 8px var(--green); }
-.cond-indicator.inactive { background: var(--border); }
-.cond-label  { font-weight: 600; font-size: 13px; }
-.cond-value  { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.cond-gap    { font-size: 12px; margin-top: 2px; }
-
-/* ── Light System ── */
-.light {
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 4px;
-}
-.light-green  { background: var(--green); box-shadow: 0 0 6px var(--green); }
-.light-yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
-.light-red    { background: var(--red); }
-
-/* ── Agent Cards ── */
-.agent-header {
-  padding: 12px 16px;
-  border-radius: 8px 8px 0 0;
-  margin: -20px -20px 16px;
-}
-.agent-analyst { background: linear-gradient(135deg, rgba(88,166,255,.15), transparent); border-bottom: 1px solid rgba(88,166,255,.3); }
-.agent-buffett { background: linear-gradient(135deg, rgba(0,255,148,.15), transparent); border-bottom: 1px solid rgba(0,255,148,.3); }
-.agent-marks   { background: linear-gradient(135deg, rgba(255,215,0,.15), transparent); border-bottom: 1px solid rgba(255,215,0,.3); }
-.agent-name { font-size: 15px; font-weight: 700; }
-.agent-role { font-size: 11px; color: var(--muted); }
-
-/* ── Risk Alert ── */
-.risk-panel {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px 20px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
-}
-@media (max-width: 900px) { .risk-panel { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .risk-panel { grid-template-columns: 1fr; } }
-.risk-item { text-align: center; }
-.risk-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-.risk-value { font-size: 17px; font-weight: 700; }
-
-/* ── Warning Banner ── */
-.warning-banner {
-  background: rgba(255,68,68,.1);
-  border: 1px solid rgba(255,68,68,.3);
-  border-radius: 8px;
-  padding: 10px 16px;
-  margin-bottom: 12px;
+.header-right {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: var(--red);
-  font-size: 13px;
-  font-weight: 600;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
+#display-date { font-size: 13px; color: var(--color-text-secondary); font-family: var(--font-mono); }
+#update-time  { font-size: 11px; color: var(--color-text-muted); }
+#date-picker {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  outline: none;
+}
+#date-picker:focus { border-color: var(--color-accent); }
 
-/* ── Scrollable Table ── */
-.table-wrap { overflow-x: auto; }
-
-/* ── Spinner ── */
+/* ═══ Loading / Spinner ═══════════════════ */
 #loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 70vh;
   flex-direction: column;
-  gap: 16px;
-  color: var(--muted);
+  gap: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 13px;
 }
 .spinner {
-  width: 40px; height: 40px;
-  border: 3px solid var(--border);
-  border-top-color: var(--green);
+  width: 36px; height: 36px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── Main content (hidden until loaded) ── */
 #app { display: none; }
 
-/* ── Pendulum ── */
+/* ═══ Risk Panel ═══════════════════════════ */
+.risk-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp .4s ease both;
+}
+.risk-item { text-align: center; padding: var(--space-sm) 0; }
+.risk-label { font-size: 11px; color: var(--color-text-muted); margin-bottom: 4px; font-weight: 500; }
+.risk-value { font-family: var(--font-mono); font-size: 18px; font-weight: 500; }
+
+/* ═══ Warning Banner ═══════════════════════ */
+.warning-banner {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-left: 4px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-danger);
+  font-size: 13px;
+  font-weight: 600;
+}
+.divergence-banner {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-left: 4px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  color: var(--color-warning);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ═══ Market Cards ══════════════════════════ */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.market-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, transform .2s ease;
+  animation: fadeInUp .4s ease both;
+}
+.market-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.market-env-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+/* FGI Gauge */
+.gauge-wrap { position: relative; width: 140px; margin: 0 auto var(--space-sm); }
+.gauge-wrap svg { width: 100%; }
+.gauge-label-center {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.gauge-score { font-family: var(--font-mono); font-size: 26px; font-weight: 500; line-height: 1; }
+.gauge-text  { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; }
+
+/* ═══ Chart boxes ═══════════════════════════ */
+.chart-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp .4s ease both;
+}
+.chart-title { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-sm); }
+canvas { max-height: 120px; }
+
+/* ═══ Condition items ═══════════════════════ */
+.condition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.condition-item:last-child { border-bottom: none; }
+.cond-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.cond-dot.active   { background: var(--color-success); box-shadow: 0 0 0 3px #DCFCE7; }
+.cond-dot.inactive { background: var(--color-border); }
+.cond-label  { font-weight: 600; font-size: 13px; color: var(--color-text-primary); }
+.cond-desc   { font-size: 12px; color: var(--color-text-muted); margin-top: 2px; }
+.cond-status { font-size: 12px; margin-top: 3px; }
+
+/* ═══ Radar status bar ══════════════════════ */
+.radar-status {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+}
+.radar-status.active   { background: #DCFCE7; color: #15803D; border: 1px solid #BBF7D0; }
+.radar-status.inactive { background: var(--color-surface-2); color: var(--color-text-muted); border: 1px solid var(--color-border); }
+
+/* ═══ Light system (3-lamp) ════════════════ */
+.light {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.light-green  { background: var(--color-success); box-shadow: 0 0 0 2px #DCFCE7; }
+.light-yellow { background: var(--color-warning); box-shadow: 0 0 0 2px #FEF9C3; }
+.light-red    { background: #E5E7EB; }
+
+/* ═══ Avatar (Agent cards) ═════════════════ */
+.agent-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.avatar-S { background: #DBEAFE; color: #1D4ED8; }
+.avatar-B { background: #DCFCE7; color: #15803D; }
+.avatar-H { background: #FEF9C3; color: #A16207; }
+
+.agent-row { display: flex; align-items: flex-start; gap: var(--space-sm); padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border); }
+.agent-row:last-child { border-bottom: none; }
+.agent-sym  { font-family: var(--font-mono); font-weight: 500; font-size: 13px; min-width: 50px; }
+.agent-rsn  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+/* ═══ Pendulum ══════════════════════════════ */
 .pendulum-bar {
-  height: 10px;
-  border-radius: 5px;
-  background: linear-gradient(to right, var(--green), var(--yellow), var(--red));
+  height: 8px;
+  border-radius: 99px;
+  background: linear-gradient(to right, var(--color-success), var(--color-warning), var(--color-danger));
   position: relative;
-  margin: 10px 0 4px;
+  margin: var(--space-sm) 0 4px;
 }
 .pendulum-marker {
-  width: 16px; height: 16px;
+  width: 14px; height: 14px;
   border-radius: 50%;
-  background: white;
-  border: 2px solid var(--bg);
+  background: var(--color-text-primary);
+  border: 2px solid var(--color-surface);
+  box-shadow: var(--shadow-sm);
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   transition: left .5s ease;
 }
 
-/* ── Chart Container ── */
-.chart-box {
-  background: var(--bg3);
-  border-radius: 8px;
-  padding: 12px;
-}
-.chart-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-canvas { max-height: 130px; }
+/* ═══ Consensus bar ═════════════════════════ */
+.consensus-wrap { display: flex; align-items: center; gap: var(--space-md); }
+.consensus-bar-track { flex: 1; }
 
-/* ── No-signal ── */
-.no-signal {
-  text-align: center;
-  padding: 30px 20px;
-  color: var(--muted);
-  font-size: 14px;
+/* ═══ Risk table colour strips ══════════════ */
+.risk-row-high   td:first-child { border-left: 3px solid var(--color-danger); }
+.risk-row-medium td:first-child { border-left: 3px solid var(--color-warning); }
+.risk-row-low    td:first-child { border-left: 3px solid var(--color-success); }
+
+/* ═══ Summary card ══════════════════════════ */
+#daily-summary { border-left: 4px solid var(--color-accent); }
+
+/* ═══ Animations ════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* staggered card entrance */
+.card:nth-child(1) { animation-delay: .00s; }
+.card:nth-child(2) { animation-delay: .08s; }
+.card:nth-child(3) { animation-delay: .16s; }
+.card:nth-child(4) { animation-delay: .24s; }
+.market-card:nth-child(1) { animation-delay: .00s; }
+.market-card:nth-child(2) { animation-delay: .08s; }
+.market-card:nth-child(3) { animation-delay: .16s; }
+.market-card:nth-child(4) { animation-delay: .24s; }
+
+/* ═══ Responsive ════════════════════════════ */
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4, .market-grid { grid-template-columns: 1fr; }
+  .risk-panel { grid-template-columns: repeat(2, 1fr); }
+  .card { padding: var(--space-md); }
+  .metric-value, .gauge-score { font-size: 22px; }
+  .logo { font-size: 16px; }
+  #header { padding: 10px 0; }
+  .header-right { gap: var(--space-sm); }
+  .container { padding: 0 var(--space-sm); }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid-3, .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .risk-panel { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1025px) {
+  .grid-3, .market-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
 }
 </style>
 </head>
@@ -358,10 +521,10 @@ canvas { max-height: 130px; }
         <div class="logo">SIGNAL</div>
         <div class="tagline">In the noise, find the signal.</div>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <span class="date-display" id="display-date">載入中...</span>
+      <div class="header-right">
+        <span id="display-date">載入中…</span>
         <select id="date-picker" title="選擇歷史日期"></select>
-        <span id="update-time" class="muted" style="font-size:12px"></span>
+        <span id="update-time"></span>
       </div>
     </div>
   </div>
@@ -370,36 +533,36 @@ canvas { max-height: 130px; }
 <!-- ══ Loading ══ -->
 <div id="loading">
   <div class="spinner"></div>
-  <div>載入數據中...</div>
+  <div>載入數據中…</div>
 </div>
 
 <!-- ══ App ══ -->
 <div id="app">
-<div class="container" style="padding-top:20px;padding-bottom:40px">
+<div class="container" style="padding-top:var(--space-lg);padding-bottom:var(--space-xl)">
 
-  <!-- ① 部位風險警示 -->
+  <!-- ① 部位風險 -->
   <div id="risk-alert-banner"></div>
   <div class="risk-panel" id="risk-panel"></div>
 
   <!-- ② 市場溫度 -->
   <div class="section">
-    <div class="section-title">🌡️ 市場溫度</div>
-    <div class="grid-4" id="market-temp"></div>
+    <div class="section-title">市場溫度</div>
+    <div class="market-grid" id="market-temp"></div>
   </div>
 
-  <!-- ③ 歷史趨勢圖 -->
+  <!-- ③ 30日走勢 -->
   <div class="section">
-    <div class="section-title">📈 30日走勢</div>
+    <div class="section-title">30日走勢</div>
     <div class="grid-3">
-      <div class="chart-box"><div class="chart-label">Fear & Greed Index</div><canvas id="chart-fgi"></canvas></div>
-      <div class="chart-box"><div class="chart-label">VIX</div><canvas id="chart-vix"></canvas></div>
-      <div class="chart-box"><div class="chart-label">Credit Spread (bps)</div><canvas id="chart-cs"></canvas></div>
+      <div class="chart-box"><div class="chart-title">Fear &amp; Greed</div><canvas id="chart-fgi"></canvas></div>
+      <div class="chart-box"><div class="chart-title">VIX</div><canvas id="chart-vix"></canvas></div>
+      <div class="chart-box"><div class="chart-title">Credit Spread (bps)</div><canvas id="chart-cs"></canvas></div>
     </div>
   </div>
 
   <!-- ④ 逢低加碼雷達 -->
   <div class="section">
-    <div class="section-title">🎯 逢低加碼雷達</div>
+    <div class="section-title">逢低加碼雷達</div>
     <div class="grid-2">
       <div class="card" id="dip-triggers"></div>
       <div class="card" id="dip-targets"></div>
@@ -408,100 +571,118 @@ canvas { max-height: 130px; }
 
   <!-- ⑤ 波段機會掃描 -->
   <div class="section">
-    <div class="section-title">🔦 波段機會掃描</div>
-    <!-- NVDA 特殊 -->
-    <div id="nvda-special" class="card" style="margin-bottom:14px"></div>
-    <!-- 波段列表 -->
+    <div class="section-title">波段機會掃描</div>
+    <div class="card" id="nvda-special" style="margin-bottom:var(--space-md)"></div>
     <div id="swing-list"></div>
   </div>
 
   <!-- ⑥ 動態掃描 -->
   <div class="section">
-    <div class="section-title">🔍 S&P100 動態掃描</div>
+    <div class="section-title">S&amp;P100 動態掃描</div>
     <div class="card" id="dynamic-scan"></div>
   </div>
 
   <!-- ⑦ 三腦會議 -->
   <div class="section">
-    <div class="section-title">🧠 三腦會議</div>
+    <div class="section-title">三腦會議</div>
     <div id="divergence-banner"></div>
     <div class="grid-3" id="agents-panel"></div>
-    <div class="card" style="margin-top:14px" id="consensus-bar"></div>
+    <div class="card" style="margin-top:var(--space-md)" id="consensus-bar"></div>
   </div>
 
   <!-- ⑧ 風險預警 -->
   <div class="section">
-    <div class="section-title">⚠️ 個股風險預警</div>
+    <div class="section-title">個股風險預警</div>
     <div class="card table-wrap" id="risk-table"></div>
   </div>
 
   <!-- ⑨ 今日總結 -->
-  <div class="card" id="daily-summary" style="border-color:rgba(0,255,148,.2)"></div>
+  <div class="card" id="daily-summary"></div>
 
-</div><!-- /container -->
-</div><!-- /app -->
+</div>
+</div>
 
 <script>
-// ══════════════════════════════════════════════════════
-// SIGNAL — Frontend JS
-// ══════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════
+// SIGNAL — Frontend JS  (data logic unchanged)
+// ══════════════════════════════════════════════════
+let allData  = null;
+let todayRec = null;
 
-let allData   = null;   // 全部歷史
-let todayRec  = null;   // 當前顯示的記錄
+const $   = id => document.getElementById(id);
+const fmt = (v, dec=2, s='') =>
+  v === null || v === undefined
+  ? `<span class="muted">N/A</span>`
+  : `${(+v).toFixed(dec)}${s}`;
 
-// ── 工具函式 ────────────────────────────────────────────
-const $ = id => document.getElementById(id);
-const el = (tag, cls, html) => {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (html !== undefined) e.innerHTML = html;
-  return e;
-};
-const fmt = (v, dec=2, suffix='') =>
-  v === null || v === undefined ? '<span class="muted">N/A</span>'
-  : `${(+v).toFixed(dec)}${suffix}`;
+const tip = text =>
+  `<span class="tip-wrap"><span class="tip-icon">i</span><span class="tip-box">${text}</span></span>`;
 
-const colorClass = pct =>
-  pct > 0 ? 'green' : pct < 0 ? 'red' : 'muted';
-
-const tip = (text) =>
-  `<span class="tip-wrap"><span class="tip-icon">ⓘ</span>
-   <span class="tip-box">${text}</span></span>`;
-
+// ── FGI helpers ──────────────────────────────────
 function fgiColor(score) {
-  if (score === null || score === undefined) return 'var(--muted)';
-  if (score <= 25)  return 'var(--red)';
-  if (score <= 40)  return 'var(--orange)';
-  if (score <= 60)  return 'var(--yellow)';
-  if (score <= 75)  return '#88CC00';
-  return 'var(--green)';
+  if (score == null)  return 'var(--color-text-muted)';
+  if (score <= 25)    return 'var(--color-danger)';
+  if (score <= 45)    return '#EA580C';
+  if (score <= 55)    return 'var(--color-warning)';
+  if (score <= 75)    return '#65A30D';
+  return 'var(--color-success)';
 }
-
 function fgiLabel(score) {
-  if (score === null || score === undefined) return '待設定';
-  if (score <= 25)  return '極度恐慌';
-  if (score <= 40)  return '恐慌';
-  if (score <= 60)  return '中性';
-  if (score <= 75)  return '貪婪';
+  if (score == null)  return '待設定';
+  if (score <= 25)    return '極度恐慌';
+  if (score <= 40)    return '恐慌';
+  if (score <= 60)    return '中性';
+  if (score <= 75)    return '貪婪';
   return '極度貪婪';
 }
 
-// ── 載入數據 ─────────────────────────────────────────────
+// ── SVG Gauge (FGI) ──────────────────────────────
+function buildGauge(score) {
+  const r = 60, cx = 80, cy = 78;
+  const total = Math.PI * r;   // semicircle circumference
+  const val   = Math.max(0, Math.min(100, score || 0));
+  const fill  = (val / 100) * total;
+  const clr   = fgiColor(score);
+
+  // Needle angle: 0 → -180deg (left), 100 → 0deg (right), mapped to radians
+  const angle = ((val / 100) * Math.PI) - Math.PI;  // -π to 0
+  const nx = cx + r * 0.72 * Math.cos(angle);
+  const ny = cy + r * 0.72 * Math.sin(angle);
+
+  return `
+  <div class="gauge-wrap">
+    <svg viewBox="0 0 160 86" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20 78 A ${r} ${r} 0 0 1 140 78"
+        fill="none" stroke="#E4E4E7" stroke-width="12" stroke-linecap="round"/>
+      <path d="M 20 78 A ${r} ${r} 0 0 1 140 78"
+        fill="none" stroke="${clr}" stroke-width="12" stroke-linecap="round"
+        stroke-dasharray="${fill} ${total}"
+        transform="rotate(180 ${cx} ${cy})"
+        style="transform-origin:${cx}px ${cy}px"/>
+      <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}"
+        stroke="${clr}" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="${cx}" cy="${cy}" r="4" fill="${clr}"/>
+    </svg>
+    <div class="gauge-label-center">
+      <div class="gauge-score" style="color:${clr}">${score != null ? score.toFixed(0) : '—'}</div>
+      <div class="gauge-text">${fgiLabel(score)}</div>
+    </div>
+  </div>`;
+}
+
+// ── Load data ────────────────────────────────────
 async function loadData() {
   try {
     const res  = await fetch('data.json?ts=' + Date.now());
     const json = await res.json();
     allData    = json;
 
-    // 建立日期選擇器
-    const history  = json.history || [];
-    const picker   = $('date-picker');
+    const history = json.history || [];
+    const picker  = $('date-picker');
     picker.innerHTML = '';
-    const dates = [...history].reverse();
-    dates.forEach(rec => {
+    [...history].reverse().forEach(rec => {
       const opt = document.createElement('option');
-      opt.value = rec.date;
-      opt.textContent = rec.date;
+      opt.value = rec.date; opt.textContent = rec.date;
       picker.appendChild(opt);
     });
     picker.addEventListener('change', e => {
@@ -509,22 +690,18 @@ async function loadData() {
       if (rec) render(rec);
     });
 
-    // 顯示最新
     const latest = json.latest || history[history.length - 1];
     if (latest) render(latest);
-
     $('loading').style.display = 'none';
     $('app').style.display     = 'block';
   } catch(e) {
     $('loading').innerHTML = `
-      <div style="color:var(--red)">❌ 無法載入 data.json</div>
-      <div class="muted" style="font-size:12px;margin-top:8px">
-        請先執行 main.py 產生數據，或確認 docs/data.json 已存在
-      </div>`;
+      <div style="color:var(--color-danger);font-weight:600">無法載入 data.json</div>
+      <div class="muted" style="font-size:12px;margin-top:8px">請先執行 main.py 產生數據</div>`;
   }
 }
 
-// ── 主渲染 ───────────────────────────────────────────────
+// ── Master render ────────────────────────────────
 function render(rec) {
   todayRec = rec;
   $('display-date').textContent = rec.date;
@@ -532,9 +709,8 @@ function render(rec) {
   if (rec.timestamp) {
     const d = new Date(rec.timestamp);
     $('update-time').textContent =
-      '更新：' + d.toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
+      '更新：' + d.toLocaleString('zh-TW', {timeZone:'Asia/Taipei'});
   }
-
   renderRisk(rec);
   renderMarket(rec);
   renderCharts(rec);
@@ -546,54 +722,34 @@ function render(rec) {
   renderSummary(rec);
 }
 
-// ── ① 部位風險警示 ────────────────────────────────────────
+// ── ① 部位風險 ────────────────────────────────────
 function renderRisk(rec) {
-  const pr = rec.position_risk || {};
-  const tc = pr.tech_concentration || {};
-  const dd = pr.drawdown_20pct || {};
-  const bl = pr.bullets || {};
+  const pr   = rec.position_risk || {};
+  const tc   = pr.tech_concentration || {};
+  const dd   = pr.drawdown_20pct || {};
+  const bl   = pr.bullets || {};
   const fomc = pr.fomc || {};
   const earn = pr.next_earnings || {};
 
-  // 警告橫幅
-  if (tc.is_warning) {
-    $('risk-alert-banner').innerHTML = `
-      <div class="warning-banner">
-        🔴 科技集中度警告：NVDA + SMH + QQQ 佔比 ${tc.tech_pct_display}（超過70%閾值）
-      </div>`;
-  } else {
-    $('risk-alert-banner').innerHTML = '';
-  }
+  $('risk-alert-banner').innerHTML = tc.is_warning ? `
+    <div class="warning-banner">
+      科技集中度 ${tc.tech_pct_display} — 超過 70% 警戒線（NVDA + SMH + QQQ）
+    </div>` : '';
 
-  // 五格面板
   const items = [
-    {
-      label: `科技集中度 ${tip('NVDA + SMH + QQQ 合計佔比，超過70%顯示警告')}`,
+    { label:`科技集中度 ${tip('NVDA+SMH+QQQ 合計，>70% 紅色警示')}`,
       value: tc.tech_pct_display || 'N/A',
-      cls:   tc.is_warning ? 'red' : 'green'
-    },
-    {
-      label: `跌20%損失估計 ${tip('假設持股佔總資金70%，整體市場下跌20%的損失')}`,
-      value: dd.loss_twd ? `${dd.loss_twd}萬` : 'N/A',
-      cls:   'red'
-    },
-    {
-      label: `今日可用子彈 ${tip('總資金5%，為單次加碼上限')}`,
-      value: bl.per_trade_twd ? `${bl.per_trade_twd}萬` : 'N/A',
-      cls:   'yellow'
-    },
-    {
-      label: `距下次財報 ${tip('觀察清單中最近一筆財報日期')}`,
-      value: earn.days !== null && earn.days !== undefined
-             ? `${earn.days}天 (${earn.symbol})` : 'N/A',
-      cls:   earn.days !== null && earn.days <= 14 ? 'yellow' : 'muted'
-    },
-    {
-      label: `距下次FOMC ${tip('2026年FOMC會議日期，手動設定於 config.py')}`,
-      value: fomc.days !== null && fomc.days !== undefined
-             ? `${fomc.days}天` : 'N/A',
-      cls:   fomc.days !== null && fomc.days <= 7 ? 'yellow' : 'muted'
-    },
+      cls: tc.is_warning ? 'negative' : 'positive' },
+    { label:`跌20%損失 ${tip('持股佔總資金70%估算')}`,
+      value: dd.loss_twd ? `${dd.loss_twd}萬` : 'N/A', cls:'negative' },
+    { label:`可用子彈 ${tip('總資金×5%，單次加碼上限')}`,
+      value: bl.per_trade_twd ? `${bl.per_trade_twd}萬` : 'N/A', cls:'neutral' },
+    { label:`距財報 ${tip('觀察清單最近財報')}`,
+      value: earn.days != null ? `${earn.days}天 (${earn.symbol})` : 'N/A',
+      cls: earn.days != null && earn.days <= 14 ? 'neutral' : 'muted' },
+    { label:`距FOMC ${tip('2026年FOMC日期，設定於 config.py')}`,
+      value: fomc.days != null ? `${fomc.days}天` : 'N/A',
+      cls: fomc.days != null && fomc.days <= 7 ? 'neutral' : 'muted' },
   ];
 
   $('risk-panel').innerHTML = items.map(it => `
@@ -603,7 +759,7 @@ function renderRisk(rec) {
     </div>`).join('');
 }
 
-// ── ② 市場溫度 ────────────────────────────────────────────
+// ── ② 市場溫度 ────────────────────────────────────
 function renderMarket(rec) {
   const m   = rec.market || {};
   const env = m.environment || {};
@@ -611,103 +767,88 @@ function renderMarket(rec) {
   const vix = m.vix;
   const tnx = m.tnx;
   const cs  = m.credit_spread;
+  const vc  = m.vix_change, tc = m.tnx_change;
 
-  // FGI 卡片
-  const fgiClr = fgiColor(fgi);
-  const fgiLbl = fgiLabel(fgi);
-
-  // Credit spread 標籤
   function csLabel(v) {
-    if (v === null || v === undefined) return '待設定';
-    if (v < 300)  return '過度樂觀';
-    if (v < 500)  return '正常區間';
-    if (v < 800)  return '機會浮現';
+    if (v == null) return '待設定';
+    if (v < 300)   return '過度樂觀';
+    if (v < 500)   return '正常區間';
+    if (v < 800)   return '機會浮現';
     return '歷史危機';
   }
-  function csColor(v) {
-    if (v === null) return 'var(--muted)';
-    if (v < 300)  return 'var(--red)';
-    if (v < 500)  return 'var(--yellow)';
-    return 'var(--green)';
+  function csClr(v) {
+    if (v == null) return 'var(--color-text-muted)';
+    if (v < 300)   return 'var(--color-danger)';
+    if (v < 500)   return 'var(--color-text-secondary)';
+    return 'var(--color-success)';
   }
+  const vixClr = vix >= 30 ? 'var(--color-danger)'
+               : vix >= 20 ? 'var(--color-warning)'
+               : 'var(--color-success)';
 
-  const vixChange = m.vix_change;
-  const tnxChange = m.tnx_change;
+  const envBadge = {
+    'Risk-On':  '<span class="badge badge-green">Risk-On</span>',
+    'Risk-Off': '<span class="badge badge-red">Risk-Off</span>',
+  }[env.label] || '<span class="badge badge-yellow">Neutral</span>';
 
-  const cards = [
-    // FGI
-    `<div class="card">
-      <div class="card-title">Fear & Greed ${tip('CNN恐貪指數，< 25觸發逢低加碼雷達')}</div>
-      <div class="big-num" style="color:${fgiClr}">${fgi !== null && fgi !== undefined ? fgi : '—'}</div>
-      <div style="margin-top:4px;font-size:13px;color:${fgiClr}">${fgiLbl}</div>
-      <div style="margin-top:8px">
-        <div class="progress-bar">
-          <div class="progress-fill" style="width:${fgi||0}%;background:${fgiClr}"></div>
-        </div>
+  $('market-temp').innerHTML = `
+    <!-- FGI -->
+    <div class="market-card">
+      <div class="card-label">Fear &amp; Greed ${tip('CNN 恐貪指數，< 25 觸發逢低加碼雷達')}</div>
+      ${buildGauge(fgi)}
+    </div>
+    <!-- VIX -->
+    <div class="market-card">
+      <div class="card-label">VIX ${tip('市場恐慌指數，> 30 觸發逢低加碼雷達')}</div>
+      <div class="metric-value" style="color:${vixClr}">${vix ?? '—'}</div>
+      <div class="metric-sub">
+        ${vc != null ? `<span class="${vc >= 0 ? 'negative':'positive'}">${vc >= 0?'↑':'↓'}${Math.abs(vc).toFixed(2)}%</span> 今日變化` : ''}
       </div>
-    </div>`,
-
-    // VIX
-    `<div class="card">
-      <div class="card-title">VIX ${tip('市場恐慌指數，> 30 觸發逢低加碼雷達')}</div>
-      <div class="big-num ${vix >= 30 ? 'red' : vix >= 20 ? 'yellow' : 'green'}">${vix !== null && vix !== undefined ? vix : '—'}</div>
-      <div class="muted" style="margin-top:4px;font-size:13px">
-        今日 <span class="${vixChange >= 0 ? 'red' : 'green'}">${vixChange >= 0 ? '↑' : '↓'}${Math.abs(vixChange||0).toFixed(2)}%</span>
+      <div class="progress-bar" style="margin-top:var(--space-sm)">
+        <div class="progress-fill" style="width:${Math.min((vix||0)/60*100,100)}%;background:${vixClr}"></div>
       </div>
-    </div>`,
-
-    // 美債
-    `<div class="card">
-      <div class="card-title">美債10年 ${tip('10年期美國公債殖利率')}</div>
-      <div class="big-num blue">${tnx !== null && tnx !== undefined ? tnx + '%' : '—'}</div>
-      <div class="muted" style="margin-top:4px;font-size:13px">
-        今日 <span class="${tnxChange >= 0 ? 'red' : 'green'}">${tnxChange >= 0 ? '↑' : '↓'}${Math.abs(tnxChange||0).toFixed(2)}%</span>
+    </div>
+    <!-- 美債 -->
+    <div class="market-card">
+      <div class="card-label">美債10年 ${tip('10年期美國公債殖利率')}</div>
+      <div class="metric-value accent">${tnx != null ? tnx+'%' : '—'}</div>
+      <div class="metric-sub">
+        ${tc != null ? `<span class="${tc >= 0 ? 'negative':'positive'}">${tc >= 0?'↑':'↓'}${Math.abs(tc).toFixed(2)}%</span> 今日變化` : ''}
       </div>
-    </div>`,
-
-    // Credit Spread
-    `<div class="card">
-      <div class="card-title">Credit Spread ${tip('垃圾債HY OAS利差，> 500bps觸發逢低加碼雷達。來源：FRED（需設定API Key）')}</div>
-      <div class="big-num" style="color:${csColor(cs)}">${cs !== null && cs !== undefined ? cs : '—'}</div>
-      <div style="margin-top:4px;font-size:13px;color:${csColor(cs)}">${csLabel(cs)} ${cs !== null && cs !== undefined ? 'bps' : ''}</div>
-    </div>`,
-  ];
-
-  // 環境標籤
-  const envHtml = `
-    <div class="card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
-      <div class="card-title">市場環境</div>
-      <div style="font-size:28px">${env.emoji || '🟡'}</div>
-      <div class="badge ${env.label === 'Risk-On' ? 'badge-green' : env.label === 'Risk-Off' ? 'badge-red' : 'badge-yellow'}" style="font-size:14px">
-        ${env.label || 'Neutral'}
-      </div>
+    </div>
+    <!-- Credit Spread -->
+    <div class="market-card">
+      <div class="card-label">Credit Spread ${tip('垃圾債 HY OAS 利差，> 500bps 觸發加碼雷達。需設定 FRED API Key')}</div>
+      <div class="metric-value" style="color:${csClr(cs)}">${cs ?? '—'}</div>
+      <div class="metric-sub" style="color:${csClr(cs)}">${cs != null ? 'bps — ' : ''}${csLabel(cs)}</div>
+      <div style="margin-top:var(--space-md)">${envBadge}</div>
     </div>`;
-
-  $('market-temp').innerHTML = cards.join('') + envHtml;
 }
 
-// ── ③ 圖表 ───────────────────────────────────────────────
+// ── ③ 圖表 ───────────────────────────────────────
 let charts = {};
 function renderCharts(rec) {
-  const m  = rec.market || {};
+  const m = rec.market || {};
+  const gridClr = 'rgba(0,0,0,.06)';
+  const tickClr = '#A1A1AA';
 
-  function makeChart(canvasId, data, label, color) {
-    if (charts[canvasId]) charts[canvasId].destroy();
-    const ctx = document.getElementById(canvasId);
+  function makeChart(id, data, clr) {
+    if (charts[id]) charts[id].destroy();
+    const ctx = document.getElementById(id);
     if (!ctx) return;
     const pts = (data || []).slice(-30);
-    charts[canvasId] = new Chart(ctx, {
+    charts[id] = new Chart(ctx, {
       type: 'line',
       data: {
         labels: pts.map((p, i) => p.date || i),
         datasets: [{
           data: pts.map(p => typeof p === 'object' ? (p.score ?? p.value) : p),
-          borderColor: color,
-          borderWidth: 2,
+          borderColor: clr,
+          borderWidth: 1.5,
           pointRadius: 0,
           fill: true,
-          backgroundColor: color.replace(')', ',.08)').replace('rgb', 'rgba'),
-          tension: 0.3,
+          backgroundColor: clr.replace('rgb(','rgba(').replace(')',', .06)'),
+          tension: 0.35,
         }]
       },
       options: {
@@ -716,364 +857,312 @@ function renderCharts(rec) {
         plugins: { legend: { display: false } },
         scales: {
           x: { display: false },
-          y: { grid: { color: 'rgba(48,54,61,.5)' }, ticks: { color: '#8B949E', font: { size: 10 } } }
+          y: {
+            grid:  { color: gridClr },
+            ticks: { color: tickClr, font: { size: 10, family: "'DM Mono', monospace" } }
+          }
         }
       }
     });
   }
 
-  // FGI 歷史
-  makeChart('chart-fgi', m.fgi_history, 'FGI', 'rgb(255,140,0)');
-
-  // VIX 歷史（數字陣列 or 帶 history 陣列）
-  const vixHist = (m.vix_history || []).map((v, i) => ({ date: i, score: v }));
-  makeChart('chart-vix', vixHist, 'VIX', 'rgb(255,68,68)');
-
-  // CS 歷史
-  makeChart('chart-cs', m.cs_history, 'CS', 'rgb(88,166,255)');
+  makeChart('chart-fgi', m.fgi_history, 'rgb(234,88,12)');
+  makeChart('chart-vix',
+    (m.vix_history||[]).map((v,i) => ({date:i, score:v})),
+    'rgb(220,38,38)');
+  makeChart('chart-cs', m.cs_history, 'rgb(37,99,235)');
 }
 
-// ── ④ 逢低加碼雷達 ────────────────────────────────────────
+// ── ④ 逢低加碼雷達 ────────────────────────────────
 function renderDipRadar(rec) {
-  const dip      = rec.dip_radar || {};
-  const triggers = dip.triggers || {};
-  const conds    = triggers.conditions || [];
-  const active   = triggers.radar_active;
-  const targets  = dip.dip_targets || [];
+  const dip   = rec.dip_radar || {};
+  const trigs = dip.triggers  || {};
+  const conds = trigs.conditions || [];
+  const active = trigs.radar_active;
+  const targets = dip.dip_targets || [];
 
-  // 觸發條件
-  const condHtml = conds.map(c => {
-    const tipMap = {
-      fgi:           '極度恐慌，歷史上常是好買點，< 25 觸發',
-      vix:           '市場恐慌指數，> 30 代表情緒過度悲觀',
-      credit_spread: '垃圾債利差，> 500bps 才代表市場真正恐慌',
-    };
-    const tipText = tipMap[c.id] || '';
-    return `
-      <div class="condition-item">
-        <div class="cond-indicator ${c.triggered ? 'active' : 'inactive'}"></div>
-        <div>
-          <div class="cond-label">${c.label} ${tip(tipText)}</div>
-          <div class="cond-value">${c.description}</div>
-          <div class="cond-gap ${c.triggered ? 'green' : 'muted'}">${c.tip}</div>
-        </div>
-        <div style="margin-left:auto">
-          ${c.triggered
-            ? '<span class="badge badge-green">✅ 觸發</span>'
-            : '<span class="badge badge-yellow">等待中</span>'}
-        </div>
-      </div>`;
-  }).join('');
+  const tipMap = {
+    fgi:           '極度恐慌，< 25 觸發',
+    vix:           '市場恐慌指數，> 30 觸發',
+    credit_spread: '垃圾債利差，> 500bps 觸發',
+  };
+
+  const condHtml = conds.map(c => `
+    <div class="condition-item">
+      <div class="cond-dot ${c.triggered ? 'active':'inactive'}"></div>
+      <div style="flex:1">
+        <div class="cond-label">${c.label} ${tip(tipMap[c.id]||'')}</div>
+        <div class="cond-desc">${c.description}</div>
+        <div class="cond-status ${c.triggered?'positive':'muted'}">${c.tip}</div>
+      </div>
+      ${c.triggered
+        ? '<span class="badge badge-green">觸發</span>'
+        : '<span class="badge badge-gray">等待中</span>'}
+    </div>`).join('');
 
   $('dip-triggers').innerHTML = `
-    <div class="card-title">觸發條件（三選二）${tip('三個條件中任意兩個成立，逢低加碼雷達啟動')}</div>
+    <div class="card-label">觸發條件（三選二）${tip('三個條件中任意兩個成立，加碼雷達啟動')}</div>
     ${condHtml}
-    <div style="margin-top:14px;padding:10px 14px;border-radius:8px;background:${active ? 'rgba(0,255,148,.08)' : 'var(--bg3)'};border:1px solid ${active ? 'rgba(0,255,148,.3)' : 'var(--border)'}">
-      <span style="font-weight:700;color:${active ? 'var(--green)' : 'var(--muted)'}">
-        ${triggers.summary || '—'}
-      </span>
+    <div class="radar-status ${active ? 'active':'inactive'}">
+      ${trigs.summary || '—'}
     </div>`;
 
-  // 目標股
-  const tgtHtml = targets.map(t => {
-    const p    = t.pyramid;
-    const triggered = p && p.triggered && active;
-    return `
-      <tr>
-        <td><strong>${t.symbol}</strong></td>
-        <td>${t.price ? '$' + t.price.toFixed(2) : 'N/A'}</td>
-        <td class="${t.change_pct >= 0 ? 'green' : 'red'}">${t.change_pct !== null && t.change_pct !== undefined ? (t.change_pct >= 0 ? '+' : '') + t.change_pct.toFixed(2) + '%' : 'N/A'}</td>
-        <td class="${t.rsi14 < 35 ? 'green' : t.rsi14 < 50 ? 'yellow' : 'muted'}">${t.rsi14 !== null && t.rsi14 !== undefined ? t.rsi14 : 'N/A'}</td>
-        <td class="${t.vol_ratio >= 1.5 ? 'green' : 'muted'}">${t.vol_ratio !== null && t.vol_ratio !== undefined ? t.vol_ratio + 'x' : 'N/A'}</td>
-        <td>
-          ${triggered
-            ? `<span class="badge badge-green">⚡ ${p.levels[p.levels.length-1]?.label || '觸發'}</span>`
-            : `<span class="muted" style="font-size:12px">${t.action}</span>`}
-        </td>
-      </tr>`;
+  // 目標股表格
+  const rows = targets.map(t => {
+    const hit = t.pyramid && t.pyramid.triggered && active;
+    const chgClr = (t.change_pct||0) >= 0 ? 'positive':'negative';
+    const rsiClr = t.rsi14 < 35 ? 'positive' : t.rsi14 > 70 ? 'negative' : 'muted';
+    return `<tr>
+      <td style="font-weight:600">${t.symbol}</td>
+      <td>$${t.price ? t.price.toFixed(2) : '—'}</td>
+      <td class="${chgClr}">${t.change_pct != null ? (t.change_pct >= 0 ?'+':'')+t.change_pct.toFixed(2)+'%' : '—'}</td>
+      <td class="${rsiClr}">${t.rsi14 ?? '—'}</td>
+      <td class="${(t.vol_ratio||0) >= 1.5 ? 'positive':'muted'}">${t.vol_ratio != null ? t.vol_ratio+'x' : '—'}</td>
+      <td>${hit
+        ? `<span class="badge badge-green">${t.pyramid.levels.slice(-1)[0]?.label||'觸發'}</span>`
+        : `<span class="muted" style="font-size:12px">${t.action}</span>`}</td>
+    </tr>`;
   }).join('');
 
   $('dip-targets').innerHTML = `
-    <div class="card-title">逢低加碼目標股掃描</div>
+    <div class="card-label">目標股掃描</div>
     <table>
-      <thead>
-        <tr><th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th><th>狀態</th></tr>
-      </thead>
-      <tbody>${tgtHtml || '<tr><td colspan="6" class="no-signal">—</td></tr>'}</tbody>
+      <thead><tr><th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th><th>狀態</th></tr></thead>
+      <tbody>${rows || '<tr><td colspan="6" class="no-signal">—</td></tr>'}</tbody>
     </table>`;
 }
 
-// ── ⑤ 波段機會掃描 ───────────────────────────────────────
+// ── ⑤ 波段機會掃描 ───────────────────────────────
 function renderSwing(rec) {
   const sw   = rec.swing || {};
   const nvda = sw.nvda_special || {};
   const list = sw.swing_results || [];
+  const nh   = nvda.holding || {};
 
-  // NVDA 特殊
-  const nh = nvda.holding || {};
-  const lights = [
-    { name: '巴菲特燈', data: nvda.buffett || {}, tip: '護城河穩固 + FCF為正 + 毛利率未惡化' },
-    { name: '馬克斯燈', data: nvda.marks   || {}, tip: '本益比低於10年均值15%以上 + 市場情緒偏恐懼' },
-    { name: '技術燈',   data: nvda.tech    || {}, tip: 'RSI < 35 開始往上 + 成交量放大1.5倍' },
-  ];
-  const nvdaLights = lights.map(l => {
-    const cls = l.data.status === 'green' ? 'light-green' : l.data.status === 'yellow' ? 'light-yellow' : 'light-red';
-    return `<div style="display:flex;align-items:flex-start;gap:8px;padding:8px 0">
-      <span class="light ${cls}"></span>
+  const lightRow = (l, name, tipText) => {
+    const cls = l.status==='green' ? 'light-green' : l.status==='yellow' ? 'light-yellow' : 'light-red';
+    return `<div style="display:flex;align-items:flex-start;gap:var(--space-sm);padding:6px 0;border-bottom:1px solid var(--color-border)">
+      <span class="light ${cls}" style="margin-top:4px"></span>
       <div>
-        <span style="font-weight:600">${l.name}</span> ${tip(l.tip)}
-        <div class="muted" style="font-size:12px">${l.data.label || ''}</div>
-        <div style="font-size:12px;color:var(--muted)">${l.data.reason || ''}</div>
+        <span style="font-weight:600;font-size:13px">${name}</span> ${tip(tipText)}
+        <div style="font-size:12px;color:var(--color-text-muted);margin-top:2px">${l.reason||l.label||''}</div>
       </div>
     </div>`;
-  }).join('');
+  };
 
   $('nvda-special').innerHTML = `
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap">
-      <strong style="font-size:16px">NVDA</strong>
+    <div style="display:flex;align-items:center;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-md)">
+      <span style="font-family:var(--font-mono);font-weight:500;font-size:16px">NVDA</span>
       <span class="badge badge-blue">持股</span>
-      <span class="${nh.pct_from_cost >= 0 ? 'green' : 'red'}" style="font-size:14px">
-        ${nh.label || 'N/A'}
-      </span>
-      <span class="muted">（成本 $${nh.cost || 'N/A'} → 現價 $${nh.price || 'N/A'}）</span>
-      ${nvda.all_green ? '<span class="badge badge-green">🏆 三燈全綠</span>' : `<span class="badge badge-yellow">${nvda.green_count || 0}/3 燈</span>`}
+      <span class="${(nh.pct_from_cost||0) >= 0 ? 'positive':'negative'}" style="font-size:14px;font-family:var(--font-mono)">${nh.label||'N/A'}</span>
+      <span class="muted" style="font-size:12px">成本 $${nh.cost||'—'} → 現價 $${nh.price||'—'}</span>
+      ${nvda.all_green
+        ? '<span class="badge badge-green">三燈全綠</span>'
+        : `<span class="badge badge-gray">${nvda.green_count||0}/3 燈</span>`}
     </div>
-    <div class="grid-3">${nvdaLights}</div>
-    <div class="muted" style="font-size:12px;margin-top:10px">
-      ⓘ 出場提醒：漲回合理估值（馬克斯說不再便宜）或持有滿6個月重新評估
+    <div class="grid-3">
+      <div>${lightRow(nvda.buffett||{}, '巴菲特燈', '護城河 + FCF + 毛利率')}</div>
+      <div>${lightRow(nvda.marks  ||{}, '馬克斯燈', 'PE低於10年均值15%')}</div>
+      <div>${lightRow(nvda.tech   ||{}, '技術燈',   'RSI<35 + 量能放大1.5x')}</div>
+    </div>
+    <div class="muted" style="font-size:12px;margin-top:var(--space-sm)">
+      出場提醒：漲回合理估值或持有滿6個月重新評估
     </div>`;
 
-  // 波段列表
-  const swHtml = list.map(item => {
-    const lights3 = [item.buffett, item.marks, item.tech].map((l, i) => {
-      const names  = ['巴菲特', '馬克斯', '技術'];
-      const tips3  = [
-        '護城河穩固 + FCF為正 + 毛利率未惡化',
-        '本益比低於10年均值15%以上',
-        'RSI < 35 + 成交量放大1.5倍',
-      ];
-      const cls = l.status === 'green' ? 'light-green' : l.status === 'yellow' ? 'light-yellow' : 'light-red';
-      return `<div style="font-size:12px;display:flex;align-items:center;gap:4px">
-        <span class="light ${cls}"></span>
-        <span>${names[i]} ${tip(tips3[i])}</span>
+  const swHtml = list.map((item, idx) => {
+    const lamps = [
+      { d: item.buffett, name:'巴菲特', tip:'護城河穩固 + FCF 為正 + 毛利率未惡化' },
+      { d: item.marks,   name:'馬克斯', tip:'PE 低於10年均值15%以上' },
+      { d: item.tech,    name:'技術',   tip:'RSI < 35 + 成交量放大1.5倍' },
+    ].map(l => {
+      const cls = l.d.status==='green' ? 'light-green' : l.d.status==='yellow' ? 'light-yellow' : 'light-red';
+      return `<div style="display:flex;align-items:center;gap:4px;font-size:12px">
+        <span class="light ${cls}"></span>${l.name} ${tip(l.tip)}
       </div>`;
     }).join('');
 
-    return `
-      <div class="card" style="margin-bottom:12px;${item.all_green ? 'border-color:rgba(0,255,148,.4)' : ''}">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
-          <strong style="font-size:15px">${item.symbol}</strong>
-          ${item.all_green ? '<span class="badge badge-green">🏆 今日最強訊號</span>' : ''}
-          <span class="muted">${item.price ? '$' + item.price.toFixed(2) : 'N/A'}</span>
-          <span class="${(item.change_pct||0) >= 0 ? 'green' : 'red'}">${item.change_pct !== null && item.change_pct !== undefined ? (item.change_pct >= 0 ? '+' : '') + item.change_pct.toFixed(2) + '%' : ''}</span>
-        </div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap">${lights3}</div>
-        <div style="margin-top:8px;display:grid;gap:4px">
-          ${[item.buffett, item.marks, item.tech].map(l =>
-            `<div style="font-size:12px;color:var(--muted)">${l.reason || ''}</div>`
-          ).join('')}
-        </div>
-      </div>`;
+    return `<div class="card" style="margin-bottom:var(--space-sm);animation-delay:${idx*.06}s;${item.all_green?'border-color:#BBF7D0;border-left:4px solid var(--color-success)':''}">
+      <div style="display:flex;align-items:center;gap:var(--space-sm);flex-wrap:wrap;margin-bottom:var(--space-sm)">
+        <span style="font-family:var(--font-mono);font-weight:500;font-size:15px">${item.symbol}</span>
+        ${item.all_green ? '<span class="badge badge-green">今日最強訊號</span>' : ''}
+        <span class="muted" style="font-size:13px">$${item.price ? item.price.toFixed(2) : '—'}</span>
+        <span class="${(item.change_pct||0)>=0?'positive':'negative'}" style="font-size:13px">${item.change_pct!=null?(item.change_pct>=0?'+':'')+item.change_pct.toFixed(2)+'%':''}</span>
+        <span class="badge badge-gray" style="margin-left:auto">${item.green_count}/3 燈</span>
+      </div>
+      <div style="display:flex;gap:var(--space-lg);flex-wrap:wrap">${lamps}</div>
+      <div style="margin-top:var(--space-sm);display:grid;gap:2px">
+        ${[item.buffett, item.marks, item.tech].map(l =>
+          `<div style="font-size:12px;color:var(--color-text-muted)">${l.reason||''}</div>`
+        ).join('')}
+      </div>
+    </div>`;
   }).join('');
 
   $('swing-list').innerHTML = swHtml || '<div class="no-signal">無波段掃描數據</div>';
 }
 
-// ── ⑥ 動態掃描 ────────────────────────────────────────────
+// ── ⑥ 動態掃描 ────────────────────────────────────
 function renderDynamic(rec) {
   const dyn = rec.dynamic || {};
   const results = dyn.results || [];
 
   if (!results.length) {
     $('dynamic-scan').innerHTML = `
-      <div class="card-title">S&P100 動態掃描 ${tip('五條件全部符合才出現：市值>500億、PE折扣20%、RSI<35、量能放大1.5倍、FCF為正')}</div>
-      <div class="no-signal">
-        ${dyn.summary || '今日無訊號，繼續等待是最好的策略'}<br>
-        <span class="muted" style="font-size:12px">掃描 ${dyn.scanned || 0} 檔，命中 0 檔</span>
+      <div class="card-label">S&amp;P100 動態掃描 ${tip('五條件全符合：市值>500億、PE折扣20%、RSI<35、量能1.5x、FCF>0')}</div>
+      <div class="no-signal">${dyn.summary||'今日無訊號，繼續等待是最好的策略'}<br>
+        <span class="muted" style="font-size:12px">掃描 ${dyn.scanned||0} 檔，命中 0 檔</span>
       </div>`;
     return;
   }
 
   const rows = results.map(r => `
     <tr>
-      <td><strong>${r.symbol}</strong></td>
-      <td>${r.price ? '$' + r.price.toFixed(2) : 'N/A'}</td>
-      <td>${r.market_cap_b ? r.market_cap_b + 'B' : 'N/A'}</td>
-      <td class="green">${r.pe_now} vs ${r.pe_mean_5y} <span class="badge badge-green">折扣${r.pe_discount}%</span></td>
-      <td class="green">RSI ${r.rsi14}</td>
-      <td class="green">${r.vol_ratio}x 放量</td>
-      <td class="green">FCF $${r.fcf_b}B</td>
+      <td style="font-weight:600">${r.symbol}</td>
+      <td>$${r.price ? r.price.toFixed(2) : '—'}</td>
+      <td>${r.market_cap_b ? r.market_cap_b+'B' : '—'}</td>
+      <td><span class="positive">${r.pe_now}</span> <span class="muted">/ ${r.pe_mean_5y}</span>
+        <span class="badge badge-green" style="margin-left:4px">-${r.pe_discount}%</span></td>
+      <td class="positive">${r.rsi14}</td>
+      <td class="positive">${r.vol_ratio}x</td>
     </tr>`).join('');
 
   $('dynamic-scan').innerHTML = `
-    <div class="card-title">S&P100 動態掃描 — 今日 ${results.length} 個訊號</div>
-    <div class="muted" style="font-size:12px;margin-bottom:10px">
-      ⚠️ 動態掃描出現的股票需使用者自行研究後手動加入 config.py
-    </div>
+    <div class="card-label" style="margin-bottom:var(--space-sm)">今日命中 ${results.length} 檔</div>
+    <div class="muted" style="font-size:12px;margin-bottom:var(--space-md)">動態掃描標的需自行研究後手動加入 config.py</div>
     <table>
-      <thead><tr><th>標的</th><th>現價</th><th>市值</th><th>PE（10年折扣）</th><th>RSI</th><th>量能</th><th>FCF</th></tr></thead>
+      <thead><tr><th>標的</th><th>現價</th><th>市值</th><th>PE（5年折扣）</th><th>RSI</th><th>量能</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
 }
 
-// ── ⑦ 三腦會議 ────────────────────────────────────────────
+// ── ⑦ 三腦會議 ────────────────────────────────────
 function renderAgents(rec) {
-  const agents = rec.agents || {};
+  const agents  = rec.agents || {};
   const analyst = agents.analyst || {};
   const buffett = agents.buffett || {};
   const marks   = agents.marks   || {};
   const diverge = agents.divergence || {};
-  const pendulum = marks.pendulum || {};
+  const pendulum = marks.pendulum  || {};
 
-  // 分歧橫幅
-  if (diverge.has_divergence) {
-    $('divergence-banner').innerHTML = `
-      <div class="warning-banner" style="background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.3);color:var(--yellow);margin-bottom:12px">
-        ${diverge.label}
-      </div>`;
-  } else {
-    $('divergence-banner').innerHTML = '';
-  }
+  $('divergence-banner').innerHTML = diverge.has_divergence ? `
+    <div class="divergence-banner">${diverge.label}</div>` : '';
 
-  // 取所有股票清單
-  const allSyms = new Set([
-    ...Object.keys(analyst.per_stock || {}),
-    ...Object.keys(buffett.per_stock || {}),
-    ...Object.keys(marks.per_stock   || {}),
-  ]);
+  const allSyms = [...new Set([
+    ...Object.keys(analyst.per_stock||{}),
+    ...Object.keys(buffett.per_stock||{}),
+    ...Object.keys(marks.per_stock  ||{}),
+  ])];
 
-  function stockRows(ps) {
-    return [...allSyms].map(sym => {
-      const d = (ps || {})[sym] || {};
+  function agentRows(ps) {
+    return allSyms.map(sym => {
+      const d = (ps||{})[sym] || {};
       if (!d.status) return '';
-      return `<div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(48,54,61,.4)">
-        <span>${d.status}</span>
-        <div>
-          <span style="font-weight:600">${sym}</span>
-          <div style="font-size:12px;color:var(--muted)">${d.reason || d.label || ''}</div>
-        </div>
+      return `<div class="agent-row">
+        <span class="agent-sym">${d.status} ${sym}</span>
+        <span class="agent-rsn">${d.reason||d.label||''}</span>
       </div>`;
     }).join('');
   }
 
-  // 市場鐘擺
-  const pendulumScore = (() => {
-    const lbl = pendulum.label || '';
-    if (lbl.includes('貪婪')) return 85;
-    if (lbl.includes('偏貪')) return 65;
-    if (lbl.includes('中性')) return 50;
-    if (lbl.includes('偏恐')) return 35;
-    if (lbl.includes('恐懼')) return 15;
-    return 50;
-  })();
+  const pendScore = {
+    '恐懼端':15, '偏恐懼':35, '中性':50, '偏貪婪':65, '貪婪端':85
+  }[pendulum.label] || 50;
 
-  $('agents-panel').innerHTML = `
-    <!-- 策略分析師 -->
-    <div class="card">
-      <div class="agent-header agent-analyst">
-        <div class="agent-name blue">📊 策略分析師</div>
-        <div class="agent-role">時機判斷者 — 只看技術面</div>
-      </div>
-      ${stockRows(analyst.per_stock)}
-      <div class="muted" style="font-size:11px;margin-top:8px">來源：${analyst.source || '—'}</div>
-    </div>
-
-    <!-- 巴菲特 -->
-    <div class="card">
-      <div class="agent-header agent-buffett">
-        <div class="agent-name green">🏛️ 巴菲特大腦</div>
-        <div class="agent-role">企業本質鑑定者 — 只看基本面</div>
-      </div>
-      ${stockRows(buffett.per_stock)}
-      <div class="muted" style="font-size:11px;margin-top:8px">來源：${buffett.source || '—'}</div>
-    </div>
-
-    <!-- 霍華馬克斯 -->
-    <div class="card">
-      <div class="agent-header agent-marks">
-        <div class="agent-name yellow">⚖️ 霍華馬克斯</div>
-        <div class="agent-role">風險週期評估者</div>
-      </div>
-      <div style="margin-bottom:12px">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:4px">市場鐘擺</div>
-        <div class="pendulum-bar">
-          <div class="pendulum-marker" style="left:${pendulumScore}%"></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted)">
+  const agents3 = [
+    { avatar:'S', cls:'avatar-S', name:'策略分析師', role:'時機判斷者 — 只看技術面',    ps: analyst.per_stock, src: analyst.source, extra:'' },
+    { avatar:'B', cls:'avatar-B', name:'巴菲特大腦', role:'企業本質鑑定者 — 只看基本面', ps: buffett.per_stock, src: buffett.source, extra:'' },
+    { avatar:'H', cls:'avatar-H', name:'霍華馬克斯', role:'風險週期評估者',              ps: marks.per_stock,   src: marks.source,
+      extra: `<div style="margin-bottom:var(--space-md)">
+        <div style="font-size:11px;color:var(--color-text-muted);margin-bottom:4px">市場鐘擺</div>
+        <div class="pendulum-bar"><div class="pendulum-marker" style="left:${pendScore}%"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--color-text-muted);margin-top:2px">
           <span>恐懼</span><span>中性</span><span>貪婪</span>
         </div>
-        <div style="margin-top:6px;font-weight:600">${pendulum.emoji || '🟡'} ${pendulum.label || 'N/A'}</div>
-        <div style="font-size:12px;color:var(--muted)">${pendulum.detail || ''}</div>
-      </div>
-      ${stockRows(marks.per_stock)}
-      <div class="muted" style="font-size:11px;margin-top:8px">來源：${marks.source || '—'}</div>
-    </div>`;
+        <div style="font-weight:600;margin-top:var(--space-sm)">${pendulum.emoji||''} ${pendulum.label||'N/A'}</div>
+        <div style="font-size:12px;color:var(--color-text-muted)">${pendulum.detail||''}</div>
+      </div>` }
+  ];
 
-  // 共識條
-  const cPct = diverge.consensus_pct || 0;
-  $('consensus-bar').innerHTML = `
-    <div class="card-title">三腦共識程度</div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="progress-bar" style="flex:1">
-        <div class="progress-fill" style="width:${cPct}%;background:${cPct >= 70 ? 'var(--green)' : cPct >= 40 ? 'var(--yellow)' : 'var(--red)'}"></div>
+  $('agents-panel').innerHTML = agents3.map((ag, idx) => `
+    <div class="card" style="animation-delay:${idx*.08}s">
+      <div style="display:flex;align-items:center;gap:var(--space-md);margin-bottom:var(--space-md)">
+        <div class="agent-avatar ${ag.cls}">${ag.avatar}</div>
+        <div>
+          <div style="font-weight:600;font-size:14px">${ag.name}</div>
+          <div style="font-size:11px;color:var(--color-text-muted)">${ag.role}</div>
+        </div>
       </div>
-      <span style="font-weight:700;font-size:16px">${cPct}%</span>
-      <span class="badge ${cPct >= 70 ? 'badge-green' : cPct >= 40 ? 'badge-yellow' : 'badge-red'}">${diverge.label || '—'}</span>
+      ${ag.extra}
+      ${agentRows(ag.ps)}
+      <div class="muted" style="font-size:11px;margin-top:var(--space-sm)">來源：${ag.src||'—'}</div>
+    </div>`).join('');
+
+  const cPct = diverge.consensus_pct || 0;
+  const cClr = cPct >= 70 ? 'var(--color-success)' : cPct >= 40 ? 'var(--color-warning)' : 'var(--color-danger)';
+  $('consensus-bar').innerHTML = `
+    <div class="card-label" style="margin-bottom:var(--space-md)">三腦共識程度</div>
+    <div class="consensus-wrap">
+      <div class="consensus-bar-track">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${cPct}%;background:${cClr}"></div>
+        </div>
+      </div>
+      <span style="font-family:var(--font-mono);font-weight:500;font-size:18px">${cPct}%</span>
+      <span class="badge ${cPct>=70?'badge-green':cPct>=40?'badge-yellow':'badge-red'}">${diverge.label||'—'}</span>
     </div>`;
 }
 
-// ── ⑧ 風險預警表 ──────────────────────────────────────────
+// ── ⑧ 風險預警 ────────────────────────────────────
 function renderRiskTable(rec) {
   const stocks = rec.stocks || {};
-
   const rows = Object.entries(stocks).map(([sym, s]) => {
-    const newsHtml = (s.news || []).map(n =>
-      `<a href="${n.url}" target="_blank" style="font-size:11px;display:block;color:var(--muted)">${n.title || '—'}</a>`
+    const chgClr = (s.change_pct||0) >= 0 ? 'positive':'negative';
+    const rsiClr = s.rsi14 < 35 ? 'positive' : s.rsi14 > 70 ? 'negative' : 'muted';
+    const maClr  = (s.pct_from_ma200||0) < -10 ? 'positive' : (s.pct_from_ma200||0) > 10 ? 'negative' : 'muted';
+    const rowCls = s.rsi14 < 30 || (s.pct_from_ma200||0) < -20
+      ? 'risk-row-low'
+      : s.rsi14 > 70 || (s.pct_from_ma200||0) > 20
+      ? 'risk-row-high'
+      : 'risk-row-medium';
+    const news = (s.news||[]).map(n =>
+      `<a href="${n.url}" target="_blank" rel="noopener" style="font-size:11px;display:block;color:var(--color-accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px">${n.title||'—'}</a>`
     ).join('');
-
-    const rsiCls   = s.rsi14 < 35 ? 'green' : s.rsi14 > 70 ? 'red' : 'muted';
-    const changeCls = (s.change_pct || 0) >= 0 ? 'green' : 'red';
-
-    return `<tr>
-      <td><strong>${sym}</strong></td>
-      <td>${s.price ? '$' + s.price.toFixed(2) : 'N/A'}</td>
-      <td class="${changeCls}">${s.change_pct !== null && s.change_pct !== undefined ? (s.change_pct >= 0 ? '+' : '') + s.change_pct.toFixed(2) + '%' : 'N/A'}</td>
-      <td class="${rsiCls}">${s.rsi14 !== null && s.rsi14 !== undefined ? s.rsi14 : 'N/A'}</td>
-      <td>${s.vol_ratio !== null && s.vol_ratio !== undefined ? s.vol_ratio + 'x' : 'N/A'}</td>
-      <td class="${(s.pct_from_ma200 || 0) < -10 ? 'green' : (s.pct_from_ma200 || 0) > 10 ? 'red' : 'muted'}">${s.pct_from_ma200 !== null && s.pct_from_ma200 !== undefined ? (s.pct_from_ma200 >= 0 ? '+' : '') + s.pct_from_ma200.toFixed(1) + '%' : 'N/A'}</td>
-      <td>${s.pe_trailing !== null && s.pe_trailing !== undefined ? s.pe_trailing.toFixed(1) : 'N/A'}</td>
-      <td>${s.pe_mean_10y !== null && s.pe_mean_10y !== undefined ? s.pe_mean_10y : 'N/A'}</td>
-      <td>${s.fcf_yield !== null && s.fcf_yield !== undefined ? s.fcf_yield.toFixed(2) + '%' : 'N/A'}</td>
-      <td style="max-width:220px">${newsHtml || '<span class="muted">—</span>'}</td>
+    return `<tr class="${rowCls}">
+      <td style="font-weight:600;font-family:var(--font-mono)">${sym}</td>
+      <td>$${s.price ? s.price.toFixed(2) : '—'}</td>
+      <td class="${chgClr}">${s.change_pct!=null?(s.change_pct>=0?'+':'')+s.change_pct.toFixed(2)+'%':'—'}</td>
+      <td class="${rsiClr}">${s.rsi14??'—'}</td>
+      <td class="${(s.vol_ratio||0)>=1.5?'positive':'muted'}">${s.vol_ratio!=null?s.vol_ratio+'x':'—'}</td>
+      <td class="${maClr}">${s.pct_from_ma200!=null?(s.pct_from_ma200>=0?'+':'')+s.pct_from_ma200.toFixed(1)+'%':'—'}</td>
+      <td class="muted">${s.pe_trailing!=null?s.pe_trailing.toFixed(1):'—'}</td>
+      <td class="muted">${s.pe_mean_10y??'—'}</td>
+      <td class="muted">${s.fcf_yield!=null?s.fcf_yield.toFixed(2)+'%':'—'}</td>
+      <td>${news||'<span class="muted">—</span>'}</td>
     </tr>`;
   }).join('');
 
   $('risk-table').innerHTML = `
     <table>
       <thead>
-        <tr>
-          <th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th>
-          <th>偏MA200</th><th>PE</th><th>10年均PE</th><th>FCF殖利率</th><th>最新新聞</th>
-        </tr>
+        <tr><th>標的</th><th>現價</th><th>今日</th><th>RSI</th><th>量能</th><th>偏MA200</th><th>PE</th><th>10年均PE</th><th>FCF殖利率</th><th>最新新聞</th></tr>
       </thead>
-      <tbody>${rows || '<tr><td colspan="10" class="no-signal">—</td></tr>'}</tbody>
+      <tbody>${rows||'<tr><td colspan="10" class="no-signal">—</td></tr>'}</tbody>
     </table>`;
 }
 
-// ── ⑨ 今日總結 ────────────────────────────────────────────
+// ── ⑨ 今日總結 ────────────────────────────────────
 function renderSummary(rec) {
   const sum = rec.summary || '—';
   const ts  = rec.timestamp
-    ? new Date(rec.timestamp).toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'})
+    ? new Date(rec.timestamp).toLocaleString('zh-TW', {timeZone:'Asia/Taipei'})
     : '';
-
   $('daily-summary').innerHTML = `
-    <div class="card-title green">今日操作總結</div>
-    <p style="font-size:15px;line-height:1.8">${sum}</p>
-    ${ts ? `<div class="muted" style="font-size:12px;margin-top:10px">分析時間：${ts}（台灣時間）</div>` : ''}`;
+    <div class="card-label" style="color:var(--color-accent)">今日操作總結</div>
+    <p style="font-size:15px;line-height:1.8;margin-top:var(--space-sm)">${sum}</p>
+    ${ts ? `<div class="muted" style="font-size:12px;margin-top:var(--space-md)">分析時間：${ts}（台灣時間）</div>` : ''}`;
 }
 
-// ── 初始化 ────────────────────────────────────────────────
+// ── Init ──────────────────────────────────────────
 loadData();
 </script>
 </body>
