@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import config
-from calculate import compute_rsi  # noqa: shared utility
+from .calculate import compute_rsi  # noqa: shared utility
 
 
 def safe_float(val, default=None):

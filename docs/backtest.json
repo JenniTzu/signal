@@ -1,0 +1,975 @@
+{
+  "generated": "2026-04-13",
+  "parameters": {
+    "signal_a_52w_drop": -20.0,
+    "signal_a_pe_discount": 15.0,
+    "signal_b_ma200_drop": -15.0,
+    "signal_b_vol_mult": 1.5,
+    "holding_periods": [
+      30,
+      60,
+      90
+    ]
+  },
+  "results": {
+    "QQQ": {
+      "symbol": "QQQ",
+      "is_etf": true,
+      "pe_mean_10y": null,
+      "fcf_positive": null,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20%（無PE條件）",
+        "trigger_count": 13,
+        "last_triggers": [
+          "2022-11-25",
+          "2022-12-27",
+          "2023-01-26",
+          "2023-02-27",
+          "2025-04-04"
+        ],
+        "stats": {
+          "30": {
+            "count": 13,
+            "win_rate": 38.5,
+            "avg_gain": 11.2,
+            "avg_loss": -3.9,
+            "profit_factor": 1.79,
+            "expected_value": 1.9,
+            "worst_drawdown": -13.2
+          },
+          "60": {
+            "count": 13,
+            "win_rate": 53.8,
+            "avg_gain": 11.8,
+            "avg_loss": -5.4,
+            "profit_factor": 2.55,
+            "expected_value": 3.88,
+            "worst_drawdown": -15.1
+          },
+          "90": {
+            "count": 13,
+            "win_rate": 53.8,
+            "avg_gain": 19.6,
+            "avg_loss": -7.5,
+            "profit_factor": 3.04,
+            "expected_value": 7.08,
+            "worst_drawdown": -15.1
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 2,
+        "last_triggers": [
+          "2022-05-06",
+          "2025-04-08"
+        ],
+        "stats": {
+          "30": {
+            "count": 2,
+            "win_rate": 50.0,
+            "avg_gain": 23.3,
+            "avg_loss": -8.9,
+            "profit_factor": 2.61,
+            "expected_value": 7.19,
+            "worst_drawdown": -12.2
+          },
+          "60": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 18.7,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 18.72,
+            "worst_drawdown": -12.2
+          },
+          "90": {
+            "count": 2,
+            "win_rate": 50.0,
+            "avg_gain": 38.9,
+            "avg_loss": -5.7,
+            "profit_factor": 6.83,
+            "expected_value": 16.59,
+            "worst_drawdown": -12.2
+          }
+        }
+      }
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "is_etf": false,
+      "pe_mean_10y": 11.3,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於11的15%",
+        "trigger_count": 14,
+        "last_triggers": [
+          "2022-10-17",
+          "2022-11-16",
+          "2022-12-16",
+          "2023-01-17",
+          "2023-02-16"
+        ],
+        "stats": {
+          "30": {
+            "count": 14,
+            "win_rate": 50.0,
+            "avg_gain": 21.7,
+            "avg_loss": -15.0,
+            "profit_factor": 1.45,
+            "expected_value": 3.34,
+            "worst_drawdown": -33.3
+          },
+          "60": {
+            "count": 14,
+            "win_rate": 50.0,
+            "avg_gain": 37.7,
+            "avg_loss": -24.9,
+            "profit_factor": 1.51,
+            "expected_value": 6.38,
+            "worst_drawdown": -38.8
+          },
+          "90": {
+            "count": 14,
+            "win_rate": 42.9,
+            "avg_gain": 81.1,
+            "avg_loss": -22.2,
+            "profit_factor": 2.74,
+            "expected_value": 22.08,
+            "worst_drawdown": -41.4
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 1,
+        "last_triggers": [
+          "2025-04-10"
+        ],
+        "stats": {
+          "30": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 22.1,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 22.05,
+            "worst_drawdown": -9.9
+          },
+          "60": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 51.4,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 51.43,
+            "worst_drawdown": -9.9
+          },
+          "90": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 63.1,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 63.07,
+            "worst_drawdown": -9.9
+          }
+        }
+      }
+    },
+    "SMH": {
+      "symbol": "SMH",
+      "is_etf": true,
+      "pe_mean_10y": null,
+      "fcf_positive": null,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20%（無PE條件）",
+        "trigger_count": 16,
+        "last_triggers": [
+          "2024-08-02",
+          "2024-09-04",
+          "2025-03-03",
+          "2025-04-03",
+          "2025-05-05"
+        ],
+        "stats": {
+          "30": {
+            "count": 16,
+            "win_rate": 62.5,
+            "avg_gain": 12.4,
+            "avg_loss": -10.0,
+            "profit_factor": 2.08,
+            "expected_value": 4.04,
+            "worst_drawdown": -19.3
+          },
+          "60": {
+            "count": 16,
+            "win_rate": 68.8,
+            "avg_gain": 17.9,
+            "avg_loss": -12.8,
+            "profit_factor": 3.08,
+            "expected_value": 8.32,
+            "worst_drawdown": -27.7
+          },
+          "90": {
+            "count": 16,
+            "win_rate": 68.8,
+            "avg_gain": 23.6,
+            "avg_loss": -11.4,
+            "profit_factor": 4.54,
+            "expected_value": 12.66,
+            "worst_drawdown": -27.7
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 2,
+        "last_triggers": [
+          "2022-10-13",
+          "2025-04-04"
+        ],
+        "stats": {
+          "30": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 29.2,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 29.2,
+            "worst_drawdown": -4.3
+          },
+          "60": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 39.0,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 39.04,
+            "worst_drawdown": -4.3
+          },
+          "90": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 51.3,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 51.31,
+            "worst_drawdown": -4.3
+          }
+        }
+      }
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "is_etf": false,
+      "pe_mean_10y": 9.9,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於10的15%",
+        "trigger_count": 4,
+        "last_triggers": [
+          "2022-11-01",
+          "2022-12-15",
+          "2023-01-17",
+          "2023-02-21"
+        ],
+        "stats": {
+          "30": {
+            "count": 4,
+            "win_rate": 75.0,
+            "avg_gain": 9.3,
+            "avg_loss": -1.0,
+            "profit_factor": 27.4,
+            "expected_value": 6.73,
+            "worst_drawdown": -7.8
+          },
+          "60": {
+            "count": 4,
+            "win_rate": 100.0,
+            "avg_gain": 15.6,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 15.56,
+            "worst_drawdown": -7.8
+          },
+          "90": {
+            "count": 4,
+            "win_rate": 100.0,
+            "avg_gain": 22.0,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 21.99,
+            "worst_drawdown": -7.8
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 3,
+        "last_triggers": [
+          "2022-04-27",
+          "2022-10-26",
+          "2025-04-08"
+        ],
+        "stats": {
+          "30": {
+            "count": 3,
+            "win_rate": 66.7,
+            "avg_gain": 8.5,
+            "avg_loss": -1.3,
+            "profit_factor": 13.15,
+            "expected_value": 5.22,
+            "worst_drawdown": -12.1
+          },
+          "60": {
+            "count": 3,
+            "win_rate": 66.7,
+            "avg_gain": 12.6,
+            "avg_loss": -5.9,
+            "profit_factor": 4.25,
+            "expected_value": 6.43,
+            "worst_drawdown": -12.1
+          },
+          "90": {
+            "count": 3,
+            "win_rate": 33.3,
+            "avg_gain": 40.8,
+            "avg_loss": -3.6,
+            "profit_factor": 5.61,
+            "expected_value": 11.18,
+            "worst_drawdown": -12.1
+          }
+        }
+      }
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "is_etf": false,
+      "pe_mean_10y": 14.5,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於14的15%",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 2,
+        "last_triggers": [
+          "2022-10-27",
+          "2026-02-03"
+        ],
+        "stats": {
+          "30": {
+            "count": 2,
+            "win_rate": 50.0,
+            "avg_gain": 8.5,
+            "avg_loss": -4.5,
+            "profit_factor": 1.89,
+            "expected_value": 2.01,
+            "worst_drawdown": -6.3
+          },
+          "60": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 6.4,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 6.41,
+            "worst_drawdown": -5.5
+          },
+          "90": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 11.9,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 11.87,
+            "worst_drawdown": -5.5
+          }
+        }
+      }
+    },
+    "V": {
+      "symbol": "V",
+      "is_etf": false,
+      "pe_mean_10y": 18.5,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於18的15%",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      }
+    },
+    "BRK-B": {
+      "symbol": "BRK-B",
+      "is_etf": false,
+      "pe_mean_10y": 9.3,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於9的15%",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      }
+    },
+    "VTI": {
+      "symbol": "VTI",
+      "is_etf": true,
+      "pe_mean_10y": null,
+      "fcf_positive": null,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20%（無PE條件）",
+        "trigger_count": 5,
+        "last_triggers": [
+          "2022-06-13",
+          "2022-07-13",
+          "2022-09-21",
+          "2022-10-21",
+          "2022-12-19"
+        ],
+        "stats": {
+          "30": {
+            "count": 5,
+            "win_rate": 80.0,
+            "avg_gain": 8.6,
+            "avg_loss": -0.7,
+            "profit_factor": 51.33,
+            "expected_value": 6.74,
+            "worst_drawdown": -5.4
+          },
+          "60": {
+            "count": 5,
+            "win_rate": 80.0,
+            "avg_gain": 4.5,
+            "avg_loss": -0.6,
+            "profit_factor": 30.27,
+            "expected_value": 3.45,
+            "worst_drawdown": -5.4
+          },
+          "90": {
+            "count": 5,
+            "win_rate": 80.0,
+            "avg_gain": 7.8,
+            "avg_loss": -1.4,
+            "profit_factor": 21.87,
+            "expected_value": 5.93,
+            "worst_drawdown": -5.4
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 1,
+        "last_triggers": [
+          "2022-06-16"
+        ],
+        "stats": {
+          "30": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 12.9,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 12.88,
+            "worst_drawdown": 0.0
+          },
+          "60": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 8.5,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 8.49,
+            "worst_drawdown": 0.0
+          },
+          "90": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 6.3,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 6.29,
+            "worst_drawdown": -1.2
+          }
+        }
+      }
+    },
+    "ASML": {
+      "symbol": "ASML",
+      "is_etf": false,
+      "pe_mean_10y": 16.9,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於17的15%",
+        "trigger_count": 1,
+        "last_triggers": [
+          "2022-09-30"
+        ],
+        "stats": {
+          "30": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 39.2,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 39.2,
+            "worst_drawdown": -8.7
+          },
+          "60": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 29.7,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 29.72,
+            "worst_drawdown": -8.7
+          },
+          "90": {
+            "count": 1,
+            "win_rate": 100.0,
+            "avg_gain": 60.7,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 60.73,
+            "worst_drawdown": -8.7
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 7,
+        "last_triggers": [
+          "2022-10-13",
+          "2024-09-09",
+          "2024-10-15",
+          "2025-01-29",
+          "2025-04-08"
+        ],
+        "stats": {
+          "30": {
+            "count": 7,
+            "win_rate": 28.6,
+            "avg_gain": 35.3,
+            "avg_loss": -7.1,
+            "profit_factor": 1.98,
+            "expected_value": 4.99,
+            "worst_drawdown": -13.1
+          },
+          "60": {
+            "count": 7,
+            "win_rate": 28.6,
+            "avg_gain": 44.5,
+            "avg_loss": -8.9,
+            "profit_factor": 2.01,
+            "expected_value": 6.37,
+            "worst_drawdown": -29.9
+          },
+          "90": {
+            "count": 7,
+            "win_rate": 85.7,
+            "avg_gain": 17.5,
+            "avg_loss": -8.5,
+            "profit_factor": 12.42,
+            "expected_value": 13.8,
+            "worst_drawdown": -29.9
+          }
+        }
+      }
+    },
+    "AMD": {
+      "symbol": "AMD",
+      "is_etf": false,
+      "pe_mean_10y": 30.5,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於30的15%",
+        "trigger_count": 4,
+        "last_triggers": [
+          "2022-09-26",
+          "2022-10-26",
+          "2022-12-15",
+          "2023-01-19"
+        ],
+        "stats": {
+          "30": {
+            "count": 4,
+            "win_rate": 75.0,
+            "avg_gain": 17.1,
+            "avg_loss": -4.9,
+            "profit_factor": 10.56,
+            "expected_value": 11.62,
+            "worst_drawdown": -15.6
+          },
+          "60": {
+            "count": 4,
+            "win_rate": 75.0,
+            "avg_gain": 30.9,
+            "avg_loss": -1.9,
+            "profit_factor": 48.99,
+            "expected_value": 22.68,
+            "worst_drawdown": -15.6
+          },
+          "90": {
+            "count": 4,
+            "win_rate": 100.0,
+            "avg_gain": 47.3,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 47.31,
+            "worst_drawdown": -15.6
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 3,
+        "last_triggers": [
+          "2024-08-06",
+          "2025-02-06",
+          "2025-04-09"
+        ],
+        "stats": {
+          "30": {
+            "count": 3,
+            "win_rate": 66.7,
+            "avg_gain": 14.1,
+            "avg_loss": -3.4,
+            "profit_factor": 8.35,
+            "expected_value": 8.28,
+            "worst_drawdown": -12.3
+          },
+          "60": {
+            "count": 3,
+            "win_rate": 66.7,
+            "avg_gain": 28.2,
+            "avg_loss": -8.7,
+            "profit_factor": 6.5,
+            "expected_value": 15.93,
+            "worst_drawdown": -29.0
+          },
+          "90": {
+            "count": 3,
+            "win_rate": 100.0,
+            "avg_gain": 29.2,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 29.23,
+            "worst_drawdown": -29.0
+          }
+        }
+      }
+    },
+    "TSM": {
+      "symbol": "TSM",
+      "is_etf": false,
+      "pe_mean_10y": 9.0,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於9的15%",
+        "trigger_count": 7,
+        "last_triggers": [
+          "2022-08-26",
+          "2022-09-26",
+          "2022-10-26",
+          "2022-11-25",
+          "2022-12-27"
+        ],
+        "stats": {
+          "30": {
+            "count": 7,
+            "win_rate": 57.1,
+            "avg_gain": 16.4,
+            "avg_loss": -11.6,
+            "profit_factor": 1.88,
+            "expected_value": 4.37,
+            "worst_drawdown": -20.0
+          },
+          "60": {
+            "count": 7,
+            "win_rate": 57.1,
+            "avg_gain": 24.3,
+            "avg_loss": -11.9,
+            "profit_factor": 2.74,
+            "expected_value": 8.81,
+            "worst_drawdown": -28.5
+          },
+          "90": {
+            "count": 7,
+            "win_rate": 57.1,
+            "avg_gain": 27.1,
+            "avg_loss": -12.5,
+            "profit_factor": 2.88,
+            "expected_value": 10.11,
+            "worst_drawdown": -28.5
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 4,
+        "last_triggers": [
+          "2022-03-07",
+          "2022-07-07",
+          "2022-10-12",
+          "2025-04-08"
+        ],
+        "stats": {
+          "30": {
+            "count": 4,
+            "win_rate": 100.0,
+            "avg_gain": 18.7,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 18.71,
+            "worst_drawdown": -6.0
+          },
+          "60": {
+            "count": 4,
+            "win_rate": 50.0,
+            "avg_gain": 44.3,
+            "avg_loss": -9.3,
+            "profit_factor": 4.76,
+            "expected_value": 17.52,
+            "worst_drawdown": -14.5
+          },
+          "90": {
+            "count": 4,
+            "win_rate": 50.0,
+            "avg_gain": 53.8,
+            "avg_loss": -10.4,
+            "profit_factor": 5.17,
+            "expected_value": 21.69,
+            "worst_drawdown": -24.8
+          }
+        }
+      }
+    },
+    "PLTR": {
+      "symbol": "PLTR",
+      "is_etf": false,
+      "pe_mean_10y": 75.9,
+      "fcf_positive": true,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20% + PE低於76的15%",
+        "trigger_count": 26,
+        "last_triggers": [
+          "2023-10-25",
+          "2024-01-02",
+          "2024-02-01",
+          "2024-04-18",
+          "2024-05-23"
+        ],
+        "stats": {
+          "30": {
+            "count": 26,
+            "win_rate": 61.5,
+            "avg_gain": 20.1,
+            "avg_loss": -19.5,
+            "profit_factor": 1.65,
+            "expected_value": 4.88,
+            "worst_drawdown": -47.0
+          },
+          "60": {
+            "count": 26,
+            "win_rate": 53.8,
+            "avg_gain": 37.0,
+            "avg_loss": -20.8,
+            "profit_factor": 2.07,
+            "expected_value": 10.31,
+            "worst_drawdown": -47.0
+          },
+          "90": {
+            "count": 26,
+            "win_rate": 57.7,
+            "avg_gain": 48.5,
+            "avg_loss": -23.9,
+            "profit_factor": 2.77,
+            "expected_value": 17.89,
+            "worst_drawdown": -59.3
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 6,
+        "last_triggers": [
+          "2022-02-23",
+          "2022-05-10",
+          "2022-08-09",
+          "2022-11-07",
+          "2026-02-05"
+        ],
+        "stats": {
+          "30": {
+            "count": 6,
+            "win_rate": 50.0,
+            "avg_gain": 23.4,
+            "avg_loss": -14.9,
+            "profit_factor": 1.58,
+            "expected_value": 4.29,
+            "worst_drawdown": -22.2
+          },
+          "60": {
+            "count": 5,
+            "win_rate": 40.0,
+            "avg_gain": 38.4,
+            "avg_loss": -12.0,
+            "profit_factor": 2.13,
+            "expected_value": 8.17,
+            "worst_drawdown": -35.7
+          },
+          "90": {
+            "count": 5,
+            "win_rate": 40.0,
+            "avg_gain": 11.5,
+            "avg_loss": -19.4,
+            "profit_factor": 0.39,
+            "expected_value": -7.07,
+            "worst_drawdown": -49.9
+          }
+        }
+      }
+    },
+    "GLD": {
+      "symbol": "GLD",
+      "is_etf": true,
+      "pe_mean_10y": null,
+      "fcf_positive": null,
+      "data_range": "2021-07-06 ~ 2026-04-10",
+      "trading_days": 1197,
+      "signal_a": {
+        "name": "價值型逢低",
+        "conditions": "距52週高點跌>20%（無PE條件）",
+        "trigger_count": 2,
+        "last_triggers": [
+          "2022-09-23",
+          "2022-10-28"
+        ],
+        "stats": {
+          "30": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 5.2,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 5.21,
+            "worst_drawdown": -1.2
+          },
+          "60": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 12.9,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 12.94,
+            "worst_drawdown": -1.2
+          },
+          "90": {
+            "count": 2,
+            "win_rate": 100.0,
+            "avg_gain": 14.9,
+            "avg_loss": 0.0,
+            "profit_factor": null,
+            "expected_value": 14.89,
+            "worst_drawdown": -1.2
+          }
+        }
+      },
+      "signal_b": {
+        "name": "技術反轉",
+        "conditions": "距200MA跌>15% + 量能>1.5x",
+        "trigger_count": 0,
+        "last_triggers": [],
+        "stats": {
+          "30": null,
+          "60": null,
+          "90": null
+        }
+      }
+    }
+  }
+}

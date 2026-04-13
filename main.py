@@ -4,23 +4,25 @@
 # ═══════════════════════════════════════════════════════════
 
 import sys
+import os
 import json
 from datetime import date, datetime
 
+# Windows UTF-8 修正
+if sys.platform == "win32":
+    os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 # ── 模組載入 ────────────────────────────────────────────────
 import config
-import fetch_data
-import fetch_history
-import calculate
-import position_manager
-import dip_radar
-import swing_scanner
-import dynamic_scanner
-import analyst_agent
-import buffett_agent
-import howard_marks_agent
-import update_data
-import deploy
+from data    import fetch_data, fetch_history
+from analysis import calculate, position_manager, dip_radar, swing_scanner, dynamic_scanner, backtest
+from agents  import analyst_agent, buffett_agent, howard_marks_agent
+from output  import update_data, deploy
 
 
 def run(
@@ -143,6 +145,11 @@ def run(
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+
+    # 回測模式：獨立執行，不跑每日分析
+    if "--backtest" in args:
+        backtest.run_backtest()
+        sys.exit(0)
 
     skip_dynamic = "--skip-dynamic" in args
     skip_deploy  = "--skip-deploy"  in args or "--dry-run" in args

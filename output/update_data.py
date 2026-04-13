@@ -18,7 +18,8 @@ class _SafeEncoder(json.JSONEncoder):
         if isinstance(obj, (np.ndarray,)):  return obj.tolist()
         return super().default(obj)
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), "docs", "data.json")
+_ROOT     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_FILE = os.path.join(_ROOT, "docs", "data.json")
 MAX_HISTORY_DAYS = 365  # 最多保留一年
 
 
@@ -60,7 +61,7 @@ def build_daily_record(
     tnx    = market.get("tnx", {})
 
     # 市場環境
-    from calculate import market_environment
+    from analysis.calculate import market_environment
     env = market_environment(
         fgi.get("score"),
         vix.get("value"),

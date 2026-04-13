@@ -5,7 +5,7 @@
 # ═══════════════════════════════════════════════════════════
 
 import config
-from position_manager import check_pyramid_trigger
+from .position_manager import check_pyramid_trigger
 
 
 def check_dip_triggers(fgi_score, vix_value, credit_spread_bps) -> dict:

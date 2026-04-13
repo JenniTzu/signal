@@ -25,7 +25,8 @@ import config
 # ETF 及無EPS的標的不計算PE（改回傳空結果）
 ETF_SYMBOLS = {"QQQ", "SMH", "VTI", "GLD", "XLF", "XLE", "SPY", "IWM"}
 
-CACHE_FILE = "pe_history_cache.json"   # 本地快取，避免重複呼叫 API
+_ROOT      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CACHE_FILE = os.path.join(_ROOT, "cache", "pe_history_cache.json")
 
 
 def load_cache() -> dict:

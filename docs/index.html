@@ -509,6 +509,17 @@ canvas { max-height: 120px; }
   .grid-3, .market-grid { grid-template-columns: repeat(3, 1fr); }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ═══ Backtest section ══════════════════════════ */
+.bt-win-high   { color: var(--color-success); font-weight: 600; }
+.bt-win-mid    { color: var(--color-warning); font-weight: 600; }
+.bt-win-low    { color: var(--color-danger);  font-weight: 600; }
+.bt-win-na     { color: var(--color-text-muted); }
+.bt-ev-pos     { color: var(--color-success); }
+.bt-ev-neg     { color: var(--color-danger); }
+.bt-note       { font-size: 11px; color: var(--color-text-muted); line-height: 1.5; margin-top: var(--space-xs); }
+.bt-legend     { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-md); font-size: 12px; }
+.bt-legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
 </style>
 </head>
 <body>
@@ -598,6 +609,14 @@ canvas { max-height: 120px; }
 
   <!-- ⑨ 今日總結 -->
   <div class="card" id="daily-summary"></div>
+
+  <!-- ⑩ 歷史回測統計 -->
+  <div class="section" style="margin-top:var(--space-xl)">
+    <div class="section-title">歷史回測統計（5年 / 60天持有期）</div>
+    <div class="card" id="backtest-panel">
+      <div class="muted" style="font-size:13px">載入回測數據中…</div>
+    </div>
+  </div>
 
 </div>
 </div>
@@ -1162,8 +1181,103 @@ function renderSummary(rec) {
     ${ts ? `<div class="muted" style="font-size:12px;margin-top:var(--space-md)">分析時間：${ts}（台灣時間）</div>` : ''}`;
 }
 
+// ── ⑩ 回測統計 ────────────────────────────────────
+function winClass(wr) {
+  if (wr === null || wr === undefined) return 'bt-win-na';
+  if (wr >= 70) return 'bt-win-high';
+  if (wr >= 50) return 'bt-win-mid';
+  return 'bt-win-low';
+}
+function evClass(ev) {
+  if (ev === null || ev === undefined) return 'bt-win-na';
+  return ev >= 0 ? 'bt-ev-pos' : 'bt-ev-neg';
+}
+function fmtWr(wr, count) {
+  if (wr === null || wr === undefined) return `<span class="bt-win-na">—</span>`;
+  return `<span class="${winClass(wr)}">${wr.toFixed(0)}%</span><span class="muted" style="font-size:11px"> (${count}次)</span>`;
+}
+function fmtEv(ev) {
+  if (ev === null || ev === undefined) return `<span class="bt-win-na">—</span>`;
+  const s = ev >= 0 ? '+' : '';
+  return `<span class="${evClass(ev)}">${s}${ev.toFixed(1)}%</span>`;
+}
+function fmtDd(dd) {
+  if (dd === null || dd === undefined) return `<span class="bt-win-na">—</span>`;
+  return `<span style="color:var(--color-danger)">${dd.toFixed(1)}%</span>`;
+}
+
+async function loadBacktest() {
+  try {
+    const res  = await fetch('backtest.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    renderBacktest(data);
+  } catch (e) {
+    $('backtest-panel').innerHTML =
+      `<div class="muted" style="font-size:13px">回測數據不可用（${e.message}）。請先執行 python main.py --backtest</div>`;
+  }
+}
+
+function renderBacktest(data) {
+  const results = data.results || {};
+  const gen     = data.generated || '—';
+  const syms    = Object.keys(results);
+
+  const rows = syms.map(sym => {
+    const r  = results[sym];
+    const sa = r.signal_a;
+    const sb = r.signal_b;
+    const sa60 = sa.stats['60'];
+    const sb60 = sb.stats['60'];
+
+    const saCell = sa60
+      ? `${fmtWr(sa60.win_rate, sa60.count)}<br>
+         <span class="bt-note">期望值 ${fmtEv(sa60.expected_value)} ／ 最大回撤 ${fmtDd(sa60.worst_drawdown)}</span>`
+      : `<span class="bt-win-na">未觸發</span>`;
+
+    const sbCell = sb60
+      ? `${fmtWr(sb60.win_rate, sb60.count)}<br>
+         <span class="bt-note">期望值 ${fmtEv(sb60.expected_value)} ／ 最大回撤 ${fmtDd(sb60.worst_drawdown)}</span>`
+      : `<span class="bt-win-na">未觸發</span>`;
+
+    return `<tr>
+      <td style="font-weight:600;font-family:var(--font-mono)">${sym}</td>
+      <td style="font-size:12px;color:var(--color-text-muted)">${sa.conditions}</td>
+      <td>${saCell}</td>
+      <td style="font-size:12px;color:var(--color-text-muted)">${sb.conditions}</td>
+      <td>${sbCell}</td>
+    </tr>`;
+  }).join('');
+
+  $('backtest-panel').innerHTML = `
+    <div class="bt-legend">
+      <span><span class="bt-legend-dot" style="background:var(--color-success)"></span>勝率 ≥ 70%</span>
+      <span><span class="bt-legend-dot" style="background:var(--color-warning)"></span>勝率 50–69%</span>
+      <span><span class="bt-legend-dot" style="background:var(--color-danger)"></span>勝率 &lt; 50%</span>
+      <span style="margin-left:auto;color:var(--color-text-muted);font-size:11px">資料更新：${gen} ／ 期望值＝(勝率×平均盈利)－(敗率×平均虧損)</span>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>標的</th>
+          <th>訊號 A 條件<br><span style="font-weight:400;font-size:11px">價值型逢低</span></th>
+          <th>訊號 A 結果</th>
+          <th>訊號 B 條件<br><span style="font-weight:400;font-size:11px">技術反轉</span></th>
+          <th>訊號 B 結果</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    </div>
+    <div class="muted" style="font-size:11px;margin-top:var(--space-md)">
+      注意事項：回測基於 5 年歷史數據，觸發次數少者（&lt;3次）統計意義有限。過去表現不代表未來結果。
+    </div>`;
+}
+
 // ── Init ──────────────────────────────────────────
 loadData();
+loadBacktest();
 </script>
 </body>
 </html>

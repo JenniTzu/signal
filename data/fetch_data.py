@@ -44,7 +44,7 @@ def safe_float(val, default=None):
         return default
 
 
-from calculate import compute_rsi  # 統一使用 calculate 模組
+from analysis.calculate import compute_rsi  # 統一使用 calculate 模組
 
 
 # ── 個股數據 ────────────────────────────────────────────────
