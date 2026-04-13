@@ -1250,28 +1250,69 @@ function renderBacktest(data) {
   }).join('');
 
   $('backtest-panel').innerHTML = `
-    <div class="bt-legend">
-      <span><span class="bt-legend-dot" style="background:var(--color-success)"></span>勝率 ≥ 70%</span>
-      <span><span class="bt-legend-dot" style="background:var(--color-warning)"></span>勝率 50–69%</span>
-      <span><span class="bt-legend-dot" style="background:var(--color-danger)"></span>勝率 &lt; 50%</span>
-      <span style="margin-left:auto;color:var(--color-text-muted);font-size:11px">資料更新：${gen} ／ 期望值＝(勝率×平均盈利)－(敗率×平均虧損)</span>
+
+    <!-- 訊號定義說明 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-lg)">
+
+      <div style="background:var(--color-surface-2);border-radius:var(--radius-sm);padding:var(--space-md);border-left:3px solid var(--color-accent)">
+        <div style="font-weight:600;font-size:13px;margin-bottom:var(--space-sm)">訊號 A ── 價值型逢低</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.8">
+          <b>觸發條件（兩者同時成立）：</b><br>
+          ① 股價距 52 週最高點 <b>跌幅超過 20%</b><br>
+          ② 目前本益比（PE）低於過去 10 年均值 <b>15% 以上</b>（ETF 無此條件）<br><br>
+          <b>設計邏輯：</b><br>
+          股價大幅修正 + 估值便宜，才是「真正的逢低」，而不是只有股價跌。
+          兩個條件同時成立，代表市場過度悲觀，勝算相對較高。
+        </div>
+      </div>
+
+      <div style="background:var(--color-surface-2);border-radius:var(--radius-sm);padding:var(--space-md);border-left:3px solid #7C3AED">
+        <div style="font-weight:600;font-size:13px;margin-bottom:var(--space-sm)">訊號 B ── 技術反轉</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.8">
+          <b>觸發條件（兩者同時成立）：</b><br>
+          ① 股價距 200 日均線（長期趨勢線）<b>跌幅超過 15%</b><br>
+          ② 近 5 日平均成交量 ＞ 60 日均量 <b>1.5 倍</b>（量能放大）<br><br>
+          <b>設計邏輯：</b><br>
+          遠低於長期均線代表超賣，量能放大代表市場開始有人進場接手，
+          兩者結合是技術面反彈的經典訊號。
+        </div>
+      </div>
     </div>
+
+    <!-- 數字說明 -->
+    <div style="background:#EFF6FF;border-radius:var(--radius-sm);padding:var(--space-md);margin-bottom:var(--space-lg);font-size:12px;color:#1E40AF;line-height:1.9">
+      <b>如何讀懂這張表？</b>（持有期：買入後持有 60 天再計算損益）<br>
+      ・<b>勝率</b>：過去 5 年每次訊號觸發後，60 天後股價上漲的比例。例如 75% 表示 4 次中有 3 次是賺錢的。<br>
+      ・<b>期望值</b>：平均每次進場預期可以獲得多少報酬。計算方式：（勝率 × 平均獲利）－（敗率 × 平均虧損）。正數越大越好。<br>
+      ・<b>最大回撤</b>：持有期間最慘的時候曾經跌多深。這告訴你「要有多少心理準備才能撐過去」。<br>
+      ・<b>「未觸發」</b>：過去 5 年從未出現這個訊號，代表這檔股票很穩定（不容易大跌），也可能是好事。
+    </div>
+
+    <!-- 勝率圖例 -->
+    <div class="bt-legend">
+      <span><span class="bt-legend-dot" style="background:var(--color-success)"></span>勝率 ≥ 70%　強訊號</span>
+      <span><span class="bt-legend-dot" style="background:var(--color-warning)"></span>勝率 50–69%　可參考</span>
+      <span><span class="bt-legend-dot" style="background:var(--color-danger)"></span>勝率 &lt; 50%　謹慎</span>
+      <span style="margin-left:auto;color:var(--color-text-muted);font-size:11px">回測資料更新：${gen}</span>
+    </div>
+
+    <!-- 資料表 -->
     <div style="overflow-x:auto">
     <table>
       <thead>
         <tr>
           <th>標的</th>
-          <th>訊號 A 條件<br><span style="font-weight:400;font-size:11px">價值型逢低</span></th>
-          <th>訊號 A 結果</th>
-          <th>訊號 B 條件<br><span style="font-weight:400;font-size:11px">技術反轉</span></th>
-          <th>訊號 B 結果</th>
+          <th>訊號 A 觸發條件</th>
+          <th>訊號 A 結果<br><span style="font-weight:400;font-size:10px">60天 勝率 / 期望值 / 最大回撤</span></th>
+          <th>訊號 B 觸發條件</th>
+          <th>訊號 B 結果<br><span style="font-weight:400;font-size:10px">60天 勝率 / 期望值 / 最大回撤</span></th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>
     </table>
     </div>
     <div class="muted" style="font-size:11px;margin-top:var(--space-md)">
-      注意事項：回測基於 5 年歷史數據，觸發次數少者（&lt;3次）統計意義有限。過去表現不代表未來結果。
+      ⚠ 注意事項：回測基於過去 5 年歷史數據，觸發次數少者（&lt; 3 次）統計意義有限，請當作參考方向而非保證。過去表現不代表未來結果。
     </div>`;
 }
 
