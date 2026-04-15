@@ -62,57 +62,70 @@ def next_earnings_days(stocks: dict) -> dict:
 
 # ── 集中度計算 ───────────────────────────────────────────────
 
-def calc_tech_concentration(stocks: dict) -> dict:
+def calc_portfolio_value(stocks: dict) -> dict:
     """
-    計算科技集中度：NVDA + SMH + QQQ 市值佔比
-    因為沒有真實持倉數量，改用成本價估算台幣持股金額
-
-    回傳：
-    {
-        "tech_pct": float,          # 0~1
-        "tech_pct_display": str,    # "XX.X%"
-        "is_warning": bool,
-        "breakdown": {...}
-    }
+    用真實股數 × 當日現價計算各持股市值（USD → TWD）
+    回傳各股市值明細與總市值
     """
-    total = config.TOTAL_CAPITAL_TWD
-    tech_symbols = ["NVDA", "SMH", "QQQ"]
-    tech_total_twd = 0.0
+    rate = config.USD_TWD_RATE
     breakdown = {}
+    total_usd = 0.0
 
-    for sym in tech_symbols:
-        holding = config.HOLDINGS.get(sym)
-        if not holding or not holding.get("cost"):
-            breakdown[sym] = {"cost_twd": 0, "pct": 0}
-            continue
-        # 用成本價 × 假設持有1單位估算（無實際持倉數量）
-        # 實務上用固定比例估算即可
-        # QQQ 每月定期定額，假設佔總資金 20%
-        if sym == "QQQ":
-            assumed_twd = total * 0.20
-        else:
-            cost_usd = holding["cost"]
-            price_now = stocks.get(sym, {}).get("price", cost_usd) or cost_usd
-            # 假設原始投入 = 總資金 25%
-            invested_twd = total * 0.25
-            # 用漲跌幅調整現值
-            ratio = price_now / cost_usd if cost_usd else 1
-            assumed_twd = invested_twd * ratio
-
-        tech_total_twd += assumed_twd
-        pct = assumed_twd / total if total > 0 else 0
+    for sym, holding in config.HOLDINGS.items():
+        shares = holding.get("shares", 0) or 0
+        cost   = holding.get("cost", 0)   or 0
+        price  = stocks.get(sym, {}).get("price") or cost  # 抓不到現價就用成本
+        value_usd = shares * price
+        total_usd += value_usd
         breakdown[sym] = {
-            "cost_twd":    round(assumed_twd / 10000, 1),  # 萬台幣
-            "pct":         round(pct * 100, 1)
+            "shares":    shares,
+            "price":     round(price, 2),
+            "value_usd": round(value_usd, 2),
+            "value_twd": round(value_usd * rate, 0),
         }
 
-    tech_pct = tech_total_twd / total if total > 0 else 0
+    # 補上各股占比
+    for sym in breakdown:
+        v = breakdown[sym]["value_usd"]
+        breakdown[sym]["pct"] = round(v / total_usd * 100, 1) if total_usd else 0
+
+    return {
+        "total_usd": round(total_usd, 2),
+        "total_twd": round(total_usd * rate, 0),
+        "breakdown": breakdown,
+    }
+
+
+def calc_tech_concentration(stocks: dict) -> dict:
+    """
+    計算科技集中度：QQQ + SMH + NVDA 佔總持股市值比例
+    使用真實股數 × 當日現價計算
+    """
+    pv = calc_portfolio_value(stocks)
+    total_usd  = pv["total_usd"]
+    breakdown_all = pv["breakdown"]
+    tech_symbols = ["QQQ", "SMH", "NVDA"]
+
+    tech_usd = sum(
+        breakdown_all.get(s, {}).get("value_usd", 0)
+        for s in tech_symbols
+    )
+    tech_pct = tech_usd / total_usd if total_usd else 0
+
+    breakdown = {
+        s: {
+            "cost_twd": round(breakdown_all.get(s, {}).get("value_twd", 0) / 10000, 1),
+            "pct":      breakdown_all.get(s, {}).get("pct", 0),
+        }
+        for s in tech_symbols
+    }
 
     return {
         "tech_pct":         round(tech_pct, 4),
         "tech_pct_display": f"{tech_pct * 100:.1f}%",
         "is_warning":       tech_pct > config.TECH_CONCENTRATION_WARN,
         "breakdown":        breakdown,
+        "portfolio":        pv,   # 完整持股明細供前端使用
     }
 
 
@@ -121,17 +134,19 @@ def calc_tech_concentration(stocks: dict) -> dict:
 def calc_drawdown_20pct(stocks: dict) -> dict:
     """
     估算若整體市場下跌 20%，持股損失
+    使用真實持股市值計算（非固定比例）
     """
-    total = config.TOTAL_CAPITAL_TWD
-    # 假設持股（QQQ、NVDA、SMH）佔總資金 70%
-    invested_pct = 0.70
-    invested_twd = total * invested_pct
-    loss_twd     = invested_twd * 0.20  # 跌20%
+    pv          = calc_portfolio_value(stocks)
+    total_cap   = config.TOTAL_CAPITAL_TWD
+    invested_twd = pv["total_twd"]
+    invested_pct = invested_twd / total_cap if total_cap else 0
+    loss_twd     = invested_twd * 0.20
 
     return {
-        "loss_twd":        round(loss_twd / 10000, 1),   # 萬台幣
-        "loss_pct":        round(loss_twd / total * 100, 1),
-        "invested_pct":    round(invested_pct * 100, 1),
+        "loss_twd":     round(loss_twd / 10000, 1),
+        "loss_pct":     round(loss_twd / total_cap * 100, 1) if total_cap else 0,
+        "invested_pct": round(invested_pct * 100, 1),
+        "invested_twd": round(invested_twd / 10000, 1),
     }
 
 

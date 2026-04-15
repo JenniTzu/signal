@@ -15,15 +15,18 @@ GITHUB_REPO       = "JenniTzu/signal"
 # 如果環境變數沒設，也可以直接在下面填（本機測試用）：
 # GITHUB_TOKEN = "ghp_..."
 
-# ── 持股成本價 ──────────────────────────────────────────────
+# ── 持股（含股數與成本價）────────────────────────────────────
 HOLDINGS = {
-    "QQQ":  {"cost": None,  "category": "core",    "note": "核心定期定額"},
-    "NVDA": {"cost": 177.0, "category": "holding",  "note": "持股"},
-    "SMH":  {"cost": 210.0, "category": "holding",  "note": "持股"},
+    "QQQ":  {"cost": 487.92, "shares": 15, "category": "core",    "note": "核心ETF"},
+    "SMH":  {"cost": 185.37, "shares": 15, "category": "holding", "note": "半導體ETF"},
+    "NVDA": {"cost": 174.18, "shares": 2,  "category": "holding", "note": "持股"},
+    "MSFT": {"cost": 409.00, "shares": 4,  "category": "holding", "note": "持股"},
+    "TSLA": {"cost": 370.30, "shares": 2,  "category": "holding", "note": "持股"},
+    "GOOG": {"cost": 309.10, "shares": 3,  "category": "holding", "note": "持股"},
 }
 
-# ── 逢低加碼目標股 ──────────────────────────────────────────
-DIP_TARGETS = ["GOOGL", "MSFT", "V", "BRK-B", "VTI", "ASML", "AMD"]
+# ── 逢低加碼目標股（霍華馬克斯視角：護城河寬 + 分散科技集中度）──
+DIP_TARGETS = ["BRK-B", "V", "META", "ASML", "GOOG"]
 
 # ── 波段潛力股 ──────────────────────────────────────────────
 SWING_TARGETS = ["TSM", "PLTR"]
@@ -49,8 +52,8 @@ PYRAMID_LEVELS = [
     {"drop_pct": -0.30, "deploy_pct": 0.40, "label": "第三階 -30%"},
 ]
 
-# 科技集中度警示閾值
-TECH_CONCENTRATION_WARN = 0.70  # NVDA + SMH + QQQ > 70% 顯示紅色警告
+# 科技集中度警示閾值（QQQ + SMH + NVDA 合計佔比）
+TECH_CONCENTRATION_WARN = 0.70  # > 70% 顯示紅色警告
 
 # ── 觸發條件參數 ────────────────────────────────────────────
 FGI_THRESHOLD           = 25     # Fear & Greed Index 極度恐慌閾值
