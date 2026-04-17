@@ -39,6 +39,11 @@ def run(
     print(f"  In the noise, find the signal.")
     print("=" * 60)
 
+    # ── API Key 狀態確認 ─────────────────────────────────────
+    print(f"  Gemini Key：{'✅ 已設定' if config.GEMINI_API_KEY else '❌ 未設定'}")
+    print(f"  FRED Key  ：{'✅ 已設定' if config.FRED_API_KEY   else '❌ 未設定'}")
+    print(f"  AV Key    ：{'✅ 已設定' if config.ALPHA_VANTAGE_KEY else '❌ 未設定'}")
+
     # ── Step 1：抓取即時數據 ─────────────────────────────────
     raw_data = fetch_data.fetch_all()
 

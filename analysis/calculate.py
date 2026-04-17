@@ -7,6 +7,51 @@ import pandas as pd
 import config
 
 
+def compute_kd(hist_df: pd.DataFrame, n: int = 9) -> tuple:
+    """
+    計算 KD 指標（隨機指標，台灣標準參數）
+    - RSV：9日最高最低價範圍中的相對位置
+    - K：RSV 的指數平滑（權重 1/3），初始值 50
+    - D：K 的指數平滑（權重 1/3），初始值 50
+    回傳 (K值, D值)，無資料則回傳 (None, None)
+    """
+    if hist_df is None or len(hist_df) < n + 1:
+        return None, None
+    try:
+        high  = hist_df["High"].dropna()
+        low   = hist_df["Low"].dropna()
+        close = hist_df["Close"].dropna()
+        idx   = close.index
+        high  = high.reindex(idx).fillna(method="ffill")
+        low   = low.reindex(idx).fillna(method="ffill")
+
+        low_n  = low.rolling(n).min()
+        high_n = high.rolling(n).max()
+        denom  = high_n - low_n
+        rsv    = ((close - low_n) / denom * 100).where(denom != 0, 50).fillna(50)
+
+        k, d = 50.0, 50.0
+        for v in rsv.values:
+            k = k * (2 / 3) + v * (1 / 3)
+            d = d * (2 / 3) + k * (1 / 3)
+        return round(k, 1), round(d, 1)
+    except Exception:
+        return None, None
+
+
+def label_kd(k: float | None, d: float | None) -> str:
+    """KD 狀態標籤"""
+    if k is None or d is None:
+        return "N/A"
+    if k < 20 and d < 20:
+        return "超賣"
+    if k > 80 and d > 80:
+        return "超買"
+    if k > d:
+        return "多頭"
+    return "空頭"
+
+
 def compute_rsi(prices: pd.Series, period: int = 14) -> float:
     """計算 RSI-14"""
     if len(prices) < period + 1:

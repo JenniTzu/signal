@@ -44,7 +44,7 @@ def safe_float(val, default=None):
         return default
 
 
-from analysis.calculate import compute_rsi  # 統一使用 calculate 模組
+from analysis.calculate import compute_rsi, compute_kd  # 統一使用 calculate 模組
 
 
 # ── 個股數據 ────────────────────────────────────────────────
@@ -133,6 +133,11 @@ def fetch_stock(symbol: str) -> dict:
             # RSI-14
             result["rsi14"] = compute_rsi(closes)
 
+            # KD 指標（台灣標準：9日RSV，K/D各平滑1/3）
+            kd_k, kd_d = compute_kd(hist)
+            result["kd_k"] = kd_k
+            result["kd_d"] = kd_d
+
             # 200日均線
             ma200 = closes.rolling(200).mean().iloc[-1] if len(closes) >= 200 else closes.mean()
             result["ma200"] = safe_float(ma200)
@@ -159,7 +164,7 @@ def fetch_stock(symbol: str) -> dict:
                 result["change_pct"] = None
 
         else:
-            for k in ["rsi14", "ma200", "pct_from_ma200",
+            for k in ["rsi14", "kd_k", "kd_d", "ma200", "pct_from_ma200",
                       "vol_5d", "vol_60d", "vol_ratio", "change_pct"]:
                 result[k] = None
 
@@ -252,9 +257,11 @@ def fetch_sector_etfs() -> dict:
 # ── 市場指標（VIX、美債10年）──────────────────────────────────
 
 def fetch_market_indicators() -> dict:
-    """抓取 VIX 與美債殖利率"""
-    print("  抓取市場指標（VIX / 美債）...")
+    """抓取 VIX、美債殖利率、費半 SOX、台幣匯率"""
+    print("  抓取市場指標（VIX / 美債 / SOX / 台幣）...")
     result = {}
+
+    # VIX + TNX
     for sym in config.MARKET_INDICATORS:
         try:
             tk = yf.Ticker(sym)
@@ -271,6 +278,37 @@ def fetch_market_indicators() -> dict:
         except Exception as e:
             label = "vix" if sym == "^VIX" else "tnx"
             result[label] = {"value": None, "prev": None, "change": None, "history": [], "error": str(e)}
+
+    # 費城半導體指數 SOX
+    try:
+        sox = yf.Ticker("^SOX")
+        hist = sox.history(period="35d", interval="1d", auto_adjust=True)
+        if hist is not None and len(hist) >= 2:
+            closes = hist["Close"].dropna()
+            result["sox"] = {
+                "value":   round(float(closes.iloc[-1]), 2),
+                "prev":    round(float(closes.iloc[-2]), 2),
+                "change":  round((closes.iloc[-1] / closes.iloc[-2] - 1) * 100, 2),
+                "history": [round(v, 2) for v in closes.iloc[-30:].values.tolist()],
+            }
+    except Exception as e:
+        result["sox"] = {"value": None, "prev": None, "change": None, "history": [], "error": str(e)}
+
+    # 台幣匯率（USD/TWD）：數字越大 = 台幣越弱
+    try:
+        twd = yf.Ticker("TWD=X")
+        hist = twd.history(period="35d", interval="1d", auto_adjust=True)
+        if hist is not None and len(hist) >= 2:
+            closes = hist["Close"].dropna()
+            result["usd_twd"] = {
+                "value":   round(float(closes.iloc[-1]), 3),
+                "prev":    round(float(closes.iloc[-2]), 3),
+                "change":  round((closes.iloc[-1] / closes.iloc[-2] - 1) * 100, 3),
+                "history": [round(v, 3) for v in closes.iloc[-30:].values.tolist()],
+            }
+    except Exception as e:
+        result["usd_twd"] = {"value": None, "prev": None, "change": None, "history": [], "error": str(e)}
+
     return result
 
 
@@ -340,16 +378,39 @@ def fetch_credit_spread() -> dict:
 
 # ── 主函式 ──────────────────────────────────────────────────
 
+def fetch_tw_stocks() -> dict:
+    """抓取台股持股 + 觀察清單"""
+    print("  抓取台股數據...")
+    all_tw = list(config.TW_HOLDINGS.keys()) + config.TW_WATCHLIST
+    all_tw = list(dict.fromkeys(all_tw))  # 去重
+    result = {}
+    for sym in all_tw:
+        d = fetch_stock(sym)
+        # 補入台股專屬欄位（持股名稱、成本、股數）
+        holding = config.TW_HOLDINGS.get(sym, {})
+        d["tw_name"]  = holding.get("name", sym)
+        d["cost"]     = holding.get("cost")
+        d["shares"]   = holding.get("shares")
+        d["is_tw_holding"] = sym in config.TW_HOLDINGS
+        if d["cost"] and d.get("price"):
+            d["pct_from_cost"] = round((d["price"] / d["cost"] - 1) * 100, 2)
+            if holding.get("shares"):
+                d["unrealized_pnl_twd"] = round(
+                    (d["price"] - d["cost"]) * holding["shares"], 0)
+        result[sym] = d
+    return result
+
+
 def fetch_all() -> dict:
     """抓取所有即時數據，回傳完整 dict"""
     print("\n【fetch_data.py】開始抓取市場數據...")
 
-    # 個股（全部觀察清單）
+    # 美股個股（全部觀察清單）
     stocks = {}
     for sym in config.ALL_WATCHLIST:
         stocks[sym] = fetch_stock(sym)
 
-    # 市場指標
+    # 市場指標（含 SOX + 台幣匯率）
     market = fetch_market_indicators()
 
     # 產業 ETF
@@ -361,6 +422,9 @@ def fetch_all() -> dict:
     # Credit Spread
     credit_spread = fetch_credit_spread()
 
+    # 台股
+    tw_stocks = fetch_tw_stocks()
+
     print("【fetch_data.py】數據抓取完成 ✅\n")
 
     return {
@@ -369,6 +433,7 @@ def fetch_all() -> dict:
         "sector_etfs":   sector_etfs,
         "fgi":           fgi,
         "credit_spread": credit_spread,
+        "tw_stocks":     tw_stocks,
     }
 
 

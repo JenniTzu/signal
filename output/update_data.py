@@ -96,6 +96,12 @@ def build_daily_record(
             "tnx_change":    tnx.get("change"),
             "credit_spread": cs.get("value"),
             "cs_history":    cs.get("history", [])[-30:],
+            "sox":           market.get("sox", {}).get("value"),
+            "sox_change":    market.get("sox", {}).get("change"),
+            "sox_history":   market.get("sox", {}).get("history", [])[-30:],
+            "usd_twd":       market.get("usd_twd", {}).get("value"),
+            "usd_twd_change":market.get("usd_twd", {}).get("change"),
+            "usd_twd_history":market.get("usd_twd", {}).get("history", [])[-30:],
             "environment":   env,
         },
 
@@ -137,6 +143,9 @@ def build_daily_record(
 
         # 今日操作總結
         "summary": summary,
+
+        # 台股數據
+        "tw_stocks": raw_data.get("tw_stocks", {}),
     }
 
     return record
