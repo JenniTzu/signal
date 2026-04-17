@@ -520,6 +520,34 @@ canvas { max-height: 120px; }
 .bt-note       { font-size: 11px; color: var(--color-text-muted); line-height: 1.5; margin-top: var(--space-xs); }
 .bt-legend     { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-md); font-size: 12px; }
 .bt-legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+
+/* ═══ Tab navigation ════════════════════════ */
+.tab-nav {
+  display: flex; gap: 4px;
+  margin-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0;
+}
+.tab-btn {
+  padding: 8px 20px;
+  border: none; background: none; cursor: pointer;
+  font-family: var(--font-display); font-size: 14px; font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: color .15s, border-color .15s;
+}
+.tab-btn:hover  { color: var(--color-text-primary); }
+.tab-btn.active { color: var(--color-accent); border-bottom-color: var(--color-accent); font-weight: 600; }
+.tab-page { display: none; }
+.tab-page.active { display: block; }
+
+/* ═══ KD indicator ══════════════════════════ */
+.kd-bar { height: 6px; border-radius: 99px; background: var(--color-surface-2); position: relative; margin: 4px 0; }
+.kd-k   { height: 100%; border-radius: 99px; background: var(--color-accent); transition: width .4s; }
+.kd-overbought { color: var(--color-danger); font-weight: 600; }
+.kd-oversold   { color: var(--color-success); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -550,6 +578,15 @@ canvas { max-height: 120px; }
 <!-- ══ App ══ -->
 <div id="app">
 <div class="container" style="padding-top:var(--space-lg);padding-bottom:var(--space-xl)">
+
+  <!-- Tab 切換 -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('us')">🇺🇸 美股</button>
+    <button class="tab-btn" onclick="switchTab('tw')">🇹🇼 台股</button>
+  </div>
+
+  <!-- ══ 美股頁面 ══ -->
+  <div id="tab-us" class="tab-page active">
 
   <!-- ① 部位風險 -->
   <div id="risk-alert-banner"></div>
@@ -617,6 +654,31 @@ canvas { max-height: 120px; }
       <div class="muted" style="font-size:13px">載入回測數據中…</div>
     </div>
   </div>
+
+  </div><!-- end tab-us -->
+
+  <!-- ══ 台股頁面 ══ -->
+  <div id="tab-tw" class="tab-page">
+
+    <!-- 台股市場指標 -->
+    <div class="section">
+      <div class="section-title">台股市場指標</div>
+      <div class="grid-3" id="tw-market"></div>
+    </div>
+
+    <!-- 台股持股總覽 -->
+    <div class="section">
+      <div class="section-title">台股持股總覽</div>
+      <div class="card table-wrap" id="tw-holdings"></div>
+    </div>
+
+    <!-- 台股觀察清單 -->
+    <div class="section">
+      <div class="section-title">觀察清單（技術指標）</div>
+      <div class="card table-wrap" id="tw-watchlist"></div>
+    </div>
+
+  </div><!-- end tab-tw -->
 
 </div>
 </div>
@@ -739,6 +801,8 @@ function render(rec) {
   renderAgents(rec);
   renderRiskTable(rec);
   renderSummary(rec);
+  renderTwMarket(rec);
+  renderTwStocks(rec);
 }
 
 // ── ① 部位風險 ────────────────────────────────────
@@ -1314,6 +1378,126 @@ function renderBacktest(data) {
     <div class="muted" style="font-size:11px;margin-top:var(--space-md)">
       ⚠ 注意事項：回測基於過去 5 年歷史數據，觸發次數少者（&lt; 3 次）統計意義有限，請當作參考方向而非保證。過去表現不代表未來結果。
     </div>`;
+}
+
+// ── Tab 切換 ──────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.textContent.includes(name === 'us' ? '美股' : '台股')) b.classList.add('active');
+  });
+}
+
+// ── 台股市場指標 ──────────────────────────────────
+function renderTwMarket(rec) {
+  const mkt = rec.market || {};
+  const sox     = mkt.sox;
+  const soxChg  = mkt.sox_change;
+  const twd     = mkt.usd_twd;
+  const twdChg  = mkt.usd_twd_change;
+  const vix     = mkt.vix;
+  const vixChg  = mkt.vix_change;
+
+  function chgClass(v) { return v == null ? 'muted' : v >= 0 ? 'negative' : 'positive'; }
+  function chgStr(v)  {
+    if (v == null) return '<span class="muted">N/A</span>';
+    return `<span class="${v >= 0 ? 'negative' : 'positive'}">${v >= 0 ? '+' : ''}${v.toFixed(2)}%</span>`;
+  }
+
+  $('tw-market').innerHTML = `
+    <div class="card market-card">
+      <div class="card-label">費半 SOX</div>
+      <div class="metric-value">${sox != null ? sox.toLocaleString('en', {maximumFractionDigits:0}) : 'N/A'}</div>
+      <div style="font-size:13px;margin-top:4px">${chgStr(soxChg)}</div>
+      <div class="muted" style="font-size:11px;margin-top:8px">台股電子股的領先指標，SOX 跌則台積電、台達電承壓</div>
+    </div>
+    <div class="card market-card">
+      <div class="card-label">USD / TWD 匯率</div>
+      <div class="metric-value">${twd != null ? twd.toFixed(3) : 'N/A'}</div>
+      <div style="font-size:13px;margin-top:4px">${chgStr(twdChg)}</div>
+      <div class="muted" style="font-size:11px;margin-top:8px">數字${twdChg != null && twdChg < 0 ? '<b style="color:var(--color-success)">下降 = 台幣升值 = 外資買台股</b>' : '<b style="color:var(--color-danger)">上升 = 台幣貶值 = 外資賣台股</b>'}</div>
+    </div>
+    <div class="card market-card">
+      <div class="card-label">VIX 美股恐慌</div>
+      <div class="metric-value" style="color:${vix > 30 ? 'var(--color-danger)' : vix > 20 ? 'var(--color-warning)' : 'var(--color-success)'}">${vix != null ? vix.toFixed(1) : 'N/A'}</div>
+      <div style="font-size:13px;margin-top:4px">${chgStr(vixChg)}</div>
+      <div class="muted" style="font-size:11px;margin-top:8px">VIX > 30 台股通常同步恐慌，反而是加碼時機</div>
+    </div>`;
+}
+
+// ── 台股持股 + 觀察清單 ───────────────────────────
+function renderTwStocks(rec) {
+  const tw = rec.tw_stocks || {};
+  if (!Object.keys(tw).length) {
+    $('tw-holdings').innerHTML = '<div class="muted">無台股數據</div>';
+    $('tw-watchlist').innerHTML = '';
+    return;
+  }
+
+  function kdLabel(k, d) {
+    if (k == null) return '<span class="muted">—</span>';
+    if (k < 20)   return `<span class="kd-oversold">超賣 K${k}</span>`;
+    if (k > 80)   return `<span class="kd-overbought">超買 K${k}</span>`;
+    if (k > d)    return `<span class="positive">多頭 K${k}</span>`;
+    return `<span class="negative">空頭 K${k}</span>`;
+  }
+  function pnlClass(v) { return v == null ? 'muted' : v >= 0 ? 'positive' : 'negative'; }
+
+  // 持股表格
+  const holdings = Object.entries(tw).filter(([,s]) => s.is_tw_holding);
+  const holdRows = holdings.map(([sym, s]) => {
+    const chg = s.change_pct;
+    const pnl = s.pct_from_cost;
+    const pnlTwd = s.unrealized_pnl_twd;
+    return `<tr>
+      <td style="font-weight:600;font-family:var(--font-mono)">${sym.replace('.TW','')}</td>
+      <td>${s.tw_name || '—'}</td>
+      <td style="font-family:var(--font-mono)">NT$${s.price != null ? s.price.toFixed(2) : '—'}</td>
+      <td class="${chg >= 0 ? 'positive' : 'negative'}">${chg != null ? (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%' : '—'}</td>
+      <td style="font-family:var(--font-mono)">NT$${s.cost != null ? s.cost.toFixed(2) : '—'}</td>
+      <td class="${pnlClass(pnl)}">${pnl != null ? (pnl >= 0 ? '+' : '') + pnl.toFixed(1) + '%' : '—'}</td>
+      <td class="${pnlClass(pnlTwd)}" style="font-family:var(--font-mono)">${pnlTwd != null ? (pnlTwd >= 0 ? '+' : '') + pnlTwd.toLocaleString('zh-TW', {maximumFractionDigits:0}) : '—'}</td>
+      <td>${s.rsi14 != null ? s.rsi14.toFixed(1) : '—'}</td>
+      <td>${kdLabel(s.kd_k, s.kd_d)}</td>
+    </tr>`;
+  }).join('');
+
+  $('tw-holdings').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>代號</th><th>名稱</th><th>現價</th><th>今日</th>
+        <th>成本</th><th>損益%</th><th>未實現損益（元）</th><th>RSI</th><th>KD</th>
+      </tr></thead>
+      <tbody>${holdRows}</tbody>
+    </table>`;
+
+  // 觀察清單表格
+  const watchlist = Object.entries(tw).filter(([,s]) => !s.is_tw_holding);
+  if (!watchlist.length) { $('tw-watchlist').innerHTML = '<div class="muted">無觀察清單</div>'; return; }
+  const watchRows = watchlist.map(([sym, s]) => {
+    const chg = s.change_pct;
+    return `<tr>
+      <td style="font-weight:600;font-family:var(--font-mono)">${sym.replace('.TW','')}</td>
+      <td>${s.tw_name || sym}</td>
+      <td style="font-family:var(--font-mono)">NT$${s.price != null ? s.price.toFixed(2) : '—'}</td>
+      <td class="${chg >= 0 ? 'positive' : 'negative'}">${chg != null ? (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%' : '—'}</td>
+      <td>${s.rsi14 != null ? s.rsi14.toFixed(1) : '—'}</td>
+      <td>${kdLabel(s.kd_k, s.kd_d)}</td>
+      <td class="${(s.pct_from_ma200 || 0) < -10 ? 'positive' : 'muted'}">${s.pct_from_ma200 != null ? (s.pct_from_ma200 >= 0 ? '+' : '') + s.pct_from_ma200.toFixed(1) + '%' : '—'}</td>
+      <td class="${(s.vol_ratio || 0) >= 1.5 ? 'positive' : 'muted'}">${s.vol_ratio != null ? s.vol_ratio + 'x' : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  $('tw-watchlist').innerHTML = `
+    <table>
+      <thead><tr>
+        <th>代號</th><th>名稱</th><th>現價</th><th>今日</th>
+        <th>RSI</th><th>KD</th><th>偏MA200</th><th>量能</th>
+      </tr></thead>
+      <tbody>${watchRows}</tbody>
+    </table>`;
 }
 
 // ── Init ──────────────────────────────────────────
