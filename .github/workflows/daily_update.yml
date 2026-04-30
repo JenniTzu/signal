@@ -1,0 +1,38 @@
+name: Daily Signal Update
+
+on:
+  schedule:
+    - cron: '0 22 * * 1-5'  # 台灣時間每天週一到週五早上6點
+  workflow_dispatch:          # 允許手動觸發
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run main.py
+        env:
+          SIGNAL_GITHUB_TOKEN: ${{ secrets.SIGNAL_GITHUB_TOKEN }}
+          SIGNAL_GEMINI_KEY: ${{ secrets.SIGNAL_GEMINI_KEY }}
+          SIGNAL_FRED_KEY: ${{ secrets.SIGNAL_FRED_KEY }}
+          SIGNAL_AV_KEY: ${{ secrets.SIGNAL_AV_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: python main.py --skip-dynamic
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "signal: auto update $(date +%Y-%m-%d)"
+          git push
