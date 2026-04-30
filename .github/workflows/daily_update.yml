@@ -2,8 +2,8 @@ name: Daily Signal Update
 
 on:
   schedule:
-    - cron: '0 22 * * 1-5'  # 台灣時間每天週一到週五早上6點
-  workflow_dispatch:          # 允許手動觸發
+    - cron: '0 22 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   update:
