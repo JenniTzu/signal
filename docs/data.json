@@ -210474,18 +210474,2177 @@
           "is_tw_holding": false
         }
       }
+    },
+    {
+      "date": "2026-09-01",
+      "timestamp": "2026-09-01T00:57:51.136973+00:00",
+      "market": {
+        "fgi": 49.7,
+        "fgi_rating": "neutral",
+        "fgi_history": [
+          {
+            "date": "2026-08-31",
+            "score": 49.7
+          },
+          {
+            "date": "2026-08-28",
+            "score": 52.3
+          },
+          {
+            "date": "2026-08-27",
+            "score": 55.4
+          },
+          {
+            "date": "2026-08-26",
+            "score": 53.9
+          },
+          {
+            "date": "2026-08-25",
+            "score": 56.8
+          },
+          {
+            "date": "2026-08-24",
+            "score": 56.1
+          },
+          {
+            "date": "2026-08-21",
+            "score": 54.5
+          },
+          {
+            "date": "2026-08-20",
+            "score": 53.1
+          },
+          {
+            "date": "2026-08-19",
+            "score": 57.2
+          },
+          {
+            "date": "2026-08-18",
+            "score": 55.1
+          },
+          {
+            "date": "2026-08-17",
+            "score": 58.4
+          },
+          {
+            "date": "2026-08-14",
+            "score": 64.0
+          },
+          {
+            "date": "2026-08-13",
+            "score": 66.6
+          },
+          {
+            "date": "2026-08-12",
+            "score": 62.9
+          },
+          {
+            "date": "2026-08-11",
+            "score": 61.4
+          },
+          {
+            "date": "2026-08-10",
+            "score": 64.7
+          },
+          {
+            "date": "2026-08-07",
+            "score": 64.4
+          },
+          {
+            "date": "2026-08-06",
+            "score": 58.9
+          },
+          {
+            "date": "2026-08-05",
+            "score": 59.8
+          },
+          {
+            "date": "2026-08-04",
+            "score": 60.0
+          },
+          {
+            "date": "2026-08-03",
+            "score": 50.7
+          }
+        ],
+        "vix": 14.92,
+        "vix_change": 3.4,
+        "vix_history": [
+          17.05,
+          16.64,
+          18.7,
+          18.58,
+          18.67,
+          18.21,
+          20.66,
+          17.09,
+          15.99,
+          15.86,
+          16.5,
+          15.81,
+          15.15,
+          14.9,
+          15.46,
+          15.28,
+          14.55,
+          14.63,
+          14.25,
+          15.19,
+          15.84,
+          14.89,
+          16.01,
+          15.13,
+          15.85,
+          15.45,
+          15.21,
+          14.51,
+          14.43,
+          14.92
+        ],
+        "tnx": 4.76,
+        "tnx_change": 0.81,
+        "credit_spread": null,
+        "cs_history": [],
+        "sox": 11535.05,
+        "sox_change": 0.57,
+        "sox_history": [
+          12356.16,
+          12410.67,
+          12343.84,
+          11818.88,
+          11554.88,
+          11035.68,
+          10447.49,
+          11302.99,
+          11311.08,
+          11430.35,
+          12179.26,
+          12008.88,
+          12048.69,
+          12356.79,
+          11993.86,
+          12098.47,
+          12399.38,
+          12456.0,
+          12417.05,
+          12621.0,
+          11992.46,
+          11738.23,
+          11800.02,
+          11740.37,
+          11423.17,
+          11588.04,
+          11611.24,
+          11882.17,
+          11469.66,
+          11535.05
+        ],
+        "usd_twd": 31.682,
+        "usd_twd_change": 0.177,
+        "usd_twd_history": [
+          32.325,
+          32.379,
+          32.299,
+          32.322,
+          32.302,
+          32.364,
+          32.349,
+          32.395,
+          32.293,
+          32.396,
+          32.395,
+          32.265,
+          32.207,
+          32.235,
+          32.227,
+          32.209,
+          32.202,
+          32.124,
+          31.99,
+          31.85,
+          31.882,
+          31.815,
+          31.838,
+          31.822,
+          31.812,
+          31.842,
+          31.806,
+          31.661,
+          31.626,
+          31.682
+        ],
+        "environment": {
+          "label": "Neutral",
+          "color": "yellow",
+          "emoji": "🟡"
+        }
+      },
+      "position_risk": {
+        "tech_concentration": {
+          "tech_pct": 0.8382,
+          "tech_pct_display": "83.8%",
+          "is_warning": true,
+          "breakdown": {
+            "QQQ": {
+              "cost_twd": 33.9,
+              "pct": 46.1
+            },
+            "SMH": {
+              "cost_twd": 26.3,
+              "pct": 35.8
+            },
+            "NVDA": {
+              "cost_twd": 1.4,
+              "pct": 1.9
+            }
+          },
+          "portfolio": {
+            "total_usd": 23313.7,
+            "total_twd": 734382.0,
+            "breakdown": {
+              "QQQ": {
+                "shares": 15,
+                "price": 716.76,
+                "value_usd": 10751.4,
+                "value_twd": 338669.0,
+                "pct": 46.1
+              },
+              "SMH": {
+                "shares": 15,
+                "price": 556.63,
+                "value_usd": 8349.45,
+                "value_twd": 263008.0,
+                "pct": 35.8
+              },
+              "NVDA": {
+                "shares": 2,
+                "price": 220.78,
+                "value_usd": 441.56,
+                "value_twd": 13909.0,
+                "pct": 1.9
+              },
+              "MSFT": {
+                "shares": 4,
+                "price": 507.29,
+                "value_usd": 2029.16,
+                "value_twd": 63919.0,
+                "pct": 8.7
+              },
+              "TSLA": {
+                "shares": 2,
+                "price": 367.95,
+                "value_usd": 735.9,
+                "value_twd": 23181.0,
+                "pct": 3.2
+              },
+              "GOOG": {
+                "shares": 3,
+                "price": 335.41,
+                "value_usd": 1006.23,
+                "value_twd": 31696.0,
+                "pct": 4.3
+              }
+            }
+          }
+        },
+        "drawdown_20pct": {
+          "loss_twd": 14.7,
+          "loss_pct": 19.6,
+          "invested_pct": 97.9,
+          "invested_twd": 73.4
+        },
+        "bullets": {
+          "per_trade_twd": 3.8,
+          "pyramid_bullets": [
+            {
+              "label": "第一階 -10%",
+              "drop_pct": -10.0,
+              "amount_twd": 1.1
+            },
+            {
+              "label": "第二階 -20%",
+              "drop_pct": -20.0,
+              "amount_twd": 1.1
+            },
+            {
+              "label": "第三階 -30%",
+              "drop_pct": -30.0,
+              "amount_twd": 1.5
+            }
+          ]
+        },
+        "fomc": {
+          "date": "2026-09-16",
+          "days": 15
+        },
+        "next_earnings": {
+          "symbol": "ASML",
+          "date": "2026-10-14",
+          "days": 43
+        },
+        "pyramid_status": {
+          "QQQ": {
+            "triggered": false,
+            "base_price": 487.92,
+            "base_label": "成本價",
+            "drop_pct": 46.9,
+            "levels": []
+          },
+          "SMH": {
+            "triggered": false,
+            "base_price": 185.37,
+            "base_label": "成本價",
+            "drop_pct": 200.3,
+            "levels": []
+          },
+          "NVDA": {
+            "triggered": false,
+            "base_price": 174.18,
+            "base_label": "成本價",
+            "drop_pct": 26.8,
+            "levels": []
+          },
+          "MSFT": {
+            "triggered": false,
+            "base_price": 409.0,
+            "base_label": "成本價",
+            "drop_pct": 24.0,
+            "levels": []
+          },
+          "TSLA": {
+            "triggered": false,
+            "base_price": 370.3,
+            "base_label": "成本價",
+            "drop_pct": -0.6,
+            "levels": []
+          },
+          "GOOG": {
+            "triggered": false,
+            "base_price": 309.1,
+            "base_label": "成本價",
+            "drop_pct": 8.5,
+            "levels": []
+          }
+        },
+        "total_capital_twd": 750000
+      },
+      "sector_etfs": {
+        "QQQ": {
+          "price": 716.76,
+          "change_1d": 0.05,
+          "change_5d": 0.85
+        },
+        "SMH": {
+          "price": 556.63,
+          "change_1d": 0.64,
+          "change_5d": 0.15
+        },
+        "XLF": {
+          "price": 57.71,
+          "change_1d": -0.67,
+          "change_5d": -1.03
+        },
+        "XLE": {
+          "price": 63.96,
+          "change_1d": 2.04,
+          "change_5d": 3.06
+        },
+        "GLD": {
+          "price": 408.42,
+          "change_1d": -0.11,
+          "change_5d": -4.59
+        }
+      },
+      "stocks": {
+        "QQQ": {
+          "symbol": "QQQ",
+          "is_etf": true,
+          "price": 716.76,
+          "week52_high": 748.65,
+          "week52_low": 555.6,
+          "pct_from_52w_high": -4.26,
+          "pct_from_52w_low": 29.01,
+          "market_cap": 452800643072.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 48.68,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 654.6800872802735,
+          "pct_from_ma200": 9.48,
+          "vol_5d": 27782610.2,
+          "vol_60d": 42432820.85,
+          "vol_ratio": 0.65,
+          "change_pct": 0.05,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [
+            {
+              "title": "S&P500, Dow End Lower On US-Iran Flare-Up, While Dow Records Fifth Straight Month Of Gains — NVDA, META, AON, MSTR, TSLA In Focus",
+              "url": "https://stocktwits.com/news-articles/markets/equity/dow-records-fifth-straight-month-of-gains/cZYzITkRJsC"
+            },
+            {
+              "title": "Goldman Sachs Is Buying Into High Income ETFs, but What Are Nasdaq Investors Giving Up for Those Payouts?",
+              "url": "https://247wallst.com/investing/etf/2026/08/31/goldman-sachs-is-buying-into-high-income-etfs-but-what-are-nasdaq-investors-giving-up-for-those-payouts/"
+            },
+            {
+              "title": "Bank of America Spots Surprise S&P 500 Setup",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-spots-surprise-p-180447367.html"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "縮量",
+          "ma200_label": "均線附近",
+          "pct_from_cost": 46.9,
+          "pe_mean_10y": null,
+          "pe_25pct": null,
+          "pe_75pct": null,
+          "pe_source": "etf"
+        },
+        "SMH": {
+          "symbol": "SMH",
+          "is_etf": true,
+          "price": 556.63,
+          "week52_high": 671.83,
+          "week52_low": 281.74,
+          "pct_from_52w_high": -17.15,
+          "pct_from_52w_low": 97.57,
+          "market_cap": 68098555904.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 43.44,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 473.1004351806641,
+          "pct_from_ma200": 17.66,
+          "vol_5d": 5436208.6,
+          "vol_60d": 11043795.716666667,
+          "vol_ratio": 0.49,
+          "change_pct": 0.64,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [
+            {
+              "title": "Oil Outlook Weighs on Wall Street Pre-Bell; Asia Mixed, Europe Off",
+              "url": "https://finance.yahoo.com/markets/articles/oil-outlook-weighs-wall-street-111127924.html"
+            },
+            {
+              "title": "A Guide to Semiconductor ETFs",
+              "url": "https://finance.yahoo.com/technology/articles/guide-semiconductor-etfs-160000023.html"
+            },
+            {
+              "title": "Forget SMH and Its 87% Year: Three Semiconductor Funds Did Much Better",
+              "url": "https://247wallst.com/investing/2026/08/27/forget-smh-and-its-87-year-three-semiconductor-funds-did-much-better/"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": 200.28,
+          "pe_mean_10y": null,
+          "pe_25pct": null,
+          "pe_75pct": null,
+          "pe_source": "etf"
+        },
+        "NVDA": {
+          "symbol": "NVDA",
+          "is_etf": false,
+          "price": 220.78,
+          "week52_high": 236.54,
+          "week52_low": 164.07,
+          "pct_from_52w_high": -6.66,
+          "pct_from_52w_low": 34.56,
+          "market_cap": 5331174293504.0,
+          "pe_trailing": 27.876263,
+          "pe_forward": 14.424428,
+          "gross_margin": 0.74674004,
+          "roe": 1.17211,
+          "debt_to_equity": 16.971,
+          "fcf": 41809874944.0,
+          "fcf_yield": 0.78,
+          "analyst_target": 323.41898,
+          "analyst_count": 58,
+          "upside_pct": 46.49,
+          "rsi14": 52.54,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 195.8044457244873,
+          "pct_from_ma200": 12.76,
+          "vol_5d": 183947847.0,
+          "vol_60d": 137036560.58333334,
+          "vol_ratio": 1.34,
+          "change_pct": 1.48,
+          "gross_margin_trend": [
+            71.07,
+            74.99,
+            72.72,
+            56.93
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-11-17",
+          "news": [
+            {
+              "title": "Tech stocks today: Apple stock slips as Tim Cook prepares to step down",
+              "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-apple-ceo-steps-down-nvidia-mag-7-145623375.html"
+            },
+            {
+              "title": "NVDA Stock: Where Compounding Could Take The Price",
+              "url": "https://www.trefis.com/articles/613689/nvda-stock-where-compounding-could-take-the-price-2/2026-08-31"
+            },
+            {
+              "title": "Dow Jones Futures: Trump's Iran Warning Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla Rally",
+              "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-trump-iran-warning-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "正常",
+          "ma200_label": "偏高",
+          "pct_from_cost": 26.75,
+          "pe_mean_10y": 45.3,
+          "pe_25pct": 40.1,
+          "pe_75pct": 52.8,
+          "pe_source": "alpha_vantage"
+        },
+        "MSFT": {
+          "symbol": "MSFT",
+          "is_etf": false,
+          "price": 507.29,
+          "week52_high": 553.72,
+          "week52_low": 349.2,
+          "pct_from_52w_high": -8.39,
+          "pct_from_52w_low": 45.27,
+          "market_cap": 3766905208832.0,
+          "pe_trailing": 28.22983,
+          "pe_forward": 21.519703,
+          "gross_margin": 0.67944,
+          "roe": 0.34039003,
+          "debt_to_equity": 29.118,
+          "fcf": 16545500160.0,
+          "fcf_yield": 0.44,
+          "analyst_target": 569.4537,
+          "analyst_count": 52,
+          "upside_pct": 12.25,
+          "rsi14": 52.87,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 429.4121989440918,
+          "pct_from_ma200": 18.14,
+          "vol_5d": 24956408.4,
+          "vol_60d": 37882800.7,
+          "vol_ratio": 0.66,
+          "change_pct": -1.22,
+          "gross_margin_trend": [
+            67.94,
+            68.82,
+            69.76,
+            68.92
+          ],
+          "gross_margin_improving": false,
+          "earnings_date": "2026-10-28",
+          "news": [
+            {
+              "title": "Here comes the AI capex shocker, Goldman Sachs says",
+              "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
+            },
+            {
+              "title": "Jensen Huang Told Investors in June to 'Buy at a Discount' During Nvidia's Sell-Off. Nearly Three Months Later, Nvidia Is Up 4%, and a Broader AI Basket Gained 8%. Did His Call Pay Off?",
+              "url": "https://www.fool.com/investing/2026/08/31/jensen-huang-told-investors-in-june-to-buy-at-a-di/"
+            },
+            {
+              "title": "Microsoft (MSFT) Brings Arabic Language AI Models To Its Ecosystem",
+              "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-msft-brings-arabic-language-210536821.html"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": 24.03,
+          "pe_mean_10y": 28.9,
+          "pe_25pct": 23.4,
+          "pe_75pct": 34.3,
+          "pe_source": "alpha_vantage"
+        },
+        "TSLA": {
+          "symbol": "TSLA",
+          "is_etf": false,
+          "price": 367.95,
+          "week52_high": 498.83,
+          "week52_low": 297.38,
+          "pct_from_52w_high": -26.24,
+          "pct_from_52w_low": 23.73,
+          "market_cap": 1453236027392.0,
+          "pe_trailing": 340.69443,
+          "pe_forward": 170.45929,
+          "gross_margin": 0.18852,
+          "roe": 0.046669997,
+          "debt_to_equity": 18.373,
+          "fcf": 4835999744.0,
+          "fcf_yield": 0.33,
+          "analyst_target": 390.09283,
+          "analyst_count": 39,
+          "upside_pct": 6.02,
+          "rsi14": 64.98,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 400.56999984741213,
+          "pct_from_ma200": -8.14,
+          "vol_5d": 36519325.6,
+          "vol_60d": 41655575.46666667,
+          "vol_ratio": 0.88,
+          "change_pct": 5.51,
+          "gross_margin_trend": [
+            18.03,
+            17.86,
+            18.25,
+            25.6
+          ],
+          "gross_margin_improving": false,
+          "earnings_date": "2026-10-21",
+          "news": [
+            {
+              "title": "Here comes the AI capex shocker, Goldman Sachs says",
+              "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
+            },
+            {
+              "title": "Dow Jones Futures: Trump's Iran Warning Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla Rally",
+              "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-trump-iran-warning-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo"
+            },
+            {
+              "title": "Elon Musk Is Spending $119 Billion on A Single Building Outside Houston. Here’s Who Actually Profits.",
+              "url": "https://247wallst.com/investing/2026/08/31/elon-musk-is-spending-119-billion-on-a-single-building-outside-houston-heres-who-actually-profits/"
+            }
+          ],
+          "rsi_label": "偏高",
+          "vol_label": "正常",
+          "ma200_label": "均線附近",
+          "pct_from_cost": -0.63,
+          "pe_mean_10y": 169.2,
+          "pe_25pct": 79.4,
+          "pe_75pct": 269.3,
+          "pe_source": "alpha_vantage"
+        },
+        "GOOG": {
+          "symbol": "GOOG",
+          "is_etf": false,
+          "price": 335.41,
+          "week52_high": 404.47,
+          "week52_low": 206.96,
+          "pct_from_52w_high": -17.07,
+          "pct_from_52w_low": 62.07,
+          "market_cap": 4102042681344.0,
+          "pe_trailing": 16.837852,
+          "pe_forward": 22.620546,
+          "gross_margin": 0.60897,
+          "roe": 0.48676,
+          "debt_to_equity": 18.859,
+          "fcf": 22665000960.0,
+          "fcf_yield": 0.55,
+          "analyst_target": 422.336,
+          "analyst_count": 15,
+          "upside_pct": 25.92,
+          "rsi14": 39.06,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 333.4863883972168,
+          "pct_from_ma200": 0.58,
+          "vol_5d": 17784005.0,
+          "vol_60d": 20600848.75,
+          "vol_ratio": 0.86,
+          "change_pct": -2.18,
+          "gross_margin_trend": [
+            59.65,
+            58.2,
+            56.63,
+            55.38
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-28",
+          "news": [
+            {
+              "title": "Here comes the AI capex shocker, Goldman Sachs says",
+              "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
+            },
+            {
+              "title": "Jensen Huang Told Investors in June to 'Buy at a Discount' During Nvidia's Sell-Off. Nearly Three Months Later, Nvidia Is Up 4%, and a Broader AI Basket Gained 8%. Did His Call Pay Off?",
+              "url": "https://www.fool.com/investing/2026/08/31/jensen-huang-told-investors-in-june-to-buy-at-a-di/"
+            },
+            {
+              "title": "Stock Market Today: Dow Skids As Trump Gives This AI Warning; Tesla Pops Ahead Of Key Event",
+              "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-us-iran-attacks-oil-prices-jump/?src=A00220&yptr=yahoo"
+            }
+          ],
+          "rsi_label": "偏低",
+          "vol_label": "正常",
+          "ma200_label": "均線附近",
+          "pct_from_cost": 8.51,
+          "pe_mean_10y": 25.5,
+          "pe_25pct": 23.5,
+          "pe_75pct": 29.0,
+          "pe_source": "alpha_vantage"
+        },
+        "BRK-B": {
+          "symbol": "BRK-B",
+          "is_etf": false,
+          "price": 504.03,
+          "week52_high": 537.74,
+          "week52_low": 464.01,
+          "pct_from_52w_high": -6.27,
+          "pct_from_52w_low": 8.62,
+          "market_cap": 1078981951488.0,
+          "pe_trailing": 12.68319,
+          "pe_forward": 22.711687,
+          "gross_margin": 0.30332002,
+          "roe": 0.121199995,
+          "debt_to_equity": 17.142,
+          "fcf": 71975247872.0,
+          "fcf_yield": 6.67,
+          "analyst_target": 547.6667,
+          "analyst_count": 3,
+          "upside_pct": 8.66,
+          "rsi14": 35.5,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 492.44179962158205,
+          "pct_from_ma200": 2.35,
+          "vol_5d": 4450244.2,
+          "vol_60d": 4656335.35,
+          "vol_ratio": 0.96,
+          "change_pct": -0.19,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": "2026-11-07",
+          "news": [
+            {
+              "title": "It's Tim Cook's final day as Apple CEO. Here's what investors need from John Ternus.",
+              "url": "https://finance.yahoo.com/video/tim-cooks-final-day-apple-135615675.html"
+            },
+            {
+              "title": "KKR's 'Berkshire Hathaway' strategy bears fruit with $17B USI sale",
+              "url": "https://pitchbook.com/news/articles/kkr-berkshire-hathaway-strategy-17-billion-usi-sale"
+            },
+            {
+              "title": "Berkshire Hathaway (BRK.B) Stock Looks Reasonable On Earnings After A 79% Run",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/berkshire-hathaway-brk-b-stock-210717039.html"
+            }
+          ],
+          "rsi_label": "偏低",
+          "vol_label": "正常",
+          "ma200_label": "均線附近",
+          "pct_from_cost": null,
+          "pe_mean_10y": 25.3,
+          "pe_25pct": 20.7,
+          "pe_75pct": 25.4,
+          "pe_source": "alpha_vantage"
+        },
+        "V": {
+          "symbol": "V",
+          "is_etf": false,
+          "price": 379.37,
+          "week52_high": 385.57,
+          "week52_low": 293.89,
+          "pct_from_52w_high": -1.61,
+          "pct_from_52w_low": 29.09,
+          "market_cap": 708301750272.0,
+          "pe_trailing": 32.286808,
+          "pe_forward": 25.284084,
+          "gross_margin": 0.97725,
+          "roe": 0.6119,
+          "debt_to_equity": 67.821,
+          "fcf": 20404000768.0,
+          "fcf_yield": 2.88,
+          "analyst_target": 417.90216,
+          "analyst_count": 37,
+          "upside_pct": 10.16,
+          "rsi14": 66.55,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 332.01449783325194,
+          "pct_from_ma200": 14.26,
+          "vol_5d": 6172052.2,
+          "vol_60d": 7849262.683333334,
+          "vol_ratio": 0.79,
+          "change_pct": -0.58,
+          "gross_margin_trend": [
+            80.36,
+            80.4,
+            79.89,
+            80.44
+          ],
+          "gross_margin_improving": false,
+          "earnings_date": "2026-10-27",
+          "news": [
+            {
+              "title": "Bank of England governor warns AI could trigger global downturn",
+              "url": "https://finance.yahoo.com/video/bank-england-governor-warns-ai-204200256.html"
+            },
+            {
+              "title": "Can you use a credit card on Venmo?",
+              "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/can-you-use-a-credit-card-on-venmo-205730213.html"
+            },
+            {
+              "title": "PayPal Stock's Real Risk Is Not How Far It Falls",
+              "url": "https://www.trefis.com/articles/613727/paypal-stocks-real-risk-is-not-how-far-it-falls/2026-08-31"
+            }
+          ],
+          "rsi_label": "偏高",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": null,
+          "pe_mean_10y": 17.7,
+          "pe_25pct": 12.6,
+          "pe_75pct": 22.4,
+          "pe_source": "yfinance_fallback"
+        },
+        "META": {
+          "symbol": "META",
+          "is_etf": false,
+          "price": 572.34,
+          "week52_high": 790.8,
+          "week52_low": 520.26,
+          "pct_from_52w_high": -27.63,
+          "pct_from_52w_low": 10.01,
+          "market_cap": 1458039816192.0,
+          "pe_trailing": 21.573313,
+          "pe_forward": 16.37144,
+          "gross_margin": 0.81747,
+          "roe": 0.29848,
+          "debt_to_equity": 42.997,
+          "fcf": 21553625088.0,
+          "fcf_yield": 1.48,
+          "analyst_target": 754.77405,
+          "analyst_count": 57,
+          "upside_pct": 31.88,
+          "rsi14": 40.31,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 621.7328039550781,
+          "pct_from_ma200": -7.94,
+          "vol_5d": 17140074.8,
+          "vol_60d": 18109254.566666666,
+          "vol_ratio": 0.95,
+          "change_pct": -0.98,
+          "gross_margin_trend": [
+            82.0,
+            81.67,
+            80.76,
+            78.35
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-28",
+          "news": [
+            {
+              "title": "Here comes the AI capex shocker, Goldman Sachs says",
+              "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
+            },
+            {
+              "title": "Is Broadcom (AVGO) Stock a Buy Before Its Q3 Earnings?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-avgo-stock-buy-q3-203900190.html"
+            },
+            {
+              "title": "Meta just turned teen safety into a competitive advantage",
+              "url": "https://www.thestreet.com/investing/meta-turns-teen-user-restrictions-competitive-advantage"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "正常",
+          "ma200_label": "均線附近",
+          "pct_from_cost": null,
+          "pe_mean_10y": 25.4,
+          "pe_25pct": 22.2,
+          "pe_75pct": 27.7,
+          "pe_source": "alpha_vantage"
+        },
+        "ASML": {
+          "symbol": "ASML",
+          "is_etf": false,
+          "price": 1696.01,
+          "week52_high": 1999.96,
+          "week52_low": 716.2,
+          "pct_from_52w_high": -15.2,
+          "pct_from_52w_low": 136.81,
+          "market_cap": 651437473792.0,
+          "pe_trailing": 57.143192,
+          "pe_forward": 28.3274,
+          "gross_margin": 0.52733004,
+          "roe": 0.53942,
+          "debt_to_equity": 9.092,
+          "fcf": 8437675008.0,
+          "fcf_yield": 1.3,
+          "analyst_target": 2149.3645,
+          "analyst_count": 16,
+          "upside_pct": 26.73,
+          "rsi14": 33.67,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 1463.7634228515626,
+          "pct_from_ma200": 15.87,
+          "vol_5d": 1033125.6,
+          "vol_60d": 1852480.4666666666,
+          "vol_ratio": 0.56,
+          "change_pct": -0.01,
+          "gross_margin_trend": [
+            52.83,
+            51.28,
+            51.29,
+            50.54
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-14",
+          "news": [
+            {
+              "title": "Does ASML's Dominant Position in EUV Signal Further Upside?",
+              "url": "https://finance.yahoo.com/technology/ai/articles/does-asmls-dominant-position-euv-160500592.html"
+            },
+            {
+              "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy?",
+              "url": "https://www.fool.com/investing/2026/08/29/tsmc-vs-asml-semiconductor-stock-better-buy/"
+            },
+            {
+              "title": "ASML Holding (ASML) Rally Keeps Valuation Questions In Focus",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/asml-holding-asml-rally-keeps-070907892.html"
+            }
+          ],
+          "rsi_label": "偏低",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": null,
+          "pe_mean_10y": 47.1,
+          "pe_25pct": 32.6,
+          "pe_75pct": 54.7,
+          "pe_source": "alpha_vantage"
+        },
+        "TSM": {
+          "symbol": "TSM",
+          "is_etf": false,
+          "price": 415.32,
+          "week52_high": 479.0,
+          "week52_low": 225.63,
+          "pct_from_52w_high": -13.29,
+          "pct_from_52w_low": 84.07,
+          "market_cap": 2154046423040.0,
+          "pe_trailing": 30.901787,
+          "pe_forward": 19.06776,
+          "gross_margin": 0.6423,
+          "roe": 0.39969003,
+          "debt_to_equity": 16.504,
+          "fcf": 730826014720.0,
+          "fcf_yield": 33.93,
+          "analyst_target": 554.45483,
+          "analyst_count": 18,
+          "upside_pct": 33.5,
+          "rsi14": 45.84,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 369.10626174926756,
+          "pct_from_ma200": 12.52,
+          "vol_5d": 8551536.6,
+          "vol_60d": 13384706.383333333,
+          "vol_ratio": 0.64,
+          "change_pct": -0.53,
+          "gross_margin_trend": [
+            59.89,
+            56.12,
+            54.36,
+            59.56
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-15",
+          "news": [
+            {
+              "title": "Corning vs. Applied Materials: One Stock Beat the Other by 75 Percentage Points. The Better AI Infrastructure Play Is Clear.",
+              "url": "https://www.barchart.com/story/news/4355448/corning-vs-applied-materials-one-stock-beat-the-other-by-75-percentage-points-the-better-ai-infrastructure-play-is-clear"
+            },
+            {
+              "title": "Billionaire David Tepper of Appaloosa Is Overweight AI Stocks -- but He Recently Dumped Every Share of the Hottest AI Stock of 2026",
+              "url": "https://www.fool.com/investing/2026/08/31/billionaire-david-tepper-overweight-ai-sell-sndk/"
+            },
+            {
+              "title": "Update: Market Chatter: SK Hynix Denies Report of Intel Foundry Partnership for HBM4E",
+              "url": "https://finance.yahoo.com/technology/articles/market-chatter-sk-hynix-denies-110516290.html"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": null,
+          "pe_mean_10y": 24.4,
+          "pe_25pct": 14.0,
+          "pe_75pct": 28.4,
+          "pe_source": "alpha_vantage"
+        },
+        "PLTR": {
+          "symbol": "PLTR",
+          "is_etf": false,
+          "price": 186.38,
+          "week52_high": 207.52,
+          "week52_low": 106.37,
+          "pct_from_52w_high": -10.19,
+          "pct_from_52w_low": 75.22,
+          "market_cap": 447882035200.0,
+          "pe_trailing": 159.29915,
+          "pe_forward": 80.53616,
+          "gross_margin": 0.84796,
+          "roe": 0.38097,
+          "debt_to_equity": 2.139,
+          "fcf": 2159104512.0,
+          "fcf_yield": 0.48,
+          "analyst_target": 191.68,
+          "analyst_count": 27,
+          "upside_pct": 2.84,
+          "rsi14": 61.2,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 151.34854976654051,
+          "pct_from_ma200": 23.15,
+          "vol_5d": 28770198.0,
+          "vol_60d": 41325506.5,
+          "vol_ratio": 0.7,
+          "change_pct": 0.05,
+          "gross_margin_trend": [
+            82.37,
+            80.25,
+            80.62,
+            78.56
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-11-02",
+          "news": [
+            {
+              "title": "There Was No Beating Moderna in August. These Are the Best and Worst S&P 500 Stocks for the Month.",
+              "url": "https://www.barrons.com/articles/moderna-stock-sp500-best-worst-august-f24aa440?siteid=yhoof2&yptr=yahoo"
+            },
+            {
+              "title": "Software Stocks & ETFs: Is the AI Sell-Off Over?",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/software-stocks-etfs-ai-sell-205000363.html"
+            },
+            {
+              "title": "Palantir's $448 Billion Valuation Still Isn't Scaring Baird",
+              "url": "https://finance.yahoo.com/technology/ai/articles/palantirs-448-billion-valuation-still-175237552.html"
+            }
+          ],
+          "rsi_label": "偏高",
+          "vol_label": "縮量",
+          "ma200_label": "偏高",
+          "pct_from_cost": null,
+          "pe_mean_10y": 152.3,
+          "pe_25pct": 107.0,
+          "pe_75pct": 184.5,
+          "pe_source": "alpha_vantage"
+        },
+        "GLD": {
+          "symbol": "GLD",
+          "is_etf": true,
+          "price": 408.42,
+          "week52_high": 509.7,
+          "week52_low": 320.24,
+          "pct_from_52w_high": -19.87,
+          "pct_from_52w_low": 27.54,
+          "market_cap": 130322653184.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 54.97,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 414.9354002380371,
+          "pct_from_ma200": -1.57,
+          "vol_5d": 12756594.2,
+          "vol_60d": 9008856.183333334,
+          "vol_ratio": 1.42,
+          "change_pct": -0.11,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [
+            {
+              "title": "ETF Investors Chase Higher Yields as Bonds Sell Off",
+              "url": "http://www.etf.com/sections/weekly-etf-flows/etf-investors-chase-higher-yields-bonds-sell?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss"
+            },
+            {
+              "title": "Zacks Market Edge Highlights: GLD, GDX and NEM",
+              "url": "https://finance.yahoo.com/markets/commodities/articles/zacks-market-edge-highlights-gld-152400691.html"
+            },
+            {
+              "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as US, Iran Exchange Attacks",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-equity-futures-132801663.html"
+            }
+          ],
+          "rsi_label": "中性",
+          "vol_label": "正常",
+          "ma200_label": "均線附近",
+          "pct_from_cost": null,
+          "pe_mean_10y": null,
+          "pe_25pct": null,
+          "pe_75pct": null,
+          "pe_source": null
+        }
+      },
+      "dip_radar": {
+        "triggers": {
+          "conditions": [
+            {
+              "id": "fgi",
+              "label": "恐慌指數 FGI",
+              "description": "CNN Fear & Greed < 25（極度恐慌）",
+              "threshold": 25,
+              "value": 49.7,
+              "triggered": false,
+              "gap": 24.7,
+              "tip": "目前 49.7，距觸發 +24.7"
+            },
+            {
+              "id": "vix",
+              "label": "波動率 VIX",
+              "description": "VIX > 30（市場恐慌）",
+              "threshold": 30,
+              "value": 14.92,
+              "triggered": false,
+              "gap": -15.1,
+              "tip": "目前 14.92，距觸發 -15.1"
+            },
+            {
+              "id": "credit_spread",
+              "label": "信用利差 HY OAS",
+              "description": "垃圾債利差 > 500bps（市場真正恐慌）",
+              "threshold": 500,
+              "value": null,
+              "triggered": false,
+              "gap": null,
+              "tip": "需設定 FRED_API_KEY"
+            }
+          ],
+          "triggered_count": 0,
+          "radar_active": false,
+          "summary": "🔵 等待訊號 — 0/3 條件成立（需 2 個）"
+        },
+        "dip_targets": [
+          {
+            "symbol": "BRK-B",
+            "price": 504.03,
+            "rsi14": 35.5,
+            "vol_ratio": 0.96,
+            "change_pct": -0.19,
+            "pyramid": {
+              "triggered": false,
+              "levels": [],
+              "drop_pct": null,
+              "base_price": null,
+              "base_label": ""
+            },
+            "action": "等待市場觸發"
+          },
+          {
+            "symbol": "V",
+            "price": 379.37,
+            "rsi14": 66.55,
+            "vol_ratio": 0.79,
+            "change_pct": -0.58,
+            "pyramid": {
+              "triggered": false,
+              "levels": [],
+              "drop_pct": null,
+              "base_price": null,
+              "base_label": ""
+            },
+            "action": "等待市場觸發"
+          },
+          {
+            "symbol": "META",
+            "price": 572.34,
+            "rsi14": 40.31,
+            "vol_ratio": 0.95,
+            "change_pct": -0.98,
+            "pyramid": {
+              "triggered": false,
+              "levels": [],
+              "drop_pct": null,
+              "base_price": null,
+              "base_label": ""
+            },
+            "action": "等待市場觸發"
+          },
+          {
+            "symbol": "ASML",
+            "price": 1696.01,
+            "rsi14": 33.67,
+            "vol_ratio": 0.56,
+            "change_pct": -0.01,
+            "pyramid": {
+              "triggered": false,
+              "levels": [],
+              "drop_pct": null,
+              "base_price": null,
+              "base_label": ""
+            },
+            "action": "等待市場觸發"
+          },
+          {
+            "symbol": "GOOG",
+            "price": 335.41,
+            "rsi14": 39.06,
+            "vol_ratio": 0.86,
+            "change_pct": -2.18,
+            "pyramid": {
+              "triggered": false,
+              "base_price": 309.1,
+              "base_label": "成本價",
+              "drop_pct": 8.5,
+              "levels": []
+            },
+            "action": "等待市場觸發"
+          }
+        ]
+      },
+      "swing": {
+        "swing_results": [
+          {
+            "symbol": "META",
+            "price": 572.34,
+            "change_pct": -0.98,
+            "buffett": {
+              "status": "green",
+              "label": "🟢 護城河穩固",
+              "reason": "FCF正 + 毛利率穩健 + ROE>30%",
+              "score": 3,
+              "fcf_positive": true,
+              "margin_ok": true,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "green",
+              "label": "🟢 歷史低估值區",
+              "reason": "PE 21.573313 vs 10年均值 25.4（折扣 15%）",
+              "pe_now": 21.573313,
+              "pe_mean": 25.4,
+              "discount_pct": 15.1,
+              "undervalued": true
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=40.31，成交量=0.95x",
+              "rsi": 40.31,
+              "vol_ratio": 0.95,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 2,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "GOOG",
+            "price": 335.41,
+            "change_pct": -2.18,
+            "buffett": {
+              "status": "green",
+              "label": "🟢 護城河穩固",
+              "reason": "FCF正 + 毛利率穩健 + ROE>49%",
+              "score": 3,
+              "fcf_positive": true,
+              "margin_ok": true,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "green",
+              "label": "🟢 歷史低估值區",
+              "reason": "PE 16.837852 vs 10年均值 25.5（折扣 34%）",
+              "pe_now": 16.837852,
+              "pe_mean": 25.5,
+              "discount_pct": 34.0,
+              "undervalued": true
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=39.06，成交量=0.86x",
+              "rsi": 39.06,
+              "vol_ratio": 0.86,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 2,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "ASML",
+            "price": 1696.01,
+            "change_pct": -0.01,
+            "buffett": {
+              "status": "green",
+              "label": "🟢 護城河穩固",
+              "reason": "FCF正 + 毛利率穩健 + ROE>54%",
+              "score": 3,
+              "fcf_positive": true,
+              "margin_ok": true,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "red",
+              "label": "🔴 估值偏高",
+              "reason": "PE 57.143192 vs 10年均值 47.1（折扣 -21%）",
+              "pe_now": 57.143192,
+              "pe_mean": 47.1,
+              "discount_pct": -21.3,
+              "undervalued": false
+            },
+            "tech": {
+              "status": "yellow",
+              "label": "🟡 RSI超賣但量能不足",
+              "reason": "RSI=33.67，成交量=0.56x（需≥1.5x）",
+              "rsi": 33.67,
+              "vol_ratio": 0.56,
+              "rsi_ok": true,
+              "vol_ok": false
+            },
+            "green_count": 1,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "TSM",
+            "price": 415.32,
+            "change_pct": -0.53,
+            "buffett": {
+              "status": "green",
+              "label": "🟢 護城河穩固",
+              "reason": "FCF正 + 毛利率穩健 + ROE>40%",
+              "score": 3,
+              "fcf_positive": true,
+              "margin_ok": true,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "red",
+              "label": "🔴 估值偏高",
+              "reason": "PE 30.901787 vs 10年均值 24.4（折扣 -27%）",
+              "pe_now": 30.901787,
+              "pe_mean": 24.4,
+              "discount_pct": -26.6,
+              "undervalued": false
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=45.84，成交量=0.64x",
+              "rsi": 45.84,
+              "vol_ratio": 0.64,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 1,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "PLTR",
+            "price": 186.38,
+            "change_pct": 0.05,
+            "buffett": {
+              "status": "green",
+              "label": "🟢 護城河穩固",
+              "reason": "FCF正 + 毛利率穩健 + ROE>38%",
+              "score": 3,
+              "fcf_positive": true,
+              "margin_ok": true,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "red",
+              "label": "🔴 估值偏高",
+              "reason": "PE 159.29915 vs 10年均值 152.3（折扣 -5%）",
+              "pe_now": 159.29915,
+              "pe_mean": 152.3,
+              "discount_pct": -4.6,
+              "undervalued": false
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=61.2，成交量=0.7x",
+              "rsi": 61.2,
+              "vol_ratio": 0.7,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 1,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "BRK-B",
+            "price": 504.03,
+            "change_pct": -0.19,
+            "buffett": {
+              "status": "red",
+              "label": "🔴 基本面偏弱",
+              "reason": "FCF=正 / 毛利率=惡化 / ROE=偏低",
+              "score": 1,
+              "fcf_positive": true,
+              "margin_ok": false,
+              "roe_ok": false
+            },
+            "marks": {
+              "status": "yellow",
+              "label": "🟡 估值中性",
+              "reason": "PE 12.68319 vs 10年均值 25.3（折扣 50%）（需更大安全邊際）",
+              "pe_now": 12.68319,
+              "pe_mean": 25.3,
+              "discount_pct": 49.9,
+              "undervalued": true
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=35.5，成交量=0.96x",
+              "rsi": 35.5,
+              "vol_ratio": 0.96,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 0,
+            "all_green": false,
+            "signal": ""
+          },
+          {
+            "symbol": "V",
+            "price": 379.37,
+            "change_pct": -0.58,
+            "buffett": {
+              "status": "yellow",
+              "label": "🟡 部分條件成立",
+              "reason": "FCF正 / 毛利率需觀察 / ROE=61%",
+              "score": 2,
+              "fcf_positive": true,
+              "margin_ok": false,
+              "roe_ok": true
+            },
+            "marks": {
+              "status": "red",
+              "label": "🔴 估值偏高",
+              "reason": "PE 32.286808 vs 10年均值 17.7（折扣 -82%）",
+              "pe_now": 32.286808,
+              "pe_mean": 17.7,
+              "discount_pct": -82.4,
+              "undervalued": false
+            },
+            "tech": {
+              "status": "red",
+              "label": "🔴 尚未出現反轉訊號",
+              "reason": "RSI=66.55，成交量=0.79x",
+              "rsi": 66.55,
+              "vol_ratio": 0.79,
+              "rsi_ok": false,
+              "vol_ok": false
+            },
+            "green_count": 0,
+            "all_green": false,
+            "signal": ""
+          }
+        ],
+        "nvda_special": {
+          "holding": {
+            "cost": 174.18,
+            "price": 220.78,
+            "pct_from_cost": 26.75,
+            "label": "距成本 +26.8%"
+          },
+          "buffett": {
+            "status": "green",
+            "label": "🟢 護城河穩固",
+            "reason": "FCF正 + 毛利率穩健 + ROE>117%",
+            "score": 3,
+            "fcf_positive": true,
+            "margin_ok": true,
+            "roe_ok": true
+          },
+          "marks": {
+            "status": "green",
+            "label": "🟢 歷史低估值區",
+            "reason": "PE 27.876263 vs 10年均值 45.3（折扣 38%）",
+            "pe_now": 27.876263,
+            "pe_mean": 45.3,
+            "discount_pct": 38.5,
+            "undervalued": true
+          },
+          "tech": {
+            "status": "red",
+            "label": "🔴 尚未出現反轉訊號",
+            "reason": "RSI=52.54，成交量=1.34x",
+            "rsi": 52.54,
+            "vol_ratio": 1.34,
+            "rsi_ok": false,
+            "vol_ok": false
+          },
+          "green_count": 2,
+          "all_green": false
+        },
+        "all_green_list": []
+      },
+      "dynamic": {
+        "results": [],
+        "summary": "動態掃描已跳過（測試模式）",
+        "scanned": 0,
+        "hits": 0
+      },
+      "agents": {
+        "analyst": {
+          "per_stock": {
+            "QQQ": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=48.68，量能0.65x，暫無反轉訊號",
+              "rsi": 48.68,
+              "vol": 0.65
+            },
+            "SMH": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=43.44，量能0.49x，暫無反轉訊號",
+              "rsi": 43.44,
+              "vol": 0.49
+            },
+            "NVDA": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=52.54，量能1.34x，暫無反轉訊號",
+              "rsi": 52.54,
+              "vol": 1.34
+            },
+            "MSFT": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=52.87，量能0.66x，暫無反轉訊號",
+              "rsi": 52.87,
+              "vol": 0.66
+            },
+            "TSLA": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=64.98，量能0.88x，暫無反轉訊號",
+              "rsi": 64.98,
+              "vol": 0.88
+            },
+            "GOOG": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=39.06，量能0.86x，暫無反轉訊號",
+              "rsi": 39.06,
+              "vol": 0.86
+            },
+            "BRK-B": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=35.5，量能0.96x，暫無反轉訊號",
+              "rsi": 35.5,
+              "vol": 0.96
+            },
+            "V": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=66.55，量能0.79x，暫無反轉訊號",
+              "rsi": 66.55,
+              "vol": 0.79
+            },
+            "META": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=40.31，量能0.95x，暫無反轉訊號",
+              "rsi": 40.31,
+              "vol": 0.95
+            },
+            "ASML": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=33.67，量能0.56x，暫無反轉訊號",
+              "rsi": 33.67,
+              "vol": 0.56
+            },
+            "TSM": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=45.84，量能0.64x，暫無反轉訊號",
+              "rsi": 45.84,
+              "vol": 0.64
+            },
+            "PLTR": {
+              "status": "🔴",
+              "label": "尚未到位",
+              "reason": "RSI=61.2，量能0.7x，暫無反轉訊號",
+              "rsi": 61.2,
+              "vol": 0.7
+            }
+          },
+          "source": "rule_engine"
+        },
+        "buffett": {
+          "per_stock": {
+            "QQQ": {
+              "status": "❌",
+              "label": "基本面偏弱，暫不考慮",
+              "reason": "FCF需關注",
+              "score": 0
+            },
+            "SMH": {
+              "status": "❌",
+              "label": "基本面偏弱，暫不考慮",
+              "reason": "FCF需關注",
+              "score": 0
+            },
+            "NVDA": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 117%、毛利率75%、毛利率改善中",
+              "score": 4
+            },
+            "MSFT": {
+              "status": "⚠️",
+              "label": "基本面尚可，持續觀察",
+              "reason": "FCF正、ROE 34%、毛利率68%",
+              "score": 3
+            },
+            "TSLA": {
+              "status": "❌",
+              "label": "基本面偏弱，暫不考慮",
+              "reason": "FCF正、ROE 5%偏低",
+              "score": 1
+            },
+            "GOOG": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 49%、毛利率61%、毛利率改善中",
+              "score": 4
+            },
+            "BRK-B": {
+              "status": "⚠️",
+              "label": "基本面尚可，持續觀察",
+              "reason": "FCF正、ROE 12%偏低、毛利率30%",
+              "score": 2
+            },
+            "V": {
+              "status": "⚠️",
+              "label": "基本面尚可，持續觀察",
+              "reason": "FCF正、ROE 61%、毛利率98%",
+              "score": 3
+            },
+            "META": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 30%、毛利率82%、毛利率改善中",
+              "score": 4
+            },
+            "ASML": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 54%、毛利率53%、毛利率改善中",
+              "score": 4
+            },
+            "TSM": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 40%、毛利率64%、毛利率改善中",
+              "score": 4
+            },
+            "PLTR": {
+              "status": "✅",
+              "label": "護城河穩固，值得長期持有",
+              "reason": "FCF正、ROE 38%、毛利率85%、毛利率改善中",
+              "score": 4
+            }
+          },
+          "source": "rule_engine"
+        },
+        "marks": {
+          "pendulum": {
+            "label": "偏貪婪",
+            "emoji": "🟡",
+            "detail": "市場偏樂觀，需提高安全邊際"
+          },
+          "per_stock": {
+            "QQQ": {
+              "status": "🟡",
+              "label": "數據不足",
+              "reason": "PE數據不可用，無法評估",
+              "pe_now": null,
+              "pe_mean": null
+            },
+            "SMH": {
+              "status": "🟡",
+              "label": "數據不足",
+              "reason": "PE數據不可用，無法評估",
+              "pe_now": null,
+              "pe_mean": null
+            },
+            "NVDA": {
+              "status": "🟢",
+              "label": "歷史低估值區，風險報酬合理",
+              "reason": "PE=27.876263 vs 10年均值45.3（低估38%）",
+              "pe_now": 27.876263,
+              "pe_mean": 45.3
+            },
+            "MSFT": {
+              "status": "🟡",
+              "label": "估值中性，需更大安全邊際",
+              "reason": "PE=28.22983 vs 10年均值28.9（折扣2%，不夠大）",
+              "pe_now": 28.22983,
+              "pe_mean": 28.9
+            },
+            "TSLA": {
+              "status": "🔴",
+              "label": "仍在歷史高估值區，風險偏高",
+              "reason": "PE=340.69443 vs 10年均值169.2（溢價101%）",
+              "pe_now": 340.69443,
+              "pe_mean": 169.2
+            },
+            "GOOG": {
+              "status": "🟢",
+              "label": "歷史低估值區，風險報酬合理",
+              "reason": "PE=16.837852 vs 10年均值25.5（低估34%）",
+              "pe_now": 16.837852,
+              "pe_mean": 25.5
+            },
+            "BRK-B": {
+              "status": "🟢",
+              "label": "歷史低估值區，風險報酬合理",
+              "reason": "PE=12.68319 vs 10年均值25.3（低估50%）",
+              "pe_now": 12.68319,
+              "pe_mean": 25.3
+            },
+            "V": {
+              "status": "🔴",
+              "label": "仍在歷史高估值區，風險偏高",
+              "reason": "PE=32.286808 vs 10年均值17.7（溢價82%）",
+              "pe_now": 32.286808,
+              "pe_mean": 17.7
+            },
+            "META": {
+              "status": "🟢",
+              "label": "歷史低估值區，風險報酬合理",
+              "reason": "PE=21.573313 vs 10年均值25.4（低估15%）",
+              "pe_now": 21.573313,
+              "pe_mean": 25.4
+            },
+            "ASML": {
+              "status": "🔴",
+              "label": "仍在歷史高估值區，風險偏高",
+              "reason": "PE=57.143192 vs 10年均值47.1（溢價21%）",
+              "pe_now": 57.143192,
+              "pe_mean": 47.1
+            },
+            "TSM": {
+              "status": "🔴",
+              "label": "仍在歷史高估值區，風險偏高",
+              "reason": "PE=30.901787 vs 10年均值24.4（溢價27%）",
+              "pe_now": 30.901787,
+              "pe_mean": 24.4
+            },
+            "PLTR": {
+              "status": "🔴",
+              "label": "仍在歷史高估值區，風險偏高",
+              "reason": "PE=159.29915 vs 10年均值152.3（溢價5%）",
+              "pe_now": 159.29915,
+              "pe_mean": 152.3
+            }
+          },
+          "source": "rule_engine"
+        },
+        "divergence": {
+          "consensus_pct": 42,
+          "has_divergence": true,
+          "label": "⚡ 三腦出現分歧，請自行判斷"
+        }
+      },
+      "summary": "市場環境：🟡Neutral。 逢低加碼雷達待機（0/3條件）。 目前無波段三燈全綠標的。 市場鐘擺：偏貪婪。 ⚡ 三腦出現分歧，請自行判斷",
+      "tw_stocks": {
+        "0050.TW": {
+          "symbol": "0050.TW",
+          "error": null,
+          "is_etf": true,
+          "price": 106.25,
+          "week52_high": 112.3,
+          "week52_low": 51.75,
+          "pct_from_52w_high": -5.39,
+          "pct_from_52w_low": 105.31,
+          "market_cap": 2283731419136.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 56.85,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 84.30593326568604,
+          "pct_from_ma200": 26.03,
+          "vol_5d": 68566978.2,
+          "vol_60d": 125432004.83333333,
+          "vol_ratio": 0.55,
+          "change_pct": -0.65,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [],
+          "tw_name": "元大台灣50",
+          "cost": 49.77,
+          "shares": 7000,
+          "is_tw_holding": true,
+          "pct_from_cost": 113.48,
+          "unrealized_pnl_twd": 395360.0
+        },
+        "00981A.TW": {
+          "symbol": "00981A.TW",
+          "error": null,
+          "is_etf": true,
+          "price": 29.4,
+          "week52_high": 32.73,
+          "week52_low": 12.83,
+          "pct_from_52w_high": -10.17,
+          "pct_from_52w_low": 129.15,
+          "market_cap": 287996542976.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 63.49,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 22.820136885643006,
+          "pct_from_ma200": 28.83,
+          "vol_5d": 186332006.2,
+          "vol_60d": 246488715.66666666,
+          "vol_ratio": 0.76,
+          "change_pct": 1.93,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [],
+          "tw_name": "主動統一台股增長",
+          "cost": 17.81,
+          "shares": 3000,
+          "is_tw_holding": true,
+          "pct_from_cost": 65.08,
+          "unrealized_pnl_twd": 34770.0
+        },
+        "00988A.TW": {
+          "symbol": "00988A.TW",
+          "error": null,
+          "is_etf": true,
+          "price": 15.99,
+          "week52_high": 23.86,
+          "week52_low": 9.31,
+          "pct_from_52w_high": -32.98,
+          "pct_from_52w_low": 71.75,
+          "market_cap": 53832105984.0,
+          "pe_trailing": null,
+          "pe_forward": null,
+          "gross_margin": null,
+          "roe": null,
+          "debt_to_equity": null,
+          "fcf": null,
+          "fcf_yield": null,
+          "analyst_target": null,
+          "analyst_count": null,
+          "upside_pct": null,
+          "rsi14": 46.57,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 14.889150018692016,
+          "pct_from_ma200": 7.39,
+          "vol_5d": 26691158.4,
+          "vol_60d": 71756139.03333333,
+          "vol_ratio": 0.37,
+          "change_pct": -0.85,
+          "gross_margin_trend": null,
+          "gross_margin_improving": null,
+          "earnings_date": null,
+          "news": [],
+          "tw_name": "主動統一全球創新",
+          "cost": 10.89,
+          "shares": 2000,
+          "is_tw_holding": true,
+          "pct_from_cost": 46.83,
+          "unrealized_pnl_twd": 10200.0
+        },
+        "2308.TW": {
+          "symbol": "2308.TW",
+          "error": null,
+          "is_etf": false,
+          "price": 1840.0,
+          "week52_high": 2585.0,
+          "week52_low": 675.0,
+          "pct_from_52w_high": -28.82,
+          "pct_from_52w_low": 172.59,
+          "market_cap": 4779479662592.0,
+          "pe_trailing": 58.80473,
+          "pe_forward": 28.673359,
+          "gross_margin": 0.35535,
+          "roe": 0.29965,
+          "debt_to_equity": 21.213,
+          "fcf": 50790518784.0,
+          "fcf_yield": 1.06,
+          "analyst_target": 2474.182,
+          "analyst_count": 22,
+          "upside_pct": 34.47,
+          "rsi14": 54.12,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 1558.1702011108398,
+          "pct_from_ma200": 18.09,
+          "vol_5d": 9587897.4,
+          "vol_60d": 11535702.733333332,
+          "vol_ratio": 0.83,
+          "change_pct": 0.55,
+          "gross_margin_trend": [
+            34.27,
+            32.43,
+            29.21,
+            28.81
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-28",
+          "news": [
+            {
+              "title": "Electric Vehicles Update - Einride's Landmark Tesla Semi Deployment Boosts Green Freight Network",
+              "url": "https://finance.yahoo.com/energy/articles/electric-vehicles-einrides-landmark-tesla-123710421.html"
+            },
+            {
+              "title": "Emerging-Market Stocks, Currencies Gain After Soft US Jobs Data",
+              "url": "https://finance.yahoo.com/markets/currencies/articles/emerging-market-stocks-currencies-gain-042549202.html"
+            },
+            {
+              "title": "Asia’s Other AI Winners: The Thailand and Taiwan Funds Riding the Same Boom as Korea’s 105% Run",
+              "url": "https://247wallst.com/investing/2026/07/16/asias-other-ai-winners-the-thailand-and-taiwan-funds-riding-the-same-boom-as-koreas-105-run/"
+            }
+          ],
+          "tw_name": "台達電",
+          "cost": 1056.85,
+          "shares": 13,
+          "is_tw_holding": true,
+          "pct_from_cost": 74.1,
+          "unrealized_pnl_twd": 10181.0
+        },
+        "2330.TW": {
+          "symbol": "2330.TW",
+          "error": null,
+          "is_etf": false,
+          "price": 2405.0,
+          "week52_high": 2535.0,
+          "week52_low": 1145.0,
+          "pct_from_52w_high": -5.13,
+          "pct_from_52w_low": 110.04,
+          "market_cap": 62367350128640.0,
+          "pe_trailing": 28.151703,
+          "pe_forward": 16.921236,
+          "gross_margin": 0.6423,
+          "roe": 0.39969003,
+          "debt_to_equity": 16.504,
+          "fcf": 730826014720.0,
+          "fcf_yield": 1.17,
+          "analyst_target": 3229.3333,
+          "analyst_count": 33,
+          "upside_pct": 34.28,
+          "rsi14": 51.67,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 1988.202875366211,
+          "pct_from_ma200": 20.96,
+          "vol_5d": 17505289.4,
+          "vol_60d": 29112546.666666668,
+          "vol_ratio": 0.6,
+          "change_pct": -0.62,
+          "gross_margin_trend": [
+            59.89,
+            56.12,
+            54.36,
+            59.56
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-10-15",
+          "news": [
+            {
+              "title": "Corning vs. Applied Materials: One Stock Beat the Other by 75 Percentage Points. The Better AI Infrastructure Play Is Clear.",
+              "url": "https://www.barchart.com/story/news/4355448/corning-vs-applied-materials-one-stock-beat-the-other-by-75-percentage-points-the-better-ai-infrastructure-play-is-clear"
+            },
+            {
+              "title": "Billionaire David Tepper of Appaloosa Is Overweight AI Stocks -- but He Recently Dumped Every Share of the Hottest AI Stock of 2026",
+              "url": "https://www.fool.com/investing/2026/08/31/billionaire-david-tepper-overweight-ai-sell-sndk/"
+            },
+            {
+              "title": "Update: Market Chatter: SK Hynix Denies Report of Intel Foundry Partnership for HBM4E",
+              "url": "https://finance.yahoo.com/technology/articles/market-chatter-sk-hynix-denies-110516290.html"
+            }
+          ],
+          "tw_name": "2330.TW",
+          "cost": null,
+          "shares": null,
+          "is_tw_holding": false
+        },
+        "2454.TW": {
+          "symbol": "2454.TW",
+          "error": null,
+          "is_etf": false,
+          "price": 3925.0,
+          "week52_high": 4970.0,
+          "week52_low": 1130.0,
+          "pct_from_52w_high": -21.03,
+          "pct_from_52w_low": 247.35,
+          "market_cap": 6268881731584.0,
+          "pe_trailing": 64.801056,
+          "pe_forward": 28.079288,
+          "gross_margin": 0.46285,
+          "roe": 0.23864001,
+          "debt_to_equity": 6.242,
+          "fcf": 55993294848.0,
+          "fcf_yield": 0.89,
+          "analyst_target": 5502.923,
+          "analyst_count": 26,
+          "upside_pct": 40.2,
+          "rsi14": 46.49,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 2571.807995605469,
+          "pct_from_ma200": 52.62,
+          "vol_5d": 5620235.0,
+          "vol_60d": 9098732.416666666,
+          "vol_ratio": 0.62,
+          "change_pct": -1.51,
+          "gross_margin_trend": [
+            47.5,
+            49.64,
+            47.84,
+            49.36
+          ],
+          "gross_margin_improving": false,
+          "earnings_date": "2026-10-30",
+          "news": [
+            {
+              "title": "Nvidia (NVDA) Invests $3.5 Billion in MediaTek. Is This the Next Leg of Its AI Growth?",
+              "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-invests-3-5-234008357.html"
+            },
+            {
+              "title": "S&P500, Dow End Lower On US-Iran Flare-Up, While Dow Records Fifth Straight Month Of Gains — NVDA, META, AON, MSTR, TSLA In Focus",
+              "url": "https://stocktwits.com/news-articles/markets/equity/dow-records-fifth-straight-month-of-gains/cZYzITkRJsC"
+            },
+            {
+              "title": "Stocks to Watch Recap: Amazon, PG&E, Nvidia, Chevron",
+              "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-08-31-2026/card/stocks-to-watch-pg-e-intel-chevron-eLbKJqWCN3hjlHXGy9qp?siteid=yhoof2&yptr=yahoo"
+            }
+          ],
+          "tw_name": "2454.TW",
+          "cost": null,
+          "shares": null,
+          "is_tw_holding": false
+        },
+        "2317.TW": {
+          "symbol": "2317.TW",
+          "error": null,
+          "is_etf": false,
+          "price": 250.0,
+          "week52_high": 314.0,
+          "week52_low": 187.5,
+          "pct_from_52w_high": -20.38,
+          "pct_from_52w_low": 33.33,
+          "market_cap": 3506420842496.0,
+          "pe_trailing": 16.556292,
+          "pe_forward": 10.809946,
+          "gross_margin": 0.06118,
+          "roe": 0.13152,
+          "debt_to_equity": 64.059,
+          "fcf": -182303358976.0,
+          "fcf_yield": -5.2,
+          "analyst_target": 347.45,
+          "analyst_count": 20,
+          "upside_pct": 38.98,
+          "rsi14": 37.0,
+          "kd_k": null,
+          "kd_d": null,
+          "ma200": 230.37660789489746,
+          "pct_from_ma200": 8.52,
+          "vol_5d": 32968954.0,
+          "vol_60d": 51904125.166666664,
+          "vol_ratio": 0.64,
+          "change_pct": -1.19,
+          "gross_margin_trend": [
+            6.15,
+            6.25,
+            6.3,
+            6.04
+          ],
+          "gross_margin_improving": true,
+          "earnings_date": "2026-11-12",
+          "news": [
+            {
+              "title": "Stifel Has Message For Nvidia Investors Before Earnings",
+              "url": "https://finance.yahoo.com/markets/stocks/articles/stifel-message-nvidia-investors-earnings-215114118.html"
+            },
+            {
+              "title": "NVIDIA (NVDA): What Foxconn and Super Micro Are Telling Us about the AI Boom",
+              "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-foxconn-super-micro-210152728.html"
+            },
+            {
+              "title": "Tim Cook’s Final Act: A $60 Billion Bet On Texas. Here’s What It Means For Apple Investors",
+              "url": "https://247wallst.com/investing/2026/08/14/tim-cooks-final-act-a-60-billion-bet-on-texas-heres-what-it-means-for-apple-investors/"
+            }
+          ],
+          "tw_name": "2317.TW",
+          "cost": null,
+          "shares": null,
+          "is_tw_holding": false
+        }
+      }
     }
   ],
   "latest": {
-    "date": "2026-08-29",
-    "timestamp": "2026-08-29T03:28:15.706065+00:00",
+    "date": "2026-09-01",
+    "timestamp": "2026-09-01T00:57:51.136973+00:00",
     "market": {
-      "fgi": 54.4,
+      "fgi": 49.7,
       "fgi_rating": "neutral",
       "fgi_history": [
         {
+          "date": "2026-08-31",
+          "score": 49.7
+        },
+        {
           "date": "2026-08-28",
-          "score": 54.4
+          "score": 52.3
         },
         {
           "date": "2026-08-27",
@@ -210562,16 +212721,11 @@
         {
           "date": "2026-08-03",
           "score": 50.7
-        },
-        {
-          "date": "2026-07-31",
-          "score": 45.2
         }
       ],
-      "vix": 14.43,
-      "vix_change": -0.55,
+      "vix": 14.92,
+      "vix_change": 3.4,
       "vix_history": [
-        18.65,
         17.05,
         16.64,
         18.7,
@@ -210600,16 +212754,16 @@
         15.45,
         15.21,
         14.51,
-        14.43
+        14.43,
+        14.92
       ],
-      "tnx": 4.72,
-      "tnx_change": 1.03,
+      "tnx": 4.76,
+      "tnx_change": 0.81,
       "credit_spread": null,
       "cs_history": [],
-      "sox": 11469.66,
-      "sox_change": -3.47,
+      "sox": 11535.05,
+      "sox_change": 0.57,
       "sox_history": [
-        11743.85,
         12356.16,
         12410.67,
         12343.84,
@@ -210638,13 +212792,12 @@
         11588.04,
         11611.24,
         11882.17,
-        11469.66
+        11469.66,
+        11535.05
       ],
-      "usd_twd": 31.628,
-      "usd_twd_change": -0.559,
+      "usd_twd": 31.682,
+      "usd_twd_change": 0.177,
       "usd_twd_history": [
-        32.313,
-        32.276,
         32.325,
         32.379,
         32.299,
@@ -210672,7 +212825,9 @@
         31.812,
         31.842,
         31.806,
-        31.628
+        31.661,
+        31.626,
+        31.682
       ],
       "environment": {
         "label": "Neutral",
@@ -210682,17 +212837,17 @@
     },
     "position_risk": {
       "tech_concentration": {
-        "tech_pct": 0.8375,
-        "tech_pct_display": "83.7%",
+        "tech_pct": 0.8382,
+        "tech_pct_display": "83.8%",
         "is_warning": true,
         "breakdown": {
           "QQQ": {
             "cost_twd": 33.9,
-            "pct": 46.2
+            "pct": 46.1
           },
           "SMH": {
-            "cost_twd": 26.1,
-            "pct": 35.7
+            "cost_twd": 26.3,
+            "pct": 35.8
           },
           "NVDA": {
             "cost_twd": 1.4,
@@ -210700,59 +212855,59 @@
           }
         },
         "portfolio": {
-          "total_usd": 23258.46,
-          "total_twd": 732641.0,
+          "total_usd": 23313.7,
+          "total_twd": 734382.0,
           "breakdown": {
             "QQQ": {
               "shares": 15,
-              "price": 716.43,
-              "value_usd": 10746.45,
-              "value_twd": 338513.0,
-              "pct": 46.2
+              "price": 716.76,
+              "value_usd": 10751.4,
+              "value_twd": 338669.0,
+              "pct": 46.1
             },
             "SMH": {
               "shares": 15,
-              "price": 553.11,
-              "value_usd": 8296.65,
-              "value_twd": 261344.0,
-              "pct": 35.7
+              "price": 556.63,
+              "value_usd": 8349.45,
+              "value_twd": 263008.0,
+              "pct": 35.8
             },
             "NVDA": {
               "shares": 2,
-              "price": 217.55,
-              "value_usd": 435.1,
-              "value_twd": 13706.0,
+              "price": 220.78,
+              "value_usd": 441.56,
+              "value_twd": 13909.0,
               "pct": 1.9
             },
             "MSFT": {
               "shares": 4,
-              "price": 513.53,
-              "value_usd": 2054.12,
-              "value_twd": 64705.0,
-              "pct": 8.8
+              "price": 507.29,
+              "value_usd": 2029.16,
+              "value_twd": 63919.0,
+              "pct": 8.7
             },
             "TSLA": {
               "shares": 2,
-              "price": 348.75,
-              "value_usd": 697.5,
-              "value_twd": 21971.0,
-              "pct": 3.0
+              "price": 367.95,
+              "value_usd": 735.9,
+              "value_twd": 23181.0,
+              "pct": 3.2
             },
             "GOOG": {
               "shares": 3,
-              "price": 342.88,
-              "value_usd": 1028.64,
-              "value_twd": 32402.0,
-              "pct": 4.4
+              "price": 335.41,
+              "value_usd": 1006.23,
+              "value_twd": 31696.0,
+              "pct": 4.3
             }
           }
         }
       },
       "drawdown_20pct": {
         "loss_twd": 14.7,
-        "loss_pct": 19.5,
-        "invested_pct": 97.7,
-        "invested_twd": 73.3
+        "loss_pct": 19.6,
+        "invested_pct": 97.9,
+        "invested_twd": 73.4
       },
       "bullets": {
         "per_trade_twd": 3.8,
@@ -210776,54 +212931,54 @@
       },
       "fomc": {
         "date": "2026-09-16",
-        "days": 18
+        "days": 15
       },
       "next_earnings": {
         "symbol": "ASML",
         "date": "2026-10-14",
-        "days": 46
+        "days": 43
       },
       "pyramid_status": {
         "QQQ": {
           "triggered": false,
           "base_price": 487.92,
           "base_label": "成本價",
-          "drop_pct": 46.8,
+          "drop_pct": 46.9,
           "levels": []
         },
         "SMH": {
           "triggered": false,
           "base_price": 185.37,
           "base_label": "成本價",
-          "drop_pct": 198.4,
+          "drop_pct": 200.3,
           "levels": []
         },
         "NVDA": {
           "triggered": false,
           "base_price": 174.18,
           "base_label": "成本價",
-          "drop_pct": 24.9,
+          "drop_pct": 26.8,
           "levels": []
         },
         "MSFT": {
           "triggered": false,
           "base_price": 409.0,
           "base_label": "成本價",
-          "drop_pct": 25.6,
+          "drop_pct": 24.0,
           "levels": []
         },
         "TSLA": {
           "triggered": false,
           "base_price": 370.3,
           "base_label": "成本價",
-          "drop_pct": -5.8,
+          "drop_pct": -0.6,
           "levels": []
         },
         "GOOG": {
           "triggered": false,
           "base_price": 309.1,
           "base_label": "成本價",
-          "drop_pct": 10.9,
+          "drop_pct": 8.5,
           "levels": []
         }
       },
@@ -210831,40 +212986,40 @@
     },
     "sector_etfs": {
       "QQQ": {
-        "price": 716.43,
-        "change_1d": -0.65,
-        "change_5d": 1.43
+        "price": 716.76,
+        "change_1d": 0.05,
+        "change_5d": 0.85
       },
       "SMH": {
-        "price": 553.11,
-        "change_1d": -3.47,
-        "change_5d": 1.15
+        "price": 556.63,
+        "change_1d": 0.64,
+        "change_5d": 0.15
       },
       "XLF": {
-        "price": 58.1,
-        "change_1d": 0.38,
-        "change_5d": -0.21
+        "price": 57.71,
+        "change_1d": -0.67,
+        "change_5d": -1.03
       },
       "XLE": {
-        "price": 62.68,
-        "change_1d": 0.63,
-        "change_5d": -0.68
+        "price": 63.96,
+        "change_1d": 2.04,
+        "change_5d": 3.06
       },
       "GLD": {
-        "price": 408.89,
-        "change_1d": -3.24,
-        "change_5d": -4.17
+        "price": 408.42,
+        "change_1d": -0.11,
+        "change_5d": -4.59
       }
     },
     "stocks": {
       "QQQ": {
         "symbol": "QQQ",
         "is_etf": true,
-        "price": 716.43,
+        "price": 716.76,
         "week52_high": 748.65,
         "week52_low": 555.6,
-        "pct_from_52w_high": -4.3,
-        "pct_from_52w_low": 28.95,
+        "pct_from_52w_high": -4.26,
+        "pct_from_52w_low": 29.01,
         "market_cap": 452800643072.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -210876,36 +213031,36 @@
         "analyst_target": null,
         "analyst_count": null,
         "upside_pct": null,
-        "rsi14": 46.65,
+        "rsi14": 48.68,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 654.1928271484375,
-        "pct_from_ma200": 9.51,
-        "vol_5d": 28864085.2,
-        "vol_60d": 42578602.1,
-        "vol_ratio": 0.68,
-        "change_pct": -0.65,
+        "ma200": 654.6800872802735,
+        "pct_from_ma200": 9.48,
+        "vol_5d": 27782610.2,
+        "vol_60d": 42432820.85,
+        "vol_ratio": 0.65,
+        "change_pct": 0.05,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
         "news": [
           {
-            "title": "How a 66-Year-Old’s $600,000 in QQQI Pays Her Monthly With Almost No Tax Bill, Until the Day She Sells",
-            "url": "https://247wallst.com/investing/etf/2026/08/28/how-a-66-year-olds-600000-in-qqqi-pays-her-monthly-with-almost-no-tax-bill-until-the-day-she-sells/"
+            "title": "S&P500, Dow End Lower On US-Iran Flare-Up, While Dow Records Fifth Straight Month Of Gains — NVDA, META, AON, MSTR, TSLA In Focus",
+            "url": "https://stocktwits.com/news-articles/markets/equity/dow-records-fifth-straight-month-of-gains/cZYzITkRJsC"
           },
           {
-            "title": "This AI Fund Is Crushing QQQ, and Nvidia Is Barely 2% of It",
-            "url": "https://247wallst.com/investing/2026/08/28/this-ai-fund-is-crushing-qqq-and-nvidia-is-barely-2-of-it/"
+            "title": "Goldman Sachs Is Buying Into High Income ETFs, but What Are Nasdaq Investors Giving Up for Those Payouts?",
+            "url": "https://247wallst.com/investing/etf/2026/08/31/goldman-sachs-is-buying-into-high-income-etfs-but-what-are-nasdaq-investors-giving-up-for-those-payouts/"
           },
           {
-            "title": "Amazon Jumps 4% on Expanded AWS Chip Deal: Why Is NVIDIA Falling 4%?",
-            "url": "https://247wallst.com/investing/2026/08/28/amazon-jumps-4-on-expanded-aws-chip-deal-why-is-nvidia-falling-4/"
+            "title": "Bank of America Spots Surprise S&P 500 Setup",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-spots-surprise-p-180447367.html"
           }
         ],
         "rsi_label": "中性",
         "vol_label": "縮量",
         "ma200_label": "均線附近",
-        "pct_from_cost": 46.83,
+        "pct_from_cost": 46.9,
         "pe_mean_10y": null,
         "pe_25pct": null,
         "pe_75pct": null,
@@ -210914,11 +213069,11 @@
       "SMH": {
         "symbol": "SMH",
         "is_etf": true,
-        "price": 553.11,
+        "price": 556.63,
         "week52_high": 671.83,
         "week52_low": 281.74,
-        "pct_from_52w_high": -17.67,
-        "pct_from_52w_low": 96.32,
+        "pct_from_52w_high": -17.15,
+        "pct_from_52w_low": 97.57,
         "market_cap": 68098555904.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -210933,16 +213088,20 @@
         "rsi14": 43.44,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 472.06709045410156,
-        "pct_from_ma200": 17.17,
-        "vol_5d": 6102223.0,
-        "vol_60d": 11144623.583333334,
-        "vol_ratio": 0.55,
-        "change_pct": -3.47,
+        "ma200": 473.1004351806641,
+        "pct_from_ma200": 17.66,
+        "vol_5d": 5436208.6,
+        "vol_60d": 11043795.716666667,
+        "vol_ratio": 0.49,
+        "change_pct": 0.64,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
         "news": [
+          {
+            "title": "Oil Outlook Weighs on Wall Street Pre-Bell; Asia Mixed, Europe Off",
+            "url": "https://finance.yahoo.com/markets/articles/oil-outlook-weighs-wall-street-111127924.html"
+          },
           {
             "title": "A Guide to Semiconductor ETFs",
             "url": "https://finance.yahoo.com/technology/articles/guide-semiconductor-etfs-160000023.html"
@@ -210950,16 +213109,12 @@
           {
             "title": "Forget SMH and Its 87% Year: Three Semiconductor Funds Did Much Better",
             "url": "https://247wallst.com/investing/2026/08/27/forget-smh-and-its-87-year-three-semiconductor-funds-did-much-better/"
-          },
-          {
-            "title": "ETF League Tables: VanEck Inflows Top $600M",
-            "url": "http://www.etf.com/sections/etf-league-tables/etf-league-tables-vaneck-inflows-top-600m?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss"
           }
         ],
         "rsi_label": "中性",
         "vol_label": "縮量",
         "ma200_label": "偏高",
-        "pct_from_cost": 198.38,
+        "pct_from_cost": 200.28,
         "pe_mean_10y": null,
         "pe_25pct": null,
         "pe_75pct": null,
@@ -210968,31 +213123,31 @@
       "NVDA": {
         "symbol": "NVDA",
         "is_etf": false,
-        "price": 217.55,
+        "price": 220.78,
         "week52_high": 236.54,
         "week52_low": 164.07,
-        "pct_from_52w_high": -8.03,
-        "pct_from_52w_low": 32.6,
-        "market_cap": 5253179637760.0,
-        "pe_trailing": 27.503162,
-        "pe_forward": 14.34279,
+        "pct_from_52w_high": -6.66,
+        "pct_from_52w_low": 34.56,
+        "market_cap": 5331174293504.0,
+        "pe_trailing": 27.876263,
+        "pe_forward": 14.424428,
         "gross_margin": 0.74674004,
         "roe": 1.17211,
         "debt_to_equity": 16.971,
         "fcf": 41809874944.0,
-        "fcf_yield": 0.8,
-        "analyst_target": 305.7931,
+        "fcf_yield": 0.78,
+        "analyst_target": 323.41898,
         "analyst_count": 58,
-        "upside_pct": 40.56,
-        "rsi14": 50.0,
+        "upside_pct": 46.49,
+        "rsi14": 52.54,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 195.66511573791504,
-        "pct_from_ma200": 11.18,
-        "vol_5d": 186068457.6,
-        "vol_60d": 137777193.13333333,
-        "vol_ratio": 1.35,
-        "change_pct": -4.57,
+        "ma200": 195.8044457244873,
+        "pct_from_ma200": 12.76,
+        "vol_5d": 183947847.0,
+        "vol_60d": 137036560.58333334,
+        "vol_ratio": 1.34,
+        "change_pct": 1.48,
         "gross_margin_trend": [
           71.07,
           74.99,
@@ -211003,22 +213158,22 @@
         "earnings_date": "2026-11-17",
         "news": [
           {
-            "title": "6 things investors need to watch in the week ahead",
-            "url": "https://finance.yahoo.com/video/6-things-investors-need-to-watch-in-the-week-ahead-210300637.html"
+            "title": "Tech stocks today: Apple stock slips as Tim Cook prepares to step down",
+            "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-apple-ceo-steps-down-nvidia-mag-7-145623375.html"
           },
           {
-            "title": "Nvidia could hit a $13 trillion market cap, analyst says",
-            "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-could-hit-a-13-trillion-market-cap-analyst-says-180519193.html"
+            "title": "NVDA Stock: Where Compounding Could Take The Price",
+            "url": "https://www.trefis.com/articles/613689/nvda-stock-where-compounding-could-take-the-price-2/2026-08-31"
           },
           {
-            "title": "Nancy Pelosi’s Husband Bought Millions of This AI Power Stock. Nvidia Just Strengthened the Bull Case",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/nancy-pelosi-husband-bought-millions-024912716.html"
+            "title": "Dow Jones Futures: Trump's Iran Warning Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla Rally",
+            "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-trump-iran-warning-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo"
           }
         ],
         "rsi_label": "中性",
         "vol_label": "正常",
         "ma200_label": "偏高",
-        "pct_from_cost": 24.9,
+        "pct_from_cost": 26.75,
         "pe_mean_10y": 45.3,
         "pe_25pct": 40.1,
         "pe_75pct": 52.8,
@@ -211027,31 +213182,31 @@
       "MSFT": {
         "symbol": "MSFT",
         "is_etf": false,
-        "price": 513.53,
+        "price": 507.29,
         "week52_high": 553.72,
         "week52_low": 349.2,
-        "pct_from_52w_high": -7.26,
-        "pct_from_52w_low": 47.06,
-        "market_cap": 3813240733696.0,
-        "pe_trailing": 28.640827,
-        "pe_forward": 21.78441,
+        "pct_from_52w_high": -8.39,
+        "pct_from_52w_low": 45.27,
+        "market_cap": 3766905208832.0,
+        "pe_trailing": 28.22983,
+        "pe_forward": 21.519703,
         "gross_margin": 0.67944,
         "roe": 0.34039003,
         "debt_to_equity": 29.118,
         "fcf": 16545500160.0,
-        "fcf_yield": 0.43,
+        "fcf_yield": 0.44,
         "analyst_target": 569.4537,
         "analyst_count": 52,
-        "upside_pct": 10.89,
-        "rsi14": 55.76,
+        "upside_pct": 12.25,
+        "rsi14": 52.87,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 429.3983935546875,
-        "pct_from_ma200": 19.59,
-        "vol_5d": 23030189.8,
-        "vol_60d": 37883427.483333334,
-        "vol_ratio": 0.61,
-        "change_pct": 1.68,
+        "ma200": 429.4121989440918,
+        "pct_from_ma200": 18.14,
+        "vol_5d": 24956408.4,
+        "vol_60d": 37882800.7,
+        "vol_ratio": 0.66,
+        "change_pct": -1.22,
         "gross_margin_trend": [
           67.94,
           68.82,
@@ -211062,22 +213217,22 @@
         "earnings_date": "2026-10-28",
         "news": [
           {
-            "title": "Why ZM Stock Prints So Much Cash Right Now",
-            "url": "https://www.trefis.com/articles/613490/why-zm-stock-prints-so-much-cash-right-now/2026-08-28"
+            "title": "Here comes the AI capex shocker, Goldman Sachs says",
+            "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
           },
           {
-            "title": "Has Microsoft Stock Run Ahead Of Its AI Payoff?",
-            "url": "https://www.trefis.com/articles/613494/has-microsoft-stock-run-ahead-of-its-ai-payoff/2026-08-28"
+            "title": "Jensen Huang Told Investors in June to 'Buy at a Discount' During Nvidia's Sell-Off. Nearly Three Months Later, Nvidia Is Up 4%, and a Broader AI Basket Gained 8%. Did His Call Pay Off?",
+            "url": "https://www.fool.com/investing/2026/08/31/jensen-huang-told-investors-in-june-to-buy-at-a-di/"
           },
           {
-            "title": "Is BlackBerry Stock Pricing In A Turnaround That Hasn't Arrived?",
-            "url": "https://www.trefis.com/articles/613492/is-blackberry-stock-pricing-in-a-turnaround-that-hasnt-arrived/2026-08-28"
+            "title": "Microsoft (MSFT) Brings Arabic Language AI Models To Its Ecosystem",
+            "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-msft-brings-arabic-language-210536821.html"
           }
         ],
         "rsi_label": "中性",
         "vol_label": "縮量",
         "ma200_label": "偏高",
-        "pct_from_cost": 25.56,
+        "pct_from_cost": 24.03,
         "pe_mean_10y": 28.9,
         "pe_25pct": 23.4,
         "pe_75pct": 34.3,
@@ -211086,31 +213241,31 @@
       "TSLA": {
         "symbol": "TSLA",
         "is_etf": false,
-        "price": 348.75,
+        "price": 367.95,
         "week52_high": 498.83,
         "week52_low": 297.38,
-        "pct_from_52w_high": -30.09,
-        "pct_from_52w_low": 17.27,
-        "market_cap": 1377404715008.0,
-        "pe_trailing": 329.00946,
-        "pe_forward": 161.56454,
+        "pct_from_52w_high": -26.24,
+        "pct_from_52w_low": 23.73,
+        "market_cap": 1453236027392.0,
+        "pe_trailing": 340.69443,
+        "pe_forward": 170.45929,
         "gross_margin": 0.18852,
         "roe": 0.046669997,
         "debt_to_equity": 18.373,
         "fcf": 4835999744.0,
-        "fcf_yield": 0.35,
+        "fcf_yield": 0.33,
         "analyst_target": 390.09283,
         "analyst_count": 39,
-        "upside_pct": 11.85,
-        "rsi14": 58.93,
+        "upside_pct": 6.02,
+        "rsi14": 64.98,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 400.92834976196286,
-        "pct_from_ma200": -13.01,
-        "vol_5d": 32106951.0,
-        "vol_60d": 41223424.25,
-        "vol_ratio": 0.78,
-        "change_pct": -1.71,
+        "ma200": 400.56999984741213,
+        "pct_from_ma200": -8.14,
+        "vol_5d": 36519325.6,
+        "vol_60d": 41655575.46666667,
+        "vol_ratio": 0.88,
+        "change_pct": 5.51,
         "gross_margin_trend": [
           18.03,
           17.86,
@@ -211121,22 +213276,22 @@
         "earnings_date": "2026-10-21",
         "news": [
           {
-            "title": "Elon Musk Calls Gavin Newsom's California High-Speed Rail Project a 'Big Scam' as Ron DeSantis Says Cost Is 'Mind Blowing'",
-            "url": "https://www.yahoo.com/news/politics/articles/elon-musk-calls-gavin-newsoms-203121554.html"
+            "title": "Here comes the AI capex shocker, Goldman Sachs says",
+            "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
           },
           {
-            "title": "Amazon’s Post-Q2 Earnings Rally Has Faded But Don’t Give Up on AMZN Stock Just Yet",
-            "url": "https://www.barchart.com/story/news/4326234/amazons-post-q2-earnings-rally-has-faded-but-dont-give-up-on-amzn-stock-just-yet"
+            "title": "Dow Jones Futures: Trump's Iran Warning Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla Rally",
+            "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-trump-iran-warning-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo"
           },
           {
-            "title": "Einride (ENRD) Just Bet Big on Tesla (TSLA)",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/einride-enrd-just-bet-big-181724530.html"
+            "title": "Elon Musk Is Spending $119 Billion on A Single Building Outside Houston. Here’s Who Actually Profits.",
+            "url": "https://247wallst.com/investing/2026/08/31/elon-musk-is-spending-119-billion-on-a-single-building-outside-houston-heres-who-actually-profits/"
           }
         ],
-        "rsi_label": "中性",
-        "vol_label": "縮量",
-        "ma200_label": "偏低",
-        "pct_from_cost": -5.82,
+        "rsi_label": "偏高",
+        "vol_label": "正常",
+        "ma200_label": "均線附近",
+        "pct_from_cost": -0.63,
         "pe_mean_10y": 169.2,
         "pe_25pct": 79.4,
         "pe_75pct": 269.3,
@@ -211145,31 +213300,31 @@
       "GOOG": {
         "symbol": "GOOG",
         "is_etf": false,
-        "price": 342.88,
+        "price": 335.41,
         "week52_high": 404.47,
         "week52_low": 206.96,
-        "pct_from_52w_high": -15.23,
-        "pct_from_52w_low": 65.67,
-        "market_cap": 4193400127488.0,
-        "pe_trailing": 17.212852,
-        "pe_forward": 23.124334,
+        "pct_from_52w_high": -17.07,
+        "pct_from_52w_low": 62.07,
+        "market_cap": 4102042681344.0,
+        "pe_trailing": 16.837852,
+        "pe_forward": 22.620546,
         "gross_margin": 0.60897,
         "roe": 0.48676,
         "debt_to_equity": 18.859,
         "fcf": 22665000960.0,
-        "fcf_yield": 0.54,
+        "fcf_yield": 0.55,
         "analyst_target": 422.336,
         "analyst_count": 15,
-        "upside_pct": 23.17,
-        "rsi14": 33.82,
+        "upside_pct": 25.92,
+        "rsi14": 39.06,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 333.26518585205076,
-        "pct_from_ma200": 2.89,
-        "vol_5d": 16414721.4,
-        "vol_60d": 20841668.45,
-        "vol_ratio": 0.79,
-        "change_pct": 1.53,
+        "ma200": 333.4863883972168,
+        "pct_from_ma200": 0.58,
+        "vol_5d": 17784005.0,
+        "vol_60d": 20600848.75,
+        "vol_ratio": 0.86,
+        "change_pct": -2.18,
         "gross_margin_trend": [
           59.65,
           58.2,
@@ -211180,22 +213335,22 @@
         "earnings_date": "2026-10-28",
         "news": [
           {
-            "title": "Trending: Take-Two Interactive price ascends as 'Grand Theft Auto VI' is teased",
-            "url": "https://finance.yahoo.com/video/trending-take-two-interactive-price-ascends-as-grand-theft-auto-vi-is-teased-160729740.html"
+            "title": "Here comes the AI capex shocker, Goldman Sachs says",
+            "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
           },
           {
-            "title": "Is AI's 'capex tsunami' the catalyst for the next big credit boom?",
-            "url": "https://finance.yahoo.com/video/ais-capex-tsunami-catalyst-next-133526861.html"
+            "title": "Jensen Huang Told Investors in June to 'Buy at a Discount' During Nvidia's Sell-Off. Nearly Three Months Later, Nvidia Is Up 4%, and a Broader AI Basket Gained 8%. Did His Call Pay Off?",
+            "url": "https://www.fool.com/investing/2026/08/31/jensen-huang-told-investors-in-june-to-buy-at-a-di/"
           },
           {
-            "title": "Marvell Fell After Its Google Deal. Why Did Investors Sell These Two AI Optics Stocks Too?",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-fell-google-deal-why-025545596.html"
+            "title": "Stock Market Today: Dow Skids As Trump Gives This AI Warning; Tesla Pops Ahead Of Key Event",
+            "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-us-iran-attacks-oil-prices-jump/?src=A00220&yptr=yahoo"
           }
         ],
         "rsi_label": "偏低",
-        "vol_label": "縮量",
+        "vol_label": "正常",
         "ma200_label": "均線附近",
-        "pct_from_cost": 10.93,
+        "pct_from_cost": 8.51,
         "pe_mean_10y": 25.5,
         "pe_25pct": 23.5,
         "pe_75pct": 29.0,
@@ -211204,49 +213359,49 @@
       "BRK-B": {
         "symbol": "BRK-B",
         "is_etf": false,
-        "price": 505.0,
+        "price": 504.03,
         "week52_high": 537.74,
         "week52_low": 464.01,
-        "pct_from_52w_high": -6.09,
-        "pct_from_52w_low": 8.83,
-        "market_cap": 1081058459648.0,
-        "pe_trailing": 12.69163,
-        "pe_forward": 22.755396,
+        "pct_from_52w_high": -6.27,
+        "pct_from_52w_low": 8.62,
+        "market_cap": 1078981951488.0,
+        "pe_trailing": 12.68319,
+        "pe_forward": 22.711687,
         "gross_margin": 0.30332002,
         "roe": 0.121199995,
         "debt_to_equity": 17.142,
         "fcf": 71975247872.0,
-        "fcf_yield": 6.66,
+        "fcf_yield": 6.67,
         "analyst_target": 547.6667,
         "analyst_count": 3,
-        "upside_pct": 8.45,
-        "rsi14": 27.66,
+        "upside_pct": 8.66,
+        "rsi14": 35.5,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 492.4069996643066,
-        "pct_from_ma200": 2.56,
-        "vol_5d": 4075987.2,
-        "vol_60d": 4659832.266666667,
-        "vol_ratio": 0.87,
-        "change_pct": 0.26,
+        "ma200": 492.44179962158205,
+        "pct_from_ma200": 2.35,
+        "vol_5d": 4450244.2,
+        "vol_60d": 4656335.35,
+        "vol_ratio": 0.96,
+        "change_pct": -0.19,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": "2026-11-07",
         "news": [
           {
-            "title": "‘Who in the Hell Needs a Rolex?’ Billionaire Charlie Munger Told Young People to Skip ‘Pretentious’ Spending of Rich—‘I Don’t Think There’s Much Happiness’",
-            "url": "https://www.barchart.com/story/news/4327055/who-in-the-hell-needs-a-rolex-billionaire-charlie-munger-told-young-people-to-skip-pretentious-spending-of-richi-dont-think-theres-much-happiness"
+            "title": "It's Tim Cook's final day as Apple CEO. Here's what investors need from John Ternus.",
+            "url": "https://finance.yahoo.com/video/tim-cooks-final-day-apple-135615675.html"
           },
           {
-            "title": "Warren Buffett's No. 1 Rule That Beats 90% of Investors",
-            "url": "https://moneylion.com/trending/money/warren-buffett-rule-that-beats-90-percent-of-investors"
+            "title": "KKR's 'Berkshire Hathaway' strategy bears fruit with $17B USI sale",
+            "url": "https://pitchbook.com/news/articles/kkr-berkshire-hathaway-strategy-17-billion-usi-sale"
           },
           {
-            "title": "Berkshire Hathaway (BRK.A) Puts $6.8 Billion Behind Greg Abel’s Housing Bet",
-            "url": "https://finance.yahoo.com/real-estate/articles/berkshire-hathaway-brk-puts-6-162015602.html"
+            "title": "Berkshire Hathaway (BRK.B) Stock Looks Reasonable On Earnings After A 79% Run",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/berkshire-hathaway-brk-b-stock-210717039.html"
           }
         ],
-        "rsi_label": "超賣",
+        "rsi_label": "偏低",
         "vol_label": "正常",
         "ma200_label": "均線附近",
         "pct_from_cost": null,
@@ -211258,31 +213413,31 @@
       "V": {
         "symbol": "V",
         "is_etf": false,
-        "price": 381.6,
+        "price": 379.37,
         "week52_high": 385.57,
         "week52_low": 293.89,
-        "pct_from_52w_high": -1.03,
-        "pct_from_52w_low": 29.84,
-        "market_cap": 712465252352.0,
-        "pe_trailing": 32.53197,
-        "pe_forward": 25.432709,
+        "pct_from_52w_high": -1.61,
+        "pct_from_52w_low": 29.09,
+        "market_cap": 708301750272.0,
+        "pe_trailing": 32.286808,
+        "pe_forward": 25.284084,
         "gross_margin": 0.97725,
         "roe": 0.6119,
         "debt_to_equity": 67.821,
         "fcf": 20404000768.0,
-        "fcf_yield": 2.86,
+        "fcf_yield": 2.88,
         "analyst_target": 417.90216,
         "analyst_count": 37,
-        "upside_pct": 9.51,
-        "rsi14": 70.98,
+        "upside_pct": 10.16,
+        "rsi14": 66.55,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 331.79880264282224,
-        "pct_from_ma200": 15.01,
-        "vol_5d": 6519411.8,
-        "vol_60d": 7853279.316666666,
-        "vol_ratio": 0.83,
-        "change_pct": 0.51,
+        "ma200": 332.01449783325194,
+        "pct_from_ma200": 14.26,
+        "vol_5d": 6172052.2,
+        "vol_60d": 7849262.683333334,
+        "vol_ratio": 0.79,
+        "change_pct": -0.58,
         "gross_margin_trend": [
           80.36,
           80.4,
@@ -211293,55 +213448,55 @@
         "earnings_date": "2026-10-27",
         "news": [
           {
-            "title": "Is Visa’s AI Cybersecurity and New Markets Push Reshaping the Investment Case for Visa (V)?",
-            "url": "https://finance.yahoo.com/technology/ai/articles/visa-ai-cybersecurity-markets-push-010747642.html"
+            "title": "Bank of England governor warns AI could trigger global downturn",
+            "url": "https://finance.yahoo.com/video/bank-england-governor-warns-ai-204200256.html"
           },
           {
-            "title": "Bill Ackman Just Bought Visa, Mastercard, and S&P Global Stock. Each One Collects a Toll on Somebody Else's Sale.",
-            "url": "https://www.fool.com/investing/2026/08/28/bill-ackman-just-bought-visa-mastercard-and-s-and-p-global-stock-each-one-collects-a-toll-on-somebody-else-s-sale/"
+            "title": "Can you use a credit card on Venmo?",
+            "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/can-you-use-a-credit-card-on-venmo-205730213.html"
           },
           {
-            "title": "Solana Neobank Avici Hacked for $650,000. Token Crashes 40%",
-            "url": "https://beincrypto.com/avici-exploit-solana-card-vaults-drained/"
+            "title": "PayPal Stock's Real Risk Is Not How Far It Falls",
+            "url": "https://www.trefis.com/articles/613727/paypal-stocks-real-risk-is-not-how-far-it-falls/2026-08-31"
           }
         ],
-        "rsi_label": "超買",
-        "vol_label": "正常",
+        "rsi_label": "偏高",
+        "vol_label": "縮量",
         "ma200_label": "偏高",
         "pct_from_cost": null,
-        "pe_mean_10y": 30.1,
-        "pe_25pct": 27.0,
-        "pe_75pct": 34.9,
-        "pe_source": "alpha_vantage"
+        "pe_mean_10y": 17.7,
+        "pe_25pct": 12.6,
+        "pe_75pct": 22.4,
+        "pe_source": "yfinance_fallback"
       },
       "META": {
         "symbol": "META",
         "is_etf": false,
-        "price": 578.02,
+        "price": 572.34,
         "week52_high": 790.8,
         "week52_low": 520.26,
-        "pct_from_52w_high": -26.91,
-        "pct_from_52w_low": 11.1,
-        "market_cap": 1472509509632.0,
-        "pe_trailing": 21.762802,
-        "pe_forward": 16.533915,
+        "pct_from_52w_high": -27.63,
+        "pct_from_52w_low": 10.01,
+        "market_cap": 1458039816192.0,
+        "pe_trailing": 21.573313,
+        "pe_forward": 16.37144,
         "gross_margin": 0.81747,
         "roe": 0.29848,
         "debt_to_equity": 42.997,
         "fcf": 21553625088.0,
-        "fcf_yield": 1.46,
-        "analyst_target": 754.7214,
+        "fcf_yield": 1.48,
+        "analyst_target": 754.77405,
         "analyst_count": 57,
-        "upside_pct": 30.57,
-        "rsi14": 43.82,
+        "upside_pct": 31.88,
+        "rsi14": 40.31,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 621.9983694458008,
-        "pct_from_ma200": -7.07,
-        "vol_5d": 16994217.0,
-        "vol_60d": 18238409.75,
-        "vol_ratio": 0.93,
-        "change_pct": 1.21,
+        "ma200": 621.7328039550781,
+        "pct_from_ma200": -7.94,
+        "vol_5d": 17140074.8,
+        "vol_60d": 18109254.566666666,
+        "vol_ratio": 0.95,
+        "change_pct": -0.98,
         "gross_margin_trend": [
           82.0,
           81.67,
@@ -211352,16 +213507,16 @@
         "earnings_date": "2026-10-28",
         "news": [
           {
-            "title": "Meta Is Down 27%. One Analyst Sees a $22 Billion AI Business Hiding in Plain Sight",
-            "url": "https://finance.yahoo.com/technology/ai/articles/meta-down-27-one-analyst-030438553.html"
+            "title": "Here comes the AI capex shocker, Goldman Sachs says",
+            "url": "https://finance.yahoo.com/markets/article/here-comes-the-ai-capex-shocker-goldman-sachs-says-171026577.html"
           },
           {
-            "title": "Dick’s Hit by a Footware Apocalypse",
-            "url": "https://www.barrons.com/articles/dicks-hit-by-a-footware-apocalypse-a0c47825?siteid=yhoof2&yptr=yahoo"
+            "title": "Is Broadcom (AVGO) Stock a Buy Before Its Q3 Earnings?",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-avgo-stock-buy-q3-203900190.html"
           },
           {
-            "title": "Meta's 9.9% Jio Stake Finally Gets a Public Scoreboard",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/metas-9-9-jio-stake-222758011.html"
+            "title": "Meta just turned teen safety into a competitive advantage",
+            "url": "https://www.thestreet.com/investing/meta-turns-teen-user-restrictions-competitive-advantage"
           }
         ],
         "rsi_label": "中性",
@@ -211376,31 +213531,31 @@
       "ASML": {
         "symbol": "ASML",
         "is_etf": false,
-        "price": 1696.16,
+        "price": 1696.01,
         "week52_high": 1999.96,
         "week52_low": 716.2,
-        "pct_from_52w_high": -15.19,
-        "pct_from_52w_low": 136.83,
-        "market_cap": 651495079936.0,
-        "pe_trailing": 57.16751,
-        "pe_forward": 28.156343,
+        "pct_from_52w_high": -15.2,
+        "pct_from_52w_low": 136.81,
+        "market_cap": 651437473792.0,
+        "pe_trailing": 57.143192,
+        "pe_forward": 28.3274,
         "gross_margin": 0.52733004,
         "roe": 0.53942,
         "debt_to_equity": 9.092,
         "fcf": 8437675008.0,
         "fcf_yield": 1.3,
-        "analyst_target": 2142.8894,
+        "analyst_target": 2149.3645,
         "analyst_count": 16,
-        "upside_pct": 26.34,
-        "rsi14": 45.12,
+        "upside_pct": 26.73,
+        "rsi14": 33.67,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 1460.371032104492,
-        "pct_from_ma200": 16.15,
-        "vol_5d": 1032181.2,
-        "vol_60d": 1869838.4333333333,
-        "vol_ratio": 0.55,
-        "change_pct": -2.24,
+        "ma200": 1463.7634228515626,
+        "pct_from_ma200": 15.87,
+        "vol_5d": 1033125.6,
+        "vol_60d": 1852480.4666666666,
+        "vol_ratio": 0.56,
+        "change_pct": -0.01,
         "gross_margin_trend": [
           52.83,
           51.28,
@@ -211411,19 +213566,19 @@
         "earnings_date": "2026-10-14",
         "news": [
           {
-            "title": "Here's Why ASML (ASML) Fell More Than Broader Market",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-asml-asml-fell-214502176.html"
+            "title": "Does ASML's Dominant Position in EUV Signal Further Upside?",
+            "url": "https://finance.yahoo.com/technology/ai/articles/does-asmls-dominant-position-euv-160500592.html"
           },
           {
-            "title": "History Says the Nasdaq-100 Does This in September. AI Investors Should Take Note.",
-            "url": "https://www.fool.com/investing/2026/08/28/history-says-the-nasdaq-100-does-this-in-september/"
+            "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy?",
+            "url": "https://www.fool.com/investing/2026/08/29/tsmc-vs-asml-semiconductor-stock-better-buy/"
           },
           {
-            "title": "ASML Holding (ENXTAM:ASML) Is The Sole Supplier For High Bandwidth Memory Lithography",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/asml-holding-enxtam-asml-sole-162057903.html"
+            "title": "ASML Holding (ASML) Rally Keeps Valuation Questions In Focus",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/asml-holding-asml-rally-keeps-070907892.html"
           }
         ],
-        "rsi_label": "中性",
+        "rsi_label": "偏低",
         "vol_label": "縮量",
         "ma200_label": "偏高",
         "pct_from_cost": null,
@@ -211435,31 +213590,31 @@
       "TSM": {
         "symbol": "TSM",
         "is_etf": false,
-        "price": 417.52,
+        "price": 415.32,
         "week52_high": 479.0,
         "week52_low": 225.63,
-        "pct_from_52w_high": -12.84,
-        "pct_from_52w_low": 85.05,
-        "market_cap": 2165456502784.0,
-        "pe_trailing": 31.111773,
-        "pe_forward": 19.168764,
+        "pct_from_52w_high": -13.29,
+        "pct_from_52w_low": 84.07,
+        "market_cap": 2154046423040.0,
+        "pe_trailing": 30.901787,
+        "pe_forward": 19.06776,
         "gross_margin": 0.6423,
         "roe": 0.39969003,
         "debt_to_equity": 16.504,
         "fcf": 730826014720.0,
-        "fcf_yield": 33.75,
+        "fcf_yield": 33.93,
         "analyst_target": 554.45483,
         "analyst_count": 18,
-        "upside_pct": 32.8,
-        "rsi14": 49.42,
+        "upside_pct": 33.5,
+        "rsi14": 45.84,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 368.4741271972656,
-        "pct_from_ma200": 13.31,
-        "vol_5d": 9350789.4,
-        "vol_60d": 13456785.783333333,
-        "vol_ratio": 0.69,
-        "change_pct": -2.29,
+        "ma200": 369.10626174926756,
+        "pct_from_ma200": 12.52,
+        "vol_5d": 8551536.6,
+        "vol_60d": 13384706.383333333,
+        "vol_ratio": 0.64,
+        "change_pct": -0.53,
         "gross_margin_trend": [
           59.89,
           56.12,
@@ -211470,16 +213625,16 @@
         "earnings_date": "2026-10-15",
         "news": [
           {
-            "title": "Nvidia Quietly Became Its Own Market Category",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-quietly-became-own-market-222531285.html"
+            "title": "Corning vs. Applied Materials: One Stock Beat the Other by 75 Percentage Points. The Better AI Infrastructure Play Is Clear.",
+            "url": "https://www.barchart.com/story/news/4355448/corning-vs-applied-materials-one-stock-beat-the-other-by-75-percentage-points-the-better-ai-infrastructure-play-is-clear"
           },
           {
-            "title": "Nvidia Breaks Ranks With Chip Stocks as Correlation Hits Just 0.03",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-breaks-ranks-chip-stocks-174824369.html"
+            "title": "Billionaire David Tepper of Appaloosa Is Overweight AI Stocks -- but He Recently Dumped Every Share of the Hottest AI Stock of 2026",
+            "url": "https://www.fool.com/investing/2026/08/31/billionaire-david-tepper-overweight-ai-sell-sndk/"
           },
           {
-            "title": "Billionaire Stanley Druckenmiller Just Bought Taiwan Semiconductor Stock. Is the Foundry Giant Still a Screaming Buy?",
-            "url": "https://www.fool.com/investing/2026/08/28/billionaire-stanley-druckenmiller-just-bought-taiw/"
+            "title": "Update: Market Chatter: SK Hynix Denies Report of Intel Foundry Partnership for HBM4E",
+            "url": "https://finance.yahoo.com/technology/articles/market-chatter-sk-hynix-denies-110516290.html"
           }
         ],
         "rsi_label": "中性",
@@ -211494,14 +213649,14 @@
       "PLTR": {
         "symbol": "PLTR",
         "is_etf": false,
-        "price": 186.29,
+        "price": 186.38,
         "week52_high": 207.52,
         "week52_low": 106.37,
-        "pct_from_52w_high": -10.23,
-        "pct_from_52w_low": 75.13,
-        "market_cap": 447665733632.0,
-        "pe_trailing": 159.22223,
-        "pe_forward": 80.49727,
+        "pct_from_52w_high": -10.19,
+        "pct_from_52w_low": 75.22,
+        "market_cap": 447882035200.0,
+        "pe_trailing": 159.29915,
+        "pe_forward": 80.53616,
         "gross_margin": 0.84796,
         "roe": 0.38097,
         "debt_to_equity": 2.139,
@@ -211509,16 +213664,16 @@
         "fcf_yield": 0.48,
         "analyst_target": 191.68,
         "analyst_count": 27,
-        "upside_pct": 2.89,
-        "rsi14": 60.79,
+        "upside_pct": 2.84,
+        "rsi14": 61.2,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 151.3714497756958,
-        "pct_from_ma200": 23.07,
-        "vol_5d": 30659352.2,
-        "vol_60d": 41578244.35,
-        "vol_ratio": 0.74,
-        "change_pct": 0.19,
+        "ma200": 151.34854976654051,
+        "pct_from_ma200": 23.15,
+        "vol_5d": 28770198.0,
+        "vol_60d": 41325506.5,
+        "vol_ratio": 0.7,
+        "change_pct": 0.05,
         "gross_margin_trend": [
           82.37,
           80.25,
@@ -211529,16 +213684,16 @@
         "earnings_date": "2026-11-02",
         "news": [
           {
-            "title": "Expert ranks top 5 U.S. tech companies to recruit from",
-            "url": "https://finance.yahoo.com/technology/ai/articles/expert-ranks-top-5-u-020011183.html"
+            "title": "There Was No Beating Moderna in August. These Are the Best and Worst S&P 500 Stocks for the Month.",
+            "url": "https://www.barrons.com/articles/moderna-stock-sp500-best-worst-august-f24aa440?siteid=yhoof2&yptr=yahoo"
           },
           {
-            "title": "Can PLTR Stock Live Up To Its Multiple?",
-            "url": "https://www.trefis.com/articles/613491/can-pltr-stock-live-up-to-its-multiple-4/2026-08-28"
+            "title": "Software Stocks & ETFs: Is the AI Sell-Off Over?",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/software-stocks-etfs-ai-sell-205000363.html"
           },
           {
-            "title": "Dow Jones Futures: Microsoft, Titans Mask Market Weakness. Here's What To Do.",
-            "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-microsoft-titans-mask-market-weakness/?src=A00220&yptr=yahoo"
+            "title": "Palantir's $448 Billion Valuation Still Isn't Scaring Baird",
+            "url": "https://finance.yahoo.com/technology/ai/articles/palantirs-448-billion-valuation-still-175237552.html"
           }
         ],
         "rsi_label": "偏高",
@@ -211553,11 +213708,11 @@
       "GLD": {
         "symbol": "GLD",
         "is_etf": true,
-        "price": 408.89,
+        "price": 408.42,
         "week52_high": 509.7,
-        "week52_low": 314.64,
-        "pct_from_52w_high": -19.78,
-        "pct_from_52w_low": 29.95,
+        "week52_low": 320.24,
+        "pct_from_52w_high": -19.87,
+        "pct_from_52w_low": 27.54,
         "market_cap": 130322653184.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -211569,34 +213724,34 @@
         "analyst_target": null,
         "analyst_count": null,
         "upside_pct": null,
-        "rsi14": 54.17,
+        "rsi14": 54.97,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 414.7926501464844,
-        "pct_from_ma200": -1.42,
-        "vol_5d": 14531438.4,
-        "vol_60d": 8918484.866666667,
-        "vol_ratio": 1.63,
-        "change_pct": -3.24,
+        "ma200": 414.9354002380371,
+        "pct_from_ma200": -1.57,
+        "vol_5d": 12756594.2,
+        "vol_60d": 9008856.183333334,
+        "vol_ratio": 1.42,
+        "change_pct": -0.11,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
         "news": [
           {
-            "title": "Fed Chair Warsh Turns Hawkish At Jackson Hole; Gold, Bitcoin Fall",
-            "url": "https://www.investors.com/news/federal-reserve-chairman-kevin-warsh-jackson-hole-treasury-yields-sp-500/?src=A00220&yptr=yahoo"
+            "title": "ETF Investors Chase Higher Yields as Bonds Sell Off",
+            "url": "http://www.etf.com/sections/weekly-etf-flows/etf-investors-chase-higher-yields-bonds-sell?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss"
           },
           {
-            "title": "Exchange-Traded Funds, Equity Futures Mixed Pre-Bell Friday Ahead of Warsh Speech",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-equity-futures-124348595.html"
+            "title": "Zacks Market Edge Highlights: GLD, GDX and NEM",
+            "url": "https://finance.yahoo.com/markets/commodities/articles/zacks-market-edge-highlights-gld-152400691.html"
           },
           {
-            "title": "How to Invest in Gold Stocks and ETFs Right Now",
-            "url": "https://finance.yahoo.com/markets/commodities/articles/invest-gold-stocks-etfs-now-213000892.html"
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as US, Iran Exchange Attacks",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/exchange-traded-funds-equity-futures-132801663.html"
           }
         ],
         "rsi_label": "中性",
-        "vol_label": "放量",
+        "vol_label": "正常",
         "ma200_label": "均線附近",
         "pct_from_cost": null,
         "pe_mean_10y": null,
@@ -211613,20 +213768,20 @@
             "label": "恐慌指數 FGI",
             "description": "CNN Fear & Greed < 25（極度恐慌）",
             "threshold": 25,
-            "value": 54.4,
+            "value": 49.7,
             "triggered": false,
-            "gap": 29.4,
-            "tip": "目前 54.4，距觸發 +29.4"
+            "gap": 24.7,
+            "tip": "目前 49.7，距觸發 +24.7"
           },
           {
             "id": "vix",
             "label": "波動率 VIX",
             "description": "VIX > 30（市場恐慌）",
             "threshold": 30,
-            "value": 14.43,
+            "value": 14.92,
             "triggered": false,
-            "gap": -15.6,
-            "tip": "目前 14.43，距觸發 -15.6"
+            "gap": -15.1,
+            "tip": "目前 14.92，距觸發 -15.1"
           },
           {
             "id": "credit_spread",
@@ -211646,10 +213801,10 @@
       "dip_targets": [
         {
           "symbol": "BRK-B",
-          "price": 505.0,
-          "rsi14": 27.66,
-          "vol_ratio": 0.87,
-          "change_pct": 0.26,
+          "price": 504.03,
+          "rsi14": 35.5,
+          "vol_ratio": 0.96,
+          "change_pct": -0.19,
           "pyramid": {
             "triggered": false,
             "levels": [],
@@ -211661,10 +213816,10 @@
         },
         {
           "symbol": "V",
-          "price": 381.6,
-          "rsi14": 70.98,
-          "vol_ratio": 0.83,
-          "change_pct": 0.51,
+          "price": 379.37,
+          "rsi14": 66.55,
+          "vol_ratio": 0.79,
+          "change_pct": -0.58,
           "pyramid": {
             "triggered": false,
             "levels": [],
@@ -211676,10 +213831,10 @@
         },
         {
           "symbol": "META",
-          "price": 578.02,
-          "rsi14": 43.82,
-          "vol_ratio": 0.93,
-          "change_pct": 1.21,
+          "price": 572.34,
+          "rsi14": 40.31,
+          "vol_ratio": 0.95,
+          "change_pct": -0.98,
           "pyramid": {
             "triggered": false,
             "levels": [],
@@ -211691,10 +213846,10 @@
         },
         {
           "symbol": "ASML",
-          "price": 1696.16,
-          "rsi14": 45.12,
-          "vol_ratio": 0.55,
-          "change_pct": -2.24,
+          "price": 1696.01,
+          "rsi14": 33.67,
+          "vol_ratio": 0.56,
+          "change_pct": -0.01,
           "pyramid": {
             "triggered": false,
             "levels": [],
@@ -211706,15 +213861,15 @@
         },
         {
           "symbol": "GOOG",
-          "price": 342.88,
-          "rsi14": 33.82,
-          "vol_ratio": 0.79,
-          "change_pct": 1.53,
+          "price": 335.41,
+          "rsi14": 39.06,
+          "vol_ratio": 0.86,
+          "change_pct": -2.18,
           "pyramid": {
             "triggered": false,
             "base_price": 309.1,
             "base_label": "成本價",
-            "drop_pct": 10.9,
+            "drop_pct": 8.5,
             "levels": []
           },
           "action": "等待市場觸發"
@@ -211724,9 +213879,44 @@
     "swing": {
       "swing_results": [
         {
+          "symbol": "META",
+          "price": 572.34,
+          "change_pct": -0.98,
+          "buffett": {
+            "status": "green",
+            "label": "🟢 護城河穩固",
+            "reason": "FCF正 + 毛利率穩健 + ROE>30%",
+            "score": 3,
+            "fcf_positive": true,
+            "margin_ok": true,
+            "roe_ok": true
+          },
+          "marks": {
+            "status": "green",
+            "label": "🟢 歷史低估值區",
+            "reason": "PE 21.573313 vs 10年均值 25.4（折扣 15%）",
+            "pe_now": 21.573313,
+            "pe_mean": 25.4,
+            "discount_pct": 15.1,
+            "undervalued": true
+          },
+          "tech": {
+            "status": "red",
+            "label": "🔴 尚未出現反轉訊號",
+            "reason": "RSI=40.31，成交量=0.95x",
+            "rsi": 40.31,
+            "vol_ratio": 0.95,
+            "rsi_ok": false,
+            "vol_ok": false
+          },
+          "green_count": 2,
+          "all_green": false,
+          "signal": ""
+        },
+        {
           "symbol": "GOOG",
-          "price": 342.88,
-          "change_pct": 1.53,
+          "price": 335.41,
+          "change_pct": -2.18,
           "buffett": {
             "status": "green",
             "label": "🟢 護城河穩固",
@@ -211739,19 +213929,19 @@
           "marks": {
             "status": "green",
             "label": "🟢 歷史低估值區",
-            "reason": "PE 17.212852 vs 10年均值 25.5（折扣 32%）",
-            "pe_now": 17.212852,
+            "reason": "PE 16.837852 vs 10年均值 25.5（折扣 34%）",
+            "pe_now": 16.837852,
             "pe_mean": 25.5,
-            "discount_pct": 32.5,
+            "discount_pct": 34.0,
             "undervalued": true
           },
           "tech": {
-            "status": "yellow",
-            "label": "🟡 RSI超賣但量能不足",
-            "reason": "RSI=33.82，成交量=0.79x（需≥1.5x）",
-            "rsi": 33.82,
-            "vol_ratio": 0.79,
-            "rsi_ok": true,
+            "status": "red",
+            "label": "🔴 尚未出現反轉訊號",
+            "reason": "RSI=39.06，成交量=0.86x",
+            "rsi": 39.06,
+            "vol_ratio": 0.86,
+            "rsi_ok": false,
             "vol_ok": false
           },
           "green_count": 2,
@@ -211759,44 +213949,9 @@
           "signal": ""
         },
         {
-          "symbol": "META",
-          "price": 578.02,
-          "change_pct": 1.21,
-          "buffett": {
-            "status": "green",
-            "label": "🟢 護城河穩固",
-            "reason": "FCF正 + 毛利率穩健 + ROE>30%",
-            "score": 3,
-            "fcf_positive": true,
-            "margin_ok": true,
-            "roe_ok": true
-          },
-          "marks": {
-            "status": "yellow",
-            "label": "🟡 估值中性",
-            "reason": "PE 21.762802 vs 10年均值 25.4（折扣 14%）（需更大安全邊際）",
-            "pe_now": 21.762802,
-            "pe_mean": 25.4,
-            "discount_pct": 14.3,
-            "undervalued": false
-          },
-          "tech": {
-            "status": "red",
-            "label": "🔴 尚未出現反轉訊號",
-            "reason": "RSI=43.82，成交量=0.93x",
-            "rsi": 43.82,
-            "vol_ratio": 0.93,
-            "rsi_ok": false,
-            "vol_ok": false
-          },
-          "green_count": 1,
-          "all_green": false,
-          "signal": ""
-        },
-        {
           "symbol": "ASML",
-          "price": 1696.16,
-          "change_pct": -2.24,
+          "price": 1696.01,
+          "change_pct": -0.01,
           "buffett": {
             "status": "green",
             "label": "🟢 護城河穩固",
@@ -211809,19 +213964,19 @@
           "marks": {
             "status": "red",
             "label": "🔴 估值偏高",
-            "reason": "PE 57.16751 vs 10年均值 47.1（折扣 -21%）",
-            "pe_now": 57.16751,
+            "reason": "PE 57.143192 vs 10年均值 47.1（折扣 -21%）",
+            "pe_now": 57.143192,
             "pe_mean": 47.1,
-            "discount_pct": -21.4,
+            "discount_pct": -21.3,
             "undervalued": false
           },
           "tech": {
-            "status": "red",
-            "label": "🔴 尚未出現反轉訊號",
-            "reason": "RSI=45.12，成交量=0.55x",
-            "rsi": 45.12,
-            "vol_ratio": 0.55,
-            "rsi_ok": false,
+            "status": "yellow",
+            "label": "🟡 RSI超賣但量能不足",
+            "reason": "RSI=33.67，成交量=0.56x（需≥1.5x）",
+            "rsi": 33.67,
+            "vol_ratio": 0.56,
+            "rsi_ok": true,
             "vol_ok": false
           },
           "green_count": 1,
@@ -211830,8 +213985,8 @@
         },
         {
           "symbol": "TSM",
-          "price": 417.52,
-          "change_pct": -2.29,
+          "price": 415.32,
+          "change_pct": -0.53,
           "buffett": {
             "status": "green",
             "label": "🟢 護城河穩固",
@@ -211844,18 +213999,18 @@
           "marks": {
             "status": "red",
             "label": "🔴 估值偏高",
-            "reason": "PE 31.111773 vs 10年均值 24.4（折扣 -28%）",
-            "pe_now": 31.111773,
+            "reason": "PE 30.901787 vs 10年均值 24.4（折扣 -27%）",
+            "pe_now": 30.901787,
             "pe_mean": 24.4,
-            "discount_pct": -27.5,
+            "discount_pct": -26.6,
             "undervalued": false
           },
           "tech": {
             "status": "red",
             "label": "🔴 尚未出現反轉訊號",
-            "reason": "RSI=49.42，成交量=0.69x",
-            "rsi": 49.42,
-            "vol_ratio": 0.69,
+            "reason": "RSI=45.84，成交量=0.64x",
+            "rsi": 45.84,
+            "vol_ratio": 0.64,
             "rsi_ok": false,
             "vol_ok": false
           },
@@ -211865,8 +214020,8 @@
         },
         {
           "symbol": "PLTR",
-          "price": 186.29,
-          "change_pct": 0.19,
+          "price": 186.38,
+          "change_pct": 0.05,
           "buffett": {
             "status": "green",
             "label": "🟢 護城河穩固",
@@ -211879,18 +214034,18 @@
           "marks": {
             "status": "red",
             "label": "🔴 估值偏高",
-            "reason": "PE 159.22223 vs 10年均值 152.3（折扣 -5%）",
-            "pe_now": 159.22223,
+            "reason": "PE 159.29915 vs 10年均值 152.3（折扣 -5%）",
+            "pe_now": 159.29915,
             "pe_mean": 152.3,
-            "discount_pct": -4.5,
+            "discount_pct": -4.6,
             "undervalued": false
           },
           "tech": {
             "status": "red",
             "label": "🔴 尚未出現反轉訊號",
-            "reason": "RSI=60.79，成交量=0.74x",
-            "rsi": 60.79,
-            "vol_ratio": 0.74,
+            "reason": "RSI=61.2，成交量=0.7x",
+            "rsi": 61.2,
+            "vol_ratio": 0.7,
             "rsi_ok": false,
             "vol_ok": false
           },
@@ -211900,8 +214055,8 @@
         },
         {
           "symbol": "BRK-B",
-          "price": 505.0,
-          "change_pct": 0.26,
+          "price": 504.03,
+          "change_pct": -0.19,
           "buffett": {
             "status": "red",
             "label": "🔴 基本面偏弱",
@@ -211914,19 +214069,19 @@
           "marks": {
             "status": "yellow",
             "label": "🟡 估值中性",
-            "reason": "PE 12.69163 vs 10年均值 25.3（折扣 50%）（需更大安全邊際）",
-            "pe_now": 12.69163,
+            "reason": "PE 12.68319 vs 10年均值 25.3（折扣 50%）（需更大安全邊際）",
+            "pe_now": 12.68319,
             "pe_mean": 25.3,
-            "discount_pct": 49.8,
+            "discount_pct": 49.9,
             "undervalued": true
           },
           "tech": {
-            "status": "yellow",
-            "label": "🟡 RSI超賣但量能不足",
-            "reason": "RSI=27.66，成交量=0.87x（需≥1.5x）",
-            "rsi": 27.66,
-            "vol_ratio": 0.87,
-            "rsi_ok": true,
+            "status": "red",
+            "label": "🔴 尚未出現反轉訊號",
+            "reason": "RSI=35.5，成交量=0.96x",
+            "rsi": 35.5,
+            "vol_ratio": 0.96,
+            "rsi_ok": false,
             "vol_ok": false
           },
           "green_count": 0,
@@ -211935,8 +214090,8 @@
         },
         {
           "symbol": "V",
-          "price": 381.6,
-          "change_pct": 0.51,
+          "price": 379.37,
+          "change_pct": -0.58,
           "buffett": {
             "status": "yellow",
             "label": "🟡 部分條件成立",
@@ -211949,18 +214104,18 @@
           "marks": {
             "status": "red",
             "label": "🔴 估值偏高",
-            "reason": "PE 32.53197 vs 10年均值 30.1（折扣 -8%）",
-            "pe_now": 32.53197,
-            "pe_mean": 30.1,
-            "discount_pct": -8.1,
+            "reason": "PE 32.286808 vs 10年均值 17.7（折扣 -82%）",
+            "pe_now": 32.286808,
+            "pe_mean": 17.7,
+            "discount_pct": -82.4,
             "undervalued": false
           },
           "tech": {
             "status": "red",
             "label": "🔴 尚未出現反轉訊號",
-            "reason": "RSI=70.98，成交量=0.83x",
-            "rsi": 70.98,
-            "vol_ratio": 0.83,
+            "reason": "RSI=66.55，成交量=0.79x",
+            "rsi": 66.55,
+            "vol_ratio": 0.79,
             "rsi_ok": false,
             "vol_ok": false
           },
@@ -211972,9 +214127,9 @@
       "nvda_special": {
         "holding": {
           "cost": 174.18,
-          "price": 217.55,
-          "pct_from_cost": 24.9,
-          "label": "距成本 +24.9%"
+          "price": 220.78,
+          "pct_from_cost": 26.75,
+          "label": "距成本 +26.8%"
         },
         "buffett": {
           "status": "green",
@@ -211988,18 +214143,18 @@
         "marks": {
           "status": "green",
           "label": "🟢 歷史低估值區",
-          "reason": "PE 27.503162 vs 10年均值 45.3（折扣 39%）",
-          "pe_now": 27.503162,
+          "reason": "PE 27.876263 vs 10年均值 45.3（折扣 38%）",
+          "pe_now": 27.876263,
           "pe_mean": 45.3,
-          "discount_pct": 39.3,
+          "discount_pct": 38.5,
           "undervalued": true
         },
         "tech": {
           "status": "red",
           "label": "🔴 尚未出現反轉訊號",
-          "reason": "RSI=50.0，成交量=1.35x",
-          "rsi": 50.0,
-          "vol_ratio": 1.35,
+          "reason": "RSI=52.54，成交量=1.34x",
+          "rsi": 52.54,
+          "vol_ratio": 1.34,
           "rsi_ok": false,
           "vol_ok": false
         },
@@ -212020,86 +214175,86 @@
           "QQQ": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=46.65，量能0.68x，暫無反轉訊號",
-            "rsi": 46.65,
-            "vol": 0.68
+            "reason": "RSI=48.68，量能0.65x，暫無反轉訊號",
+            "rsi": 48.68,
+            "vol": 0.65
           },
           "SMH": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=43.44，量能0.55x，暫無反轉訊號",
+            "reason": "RSI=43.44，量能0.49x，暫無反轉訊號",
             "rsi": 43.44,
-            "vol": 0.55
+            "vol": 0.49
           },
           "NVDA": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=50.0，量能1.35x，暫無反轉訊號",
-            "rsi": 50.0,
-            "vol": 1.35
+            "reason": "RSI=52.54，量能1.34x，暫無反轉訊號",
+            "rsi": 52.54,
+            "vol": 1.34
           },
           "MSFT": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=55.76，量能0.61x，暫無反轉訊號",
-            "rsi": 55.76,
-            "vol": 0.61
+            "reason": "RSI=52.87，量能0.66x，暫無反轉訊號",
+            "rsi": 52.87,
+            "vol": 0.66
           },
           "TSLA": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=58.93，量能0.78x，暫無反轉訊號",
-            "rsi": 58.93,
-            "vol": 0.78
+            "reason": "RSI=64.98，量能0.88x，暫無反轉訊號",
+            "rsi": 64.98,
+            "vol": 0.88
           },
           "GOOG": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=33.82，量能0.79x，暫無反轉訊號",
-            "rsi": 33.82,
-            "vol": 0.79
+            "reason": "RSI=39.06，量能0.86x，暫無反轉訊號",
+            "rsi": 39.06,
+            "vol": 0.86
           },
           "BRK-B": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=27.66，量能0.87x，暫無反轉訊號",
-            "rsi": 27.66,
-            "vol": 0.87
+            "reason": "RSI=35.5，量能0.96x，暫無反轉訊號",
+            "rsi": 35.5,
+            "vol": 0.96
           },
           "V": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=70.98，量能0.83x，暫無反轉訊號",
-            "rsi": 70.98,
-            "vol": 0.83
+            "reason": "RSI=66.55，量能0.79x，暫無反轉訊號",
+            "rsi": 66.55,
+            "vol": 0.79
           },
           "META": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=43.82，量能0.93x，暫無反轉訊號",
-            "rsi": 43.82,
-            "vol": 0.93
+            "reason": "RSI=40.31，量能0.95x，暫無反轉訊號",
+            "rsi": 40.31,
+            "vol": 0.95
           },
           "ASML": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=45.12，量能0.55x，暫無反轉訊號",
-            "rsi": 45.12,
-            "vol": 0.55
+            "reason": "RSI=33.67，量能0.56x，暫無反轉訊號",
+            "rsi": 33.67,
+            "vol": 0.56
           },
           "TSM": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=49.42，量能0.69x，暫無反轉訊號",
-            "rsi": 49.42,
-            "vol": 0.69
+            "reason": "RSI=45.84，量能0.64x，暫無反轉訊號",
+            "rsi": 45.84,
+            "vol": 0.64
           },
           "PLTR": {
             "status": "🔴",
             "label": "尚未到位",
-            "reason": "RSI=60.79，量能0.74x，暫無反轉訊號",
-            "rsi": 60.79,
-            "vol": 0.74
+            "reason": "RSI=61.2，量能0.7x，暫無反轉訊號",
+            "rsi": 61.2,
+            "vol": 0.7
           }
         },
         "source": "rule_engine"
@@ -212205,71 +214360,71 @@
           "NVDA": {
             "status": "🟢",
             "label": "歷史低估值區，風險報酬合理",
-            "reason": "PE=27.503162 vs 10年均值45.3（低估39%）",
-            "pe_now": 27.503162,
+            "reason": "PE=27.876263 vs 10年均值45.3（低估38%）",
+            "pe_now": 27.876263,
             "pe_mean": 45.3
           },
           "MSFT": {
             "status": "🟡",
             "label": "估值中性，需更大安全邊際",
-            "reason": "PE=28.640827 vs 10年均值28.9（折扣1%，不夠大）",
-            "pe_now": 28.640827,
+            "reason": "PE=28.22983 vs 10年均值28.9（折扣2%，不夠大）",
+            "pe_now": 28.22983,
             "pe_mean": 28.9
           },
           "TSLA": {
             "status": "🔴",
             "label": "仍在歷史高估值區，風險偏高",
-            "reason": "PE=329.00946 vs 10年均值169.2（溢價94%）",
-            "pe_now": 329.00946,
+            "reason": "PE=340.69443 vs 10年均值169.2（溢價101%）",
+            "pe_now": 340.69443,
             "pe_mean": 169.2
           },
           "GOOG": {
             "status": "🟢",
             "label": "歷史低估值區，風險報酬合理",
-            "reason": "PE=17.212852 vs 10年均值25.5（低估32%）",
-            "pe_now": 17.212852,
+            "reason": "PE=16.837852 vs 10年均值25.5（低估34%）",
+            "pe_now": 16.837852,
             "pe_mean": 25.5
           },
           "BRK-B": {
             "status": "🟢",
             "label": "歷史低估值區，風險報酬合理",
-            "reason": "PE=12.69163 vs 10年均值25.3（低估50%）",
-            "pe_now": 12.69163,
+            "reason": "PE=12.68319 vs 10年均值25.3（低估50%）",
+            "pe_now": 12.68319,
             "pe_mean": 25.3
           },
           "V": {
             "status": "🔴",
             "label": "仍在歷史高估值區，風險偏高",
-            "reason": "PE=32.53197 vs 10年均值30.1（溢價8%）",
-            "pe_now": 32.53197,
-            "pe_mean": 30.1
+            "reason": "PE=32.286808 vs 10年均值17.7（溢價82%）",
+            "pe_now": 32.286808,
+            "pe_mean": 17.7
           },
           "META": {
-            "status": "🟡",
-            "label": "估值中性，需更大安全邊際",
-            "reason": "PE=21.762802 vs 10年均值25.4（折扣14%，不夠大）",
-            "pe_now": 21.762802,
+            "status": "🟢",
+            "label": "歷史低估值區，風險報酬合理",
+            "reason": "PE=21.573313 vs 10年均值25.4（低估15%）",
+            "pe_now": 21.573313,
             "pe_mean": 25.4
           },
           "ASML": {
             "status": "🔴",
             "label": "仍在歷史高估值區，風險偏高",
-            "reason": "PE=57.16751 vs 10年均值47.1（溢價21%）",
-            "pe_now": 57.16751,
+            "reason": "PE=57.143192 vs 10年均值47.1（溢價21%）",
+            "pe_now": 57.143192,
             "pe_mean": 47.1
           },
           "TSM": {
             "status": "🔴",
             "label": "仍在歷史高估值區，風險偏高",
-            "reason": "PE=31.111773 vs 10年均值24.4（溢價28%）",
-            "pe_now": 31.111773,
+            "reason": "PE=30.901787 vs 10年均值24.4（溢價27%）",
+            "pe_now": 30.901787,
             "pe_mean": 24.4
           },
           "PLTR": {
             "status": "🔴",
             "label": "仍在歷史高估值區，風險偏高",
-            "reason": "PE=159.22223 vs 10年均值152.3（溢價5%）",
-            "pe_now": 159.22223,
+            "reason": "PE=159.29915 vs 10年均值152.3（溢價5%）",
+            "pe_now": 159.29915,
             "pe_mean": 152.3
           }
         },
@@ -212287,11 +214442,11 @@
         "symbol": "0050.TW",
         "error": null,
         "is_etf": true,
-        "price": 106.95,
+        "price": 106.25,
         "week52_high": 112.3,
         "week52_low": 51.75,
-        "pct_from_52w_high": -4.76,
-        "pct_from_52w_low": 106.67,
+        "pct_from_52w_high": -5.39,
+        "pct_from_52w_low": 105.31,
         "market_cap": 2283731419136.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -212303,15 +214458,15 @@
         "analyst_target": null,
         "analyst_count": null,
         "upside_pct": null,
-        "rsi14": 63.11,
+        "rsi14": 56.85,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 83.86769876480102,
-        "pct_from_ma200": 27.52,
-        "vol_5d": 64719121.2,
-        "vol_60d": 127176373.85,
-        "vol_ratio": 0.51,
-        "change_pct": 0.14,
+        "ma200": 84.30593326568604,
+        "pct_from_ma200": 26.03,
+        "vol_5d": 68566978.2,
+        "vol_60d": 125432004.83333333,
+        "vol_ratio": 0.55,
+        "change_pct": -0.65,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
@@ -212320,18 +214475,18 @@
         "cost": 49.77,
         "shares": 7000,
         "is_tw_holding": true,
-        "pct_from_cost": 114.89,
-        "unrealized_pnl_twd": 400260.0
+        "pct_from_cost": 113.48,
+        "unrealized_pnl_twd": 395360.0
       },
       "00981A.TW": {
         "symbol": "00981A.TW",
         "error": null,
         "is_etf": true,
-        "price": 30.09,
+        "price": 29.4,
         "week52_high": 32.73,
         "week52_low": 12.83,
-        "pct_from_52w_high": -8.07,
-        "pct_from_52w_low": 134.53,
+        "pct_from_52w_high": -10.17,
+        "pct_from_52w_low": 129.15,
         "market_cap": 287996542976.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -212343,15 +214498,15 @@
         "analyst_target": null,
         "analyst_count": null,
         "upside_pct": null,
-        "rsi14": 63.05,
+        "rsi14": 63.49,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 22.74592351436615,
-        "pct_from_ma200": 32.29,
-        "vol_5d": 162267381.2,
-        "vol_60d": 248222580.13333333,
-        "vol_ratio": 0.65,
-        "change_pct": 0.27,
+        "ma200": 22.820136885643006,
+        "pct_from_ma200": 28.83,
+        "vol_5d": 186332006.2,
+        "vol_60d": 246488715.66666666,
+        "vol_ratio": 0.76,
+        "change_pct": 1.93,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
@@ -212360,18 +214515,18 @@
         "cost": 17.81,
         "shares": 3000,
         "is_tw_holding": true,
-        "pct_from_cost": 68.95,
-        "unrealized_pnl_twd": 36840.0
+        "pct_from_cost": 65.08,
+        "unrealized_pnl_twd": 34770.0
       },
       "00988A.TW": {
         "symbol": "00988A.TW",
         "error": null,
         "is_etf": true,
-        "price": 16.39,
+        "price": 15.99,
         "week52_high": 23.86,
         "week52_low": 9.31,
-        "pct_from_52w_high": -31.31,
-        "pct_from_52w_low": 76.05,
+        "pct_from_52w_high": -32.98,
+        "pct_from_52w_low": 71.75,
         "market_cap": 53832105984.0,
         "pe_trailing": null,
         "pe_forward": null,
@@ -212383,15 +214538,15 @@
         "analyst_target": null,
         "analyst_count": null,
         "upside_pct": null,
-        "rsi14": 51.66,
+        "rsi14": 46.57,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 14.858450021743774,
-        "pct_from_ma200": 10.31,
-        "vol_5d": 26214836.2,
-        "vol_60d": 73385899.83333333,
-        "vol_ratio": 0.36,
-        "change_pct": 1.85,
+        "ma200": 14.889150018692016,
+        "pct_from_ma200": 7.39,
+        "vol_5d": 26691158.4,
+        "vol_60d": 71756139.03333333,
+        "vol_ratio": 0.37,
+        "change_pct": -0.85,
         "gross_margin_trend": null,
         "gross_margin_improving": null,
         "earnings_date": null,
@@ -212400,38 +214555,38 @@
         "cost": 10.89,
         "shares": 2000,
         "is_tw_holding": true,
-        "pct_from_cost": 50.51,
-        "unrealized_pnl_twd": 11000.0
+        "pct_from_cost": 46.83,
+        "unrealized_pnl_twd": 10200.0
       },
       "2308.TW": {
         "symbol": "2308.TW",
         "error": null,
         "is_etf": false,
-        "price": 1830.0,
+        "price": 1840.0,
         "week52_high": 2585.0,
         "week52_low": 675.0,
-        "pct_from_52w_high": -29.21,
-        "pct_from_52w_low": 171.11,
-        "market_cap": 4753504337920.0,
-        "pe_trailing": 58.41047,
-        "pe_forward": 28.517525,
+        "pct_from_52w_high": -28.82,
+        "pct_from_52w_low": 172.59,
+        "market_cap": 4779479662592.0,
+        "pe_trailing": 58.80473,
+        "pe_forward": 28.673359,
         "gross_margin": 0.35535,
         "roe": 0.29965,
         "debt_to_equity": 21.213,
         "fcf": 50790518784.0,
-        "fcf_yield": 1.07,
+        "fcf_yield": 1.06,
         "analyst_target": 2474.182,
         "analyst_count": 22,
-        "upside_pct": 35.2,
-        "rsi14": 51.76,
+        "upside_pct": 34.47,
+        "rsi14": 54.12,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 1553.8198422241212,
-        "pct_from_ma200": 17.77,
-        "vol_5d": 8765548.0,
-        "vol_60d": 11572854.5,
-        "vol_ratio": 0.76,
-        "change_pct": 3.39,
+        "ma200": 1558.1702011108398,
+        "pct_from_ma200": 18.09,
+        "vol_5d": 9587897.4,
+        "vol_60d": 11535702.733333332,
+        "vol_ratio": 0.83,
+        "change_pct": 0.55,
         "gross_margin_trend": [
           34.27,
           32.43,
@@ -212458,38 +214613,38 @@
         "cost": 1056.85,
         "shares": 13,
         "is_tw_holding": true,
-        "pct_from_cost": 73.16,
-        "unrealized_pnl_twd": 10051.0
+        "pct_from_cost": 74.1,
+        "unrealized_pnl_twd": 10181.0
       },
       "2330.TW": {
         "symbol": "2330.TW",
         "error": null,
         "is_etf": false,
-        "price": 2420.0,
+        "price": 2405.0,
         "week52_high": 2535.0,
         "week52_low": 1145.0,
-        "pct_from_52w_high": -4.54,
-        "pct_from_52w_low": 111.35,
-        "market_cap": 62756334075904.0,
-        "pe_trailing": 28.28755,
-        "pe_forward": 17.026775,
+        "pct_from_52w_high": -5.13,
+        "pct_from_52w_low": 110.04,
+        "market_cap": 62367350128640.0,
+        "pe_trailing": 28.151703,
+        "pe_forward": 16.921236,
         "gross_margin": 0.6423,
         "roe": 0.39969003,
         "debt_to_equity": 16.504,
         "fcf": 730826014720.0,
-        "fcf_yield": 1.16,
+        "fcf_yield": 1.17,
         "analyst_target": 3229.3333,
         "analyst_count": 33,
-        "upside_pct": 33.44,
-        "rsi14": 56.67,
+        "upside_pct": 34.28,
+        "rsi14": 51.67,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 1983.6335913085939,
-        "pct_from_ma200": 22.0,
-        "vol_5d": 14202541.0,
-        "vol_60d": 29206279.883333333,
-        "vol_ratio": 0.49,
-        "change_pct": 0.41,
+        "ma200": 1988.202875366211,
+        "pct_from_ma200": 20.96,
+        "vol_5d": 17505289.4,
+        "vol_60d": 29112546.666666668,
+        "vol_ratio": 0.6,
+        "change_pct": -0.62,
         "gross_margin_trend": [
           59.89,
           56.12,
@@ -212500,16 +214655,16 @@
         "earnings_date": "2026-10-15",
         "news": [
           {
-            "title": "Nvidia Quietly Became Its Own Market Category",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-quietly-became-own-market-222531285.html"
+            "title": "Corning vs. Applied Materials: One Stock Beat the Other by 75 Percentage Points. The Better AI Infrastructure Play Is Clear.",
+            "url": "https://www.barchart.com/story/news/4355448/corning-vs-applied-materials-one-stock-beat-the-other-by-75-percentage-points-the-better-ai-infrastructure-play-is-clear"
           },
           {
-            "title": "Nvidia Breaks Ranks With Chip Stocks as Correlation Hits Just 0.03",
-            "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-breaks-ranks-chip-stocks-174824369.html"
+            "title": "Billionaire David Tepper of Appaloosa Is Overweight AI Stocks -- but He Recently Dumped Every Share of the Hottest AI Stock of 2026",
+            "url": "https://www.fool.com/investing/2026/08/31/billionaire-david-tepper-overweight-ai-sell-sndk/"
           },
           {
-            "title": "Billionaire Stanley Druckenmiller Just Bought Taiwan Semiconductor Stock. Is the Foundry Giant Still a Screaming Buy?",
-            "url": "https://www.fool.com/investing/2026/08/28/billionaire-stanley-druckenmiller-just-bought-taiw/"
+            "title": "Update: Market Chatter: SK Hynix Denies Report of Intel Foundry Partnership for HBM4E",
+            "url": "https://finance.yahoo.com/technology/articles/market-chatter-sk-hynix-denies-110516290.html"
           }
         ],
         "tw_name": "2330.TW",
@@ -212521,31 +214676,31 @@
         "symbol": "2454.TW",
         "error": null,
         "is_etf": false,
-        "price": 3985.0,
+        "price": 3925.0,
         "week52_high": 4970.0,
         "week52_low": 1130.0,
-        "pct_from_52w_high": -19.82,
-        "pct_from_52w_low": 252.65,
-        "market_cap": 6364712140800.0,
-        "pe_trailing": 65.67238,
-        "pe_forward": 28.508526,
+        "pct_from_52w_high": -21.03,
+        "pct_from_52w_low": 247.35,
+        "market_cap": 6268881731584.0,
+        "pe_trailing": 64.801056,
+        "pe_forward": 28.079288,
         "gross_margin": 0.46285,
         "roe": 0.23864001,
         "debt_to_equity": 6.242,
         "fcf": 55993294848.0,
-        "fcf_yield": 0.88,
+        "fcf_yield": 0.89,
         "analyst_target": 5502.923,
         "analyst_count": 26,
-        "upside_pct": 38.09,
-        "rsi14": 50.92,
+        "upside_pct": 40.2,
+        "rsi14": 46.49,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 2558.5946533203123,
-        "pct_from_ma200": 55.75,
-        "vol_5d": 4881536.8,
-        "vol_60d": 9165064.766666668,
-        "vol_ratio": 0.53,
-        "change_pct": 3.1,
+        "ma200": 2571.807995605469,
+        "pct_from_ma200": 52.62,
+        "vol_5d": 5620235.0,
+        "vol_60d": 9098732.416666666,
+        "vol_ratio": 0.62,
+        "change_pct": -1.51,
         "gross_margin_trend": [
           47.5,
           49.64,
@@ -212556,16 +214711,16 @@
         "earnings_date": "2026-10-30",
         "news": [
           {
-            "title": "Infineon and MediaTek partner on automotive AI systems",
-            "url": "https://www.just-auto.com/news/infineon-mediatek-automotive-ai-systems/"
+            "title": "Nvidia (NVDA) Invests $3.5 Billion in MediaTek. Is This the Next Leg of Its AI Growth?",
+            "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-invests-3-5-234008357.html"
           },
           {
-            "title": "Intel's Packaging Progress Points to Google",
-            "url": "https://finance.yahoo.com/technology/ai/articles/intels-packaging-progress-points-google-195322309.html"
+            "title": "S&P500, Dow End Lower On US-Iran Flare-Up, While Dow Records Fifth Straight Month Of Gains — NVDA, META, AON, MSTR, TSLA In Focus",
+            "url": "https://stocktwits.com/news-articles/markets/equity/dow-records-fifth-straight-month-of-gains/cZYzITkRJsC"
           },
           {
-            "title": "MediaTek Wants 20% of Custom AI Chips. Alphabet (GOOGL) Could Win Before Broadcom (AVGO) Loses",
-            "url": "https://finance.yahoo.com/technology/ai/articles/mediatek-wants-20-custom-ai-182411966.html"
+            "title": "Stocks to Watch Recap: Amazon, PG&E, Nvidia, Chevron",
+            "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-08-31-2026/card/stocks-to-watch-pg-e-intel-chevron-eLbKJqWCN3hjlHXGy9qp?siteid=yhoof2&yptr=yahoo"
           }
         ],
         "tw_name": "2454.TW",
@@ -212577,31 +214732,31 @@
         "symbol": "2317.TW",
         "error": null,
         "is_etf": false,
-        "price": 253.0,
+        "price": 250.0,
         "week52_high": 314.0,
         "week52_low": 187.5,
-        "pct_from_52w_high": -19.43,
-        "pct_from_52w_low": 34.93,
-        "market_cap": 3548497838080.0,
-        "pe_trailing": 16.732805,
-        "pe_forward": 10.939665,
+        "pct_from_52w_high": -20.38,
+        "pct_from_52w_low": 33.33,
+        "market_cap": 3506420842496.0,
+        "pe_trailing": 16.556292,
+        "pe_forward": 10.809946,
         "gross_margin": 0.06118,
         "roe": 0.13152,
         "debt_to_equity": 64.059,
         "fcf": -182303358976.0,
-        "fcf_yield": -5.14,
+        "fcf_yield": -5.2,
         "analyst_target": 347.45,
         "analyst_count": 20,
-        "upside_pct": 37.33,
-        "rsi14": 38.14,
+        "upside_pct": 38.98,
+        "rsi14": 37.0,
         "kd_k": null,
         "kd_d": null,
-        "ma200": 230.3113272857666,
-        "pct_from_ma200": 9.85,
-        "vol_5d": 30560778.8,
-        "vol_60d": 52817320.18333333,
-        "vol_ratio": 0.58,
-        "change_pct": 0.4,
+        "ma200": 230.37660789489746,
+        "pct_from_ma200": 8.52,
+        "vol_5d": 32968954.0,
+        "vol_60d": 51904125.166666664,
+        "vol_ratio": 0.64,
+        "change_pct": -1.19,
         "gross_margin_trend": [
           6.15,
           6.25,
@@ -212631,5 +214786,5 @@
       }
     }
   },
-  "updated": "2026-08-29T03:28:15.781619+00:00"
+  "updated": "2026-09-01T00:57:51.213449+00:00"
 }
